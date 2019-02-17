@@ -3,11 +3,14 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "datef": "^3.0.0",
     "faker": "^4.1.0",
     "lodash.times": "^4.3.2",
     "react": "^16.8.2",
+    "react-csv-downloader": "^1.1.0",
     "react-dom": "^16.8.2",
     "react-easy-state": "^6.1.1",
+    "react-hot-loader": "^4.6.5",
     "react-scripts": "2.1.5",
     "rebass": "^3.0.1",
     "styled-components": "^4.1.3"
