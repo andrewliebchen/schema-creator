@@ -1,9 +1,9 @@
 import React from "react";
-import { Flex, Box, Text, Heading, Button } from "rebass";
+import { Flex, Box, Text, Heading } from "rebass";
 import { view } from "react-easy-state";
 import store from "./store";
 import TypeSelector from "./TypeSelector";
-import faker from "faker";
+import Sample from "./Sample";
 
 const App = props => (
   <Flex>
@@ -16,17 +16,7 @@ const App = props => (
       ))}
       <TypeSelector />
     </Box>
-    <Box>
-      <Heading>Sample</Heading>
-      {store.elements.map((element, i) => {
-        const types = element.split(".");
-        return (
-          <Box key={i}>
-            <Text>{faker[types[0]][types[1]]()}</Text>
-          </Box>
-        );
-      })}
-    </Box>
+    <Sample />
   </Flex>
 );
 
