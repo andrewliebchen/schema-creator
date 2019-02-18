@@ -2,21 +2,18 @@ import React from "react";
 import { Flex, Box, Text, Heading } from "rebass";
 import { view } from "react-easy-state";
 import store from "./store";
-import TypeSelector from "./TypeSelector";
 import Sample from "./Sample";
+import Card from "./Card";
+import Schema from "./Schema";
 
 const App = props => (
   <Flex>
-    <Box>
-      <Heading>Schema</Heading>
-      {store.elements.map((element, i) => (
-        <Box key={i}>
-          <Text>{element}</Text>
-        </Box>
-      ))}
-      <TypeSelector />
+    <Box width={400} p={3}>
+      <Schema />
     </Box>
-    <Sample />
+    <Box width={1}>
+      <Sample />
+    </Box>
   </Flex>
 );
 
