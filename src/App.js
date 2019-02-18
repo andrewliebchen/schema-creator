@@ -1,11 +1,8 @@
+import { Flex, Box } from "rebass";
 import React from "react";
-import { Flex, Box, Text, Heading } from "rebass";
-import { view } from "react-easy-state";
-import store from "./store";
-import Sample from "./Sample";
-import Card from "./Card";
-import Schema from "./Schema";
 import ReactTooltip from "react-tooltip";
+import Sample from "./Sample";
+import Schema from "./Schema";
 
 const App = props => (
   <Flex>
@@ -19,4 +16,4 @@ const App = props => (
   </Flex>
 );
 
-export default view(App);
+export default App;

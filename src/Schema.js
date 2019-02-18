@@ -1,11 +1,11 @@
-import React from "react";
-import store from "./store";
+import { Heading, Flex, Button } from "rebass";
+import { Trash } from "react-feather";
 import { view } from "react-easy-state";
 import Card from "./Card";
-import { Text, Box, Heading, Flex, Button } from "rebass";
-import TypeSelector from "./TypeSelector";
-import { Trash, Plus, X } from "react-feather";
 import Input from "./Input";
+import React from "react";
+import store from "./store";
+import TypeSelector from "./TypeSelector";
 
 const Schema = props => (
   <Flex flexDirection="column">

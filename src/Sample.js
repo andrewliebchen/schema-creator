@@ -1,13 +1,13 @@
-import { Box, Heading, Text, Flex, Button } from "rebass";
+import { Box, Heading, Flex, Button } from "rebass";
 import { getSamples } from "./utils";
 import { view } from "react-easy-state";
+import Card from "./Card";
 import CountControl from "./CountControl";
 import CsvDownloader from "react-csv-downloader";
 import datef from "datef";
 import React from "react";
-import store from "./store";
-import Card from "./Card";
 import SampleTable from "./SampleTable";
+import store from "./store";
 
 const Sample = props => {
   const samples = getSamples(store.count, store.elements);

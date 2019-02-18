@@ -1,6 +1,5 @@
-import React from "react";
-import styled from "styled-components";
 import { Box } from "rebass";
+import React from "react";
 
 const Cell = props => (
   <Box p={2} width={1}>

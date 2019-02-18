@@ -1,6 +1,6 @@
-import React from "react";
 import { Text, Flex } from "rebass";
 import Cell from "./Cell";
+import React from "react";
 
 const SampleRow = props => (
   <Flex width={1}>

@@ -1,6 +1,6 @@
-import React from "react";
 import { Card as Base, Flex, Text } from "rebass";
 import PropTypes from "prop-types";
+import React from "react";
 import styled from "styled-components";
 
 const Root = styled(Base)`

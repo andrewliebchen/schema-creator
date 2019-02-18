@@ -1,8 +1,8 @@
+import { Flex, Text } from "rebass";
+import { view } from "react-easy-state";
+import Input from "./Input";
 import React from "react";
 import store from "./store";
-import { view } from "react-easy-state";
-import { Flex, Text } from "rebass";
-import Input from "./Input";
 
 const CountControl = props => (
   <Flex alignItems="center">

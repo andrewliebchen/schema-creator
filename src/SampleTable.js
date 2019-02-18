@@ -1,10 +1,10 @@
-import React from "react";
-import store from "./store";
 import { Text, Flex } from "rebass";
 import { view } from "react-easy-state";
-import SampleRow from "./SampleRow";
-import styled from "styled-components";
 import Cell from "./Cell";
+import React from "react";
+import SampleRow from "./SampleRow";
+import store from "./store";
+import styled from "styled-components";
 
 const Header = styled(Flex)`
   border-bottom: 1px solid;
