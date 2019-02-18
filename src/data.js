@@ -41,7 +41,6 @@ export const schemaTypes = {
   ],
   database: ["column", "type", "collation", "engine"],
   date: ["past", "future", "between", "recent", "soon", "month", "weekday"],
-  fake: [],
   finance: [
     "account",
     "accountName",
@@ -57,18 +56,18 @@ export const schemaTypes = {
     "bic"
   ],
   hacker: ["abbreviation", "adjective", "noun", "verb", "ingverb", "phrase"],
-  helpers: [
-    "randomize",
-    "slugify",
-    "replaceSymbolWithNumber",
-    "replaceSymbols",
-    "shuffle",
-    "mustache",
-    "createCard",
-    "contextualCard",
-    "userCard",
-    "createTransaction"
-  ],
+  // helpers: [
+  //   "randomize",
+  //   "slugify",
+  //   "replaceSymbolWithNumber",
+  //   "replaceSymbols",
+  //   "shuffle",
+  //   "mustache",
+  //   "createCard",
+  //   "contextualCard",
+  //   "userCard",
+  //   "createTransaction"
+  // ],
   image: [
     "image",
     "avatar",

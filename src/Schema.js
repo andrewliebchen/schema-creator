@@ -4,6 +4,7 @@ import { view } from "react-easy-state";
 import Card from "./Card";
 import { Text, Box, Heading, Flex } from "rebass";
 import TypeSelector from "./TypeSelector";
+import { Trash, Plus } from "react-feather";
 
 class Schema extends Component {
   constructor(props) {
@@ -19,7 +20,7 @@ class Schema extends Component {
         {this.state.editing ? (
           <Box>
             <Flex justifyContent="space-between">
-              <Heading>Select schema elements</Heading>
+              <Heading>Select schema</Heading>
               <Text onClick={() => this.setState({ editing: false })}>
                 Done
               </Text>
@@ -30,13 +31,23 @@ class Schema extends Component {
           <Box>
             <Heading>Schema</Heading>
             {store.elements.map((element, i) => (
-              <Card key={i}>
-                <Text>{element}</Text>
-              </Card>
+              <Card
+                key={i}
+                text={element}
+                icon={
+                  <Trash
+                    data-tip="Remove"
+                    onClick={() => store.elements.splice(i, 1)}
+                    size={18}
+                  />
+                }
+              />
             ))}
-            <Card onClick={() => this.setState({ editing: true })}>
-              Add schema elements
-            </Card>
+            <Card
+              onClick={() => this.setState({ editing: true })}
+              text="Add schema elements"
+              icon={<Plus size={18} />}
+            />
           </Box>
         )}
       </Box>
@@ -44,4 +55,4 @@ class Schema extends Component {
   }
 }
 
-export default Schema;
+export default view(Schema);

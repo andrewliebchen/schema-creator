@@ -1,5 +1,5 @@
 import React from "react";
-import { Card as Root } from "rebass";
+import { Card as Root, Flex, Text } from "rebass";
 import PropTypes from "prop-types";
 
 const Card = props => (
@@ -9,14 +9,21 @@ const Card = props => (
     border={1}
     borderColor="black"
     bg={props.selected && "blue"}
+    borderRadius={4}
     {...props}
   >
-    {props.children}
+    <Flex justifyContent="space-between" alignItems="center">
+      <Text fontWeight={props.fontWeight}>{props.text}</Text>
+      {props.icon}
+    </Flex>
   </Root>
 );
 
 Card.propTyeps = {
-  selected: PropTypes.boolean
+  selected: PropTypes.boolean,
+  fontWeight: PropTypes.oneOf(["normal", "bold"]),
+  text: PropTypes.string,
+  icon: PropTypes.node
 };
 
 export default Card;
