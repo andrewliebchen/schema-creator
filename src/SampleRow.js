@@ -1,14 +1,15 @@
 import React from "react";
-import { Text } from "rebass";
+import { Text, Flex } from "rebass";
+import Cell from "./Cell";
 
 const SampleRow = props => (
-  <tr>
+  <Flex width={1}>
     {Object.values(props.sample).map((element, i) => (
-      <td key={i}>
+      <Cell key={i}>
         <Text>{element}</Text>
-      </td>
+      </Cell>
     ))}
-  </tr>
+  </Flex>
 );
 
 export default SampleRow;

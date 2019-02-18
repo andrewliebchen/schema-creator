@@ -6,14 +6,22 @@ import Card from "./Card";
 import includes from "lodash.includes";
 import React from "react";
 import store from "./store";
+import styled from "styled-components";
+
+const Heading = styled(Flex)`
+  position: sticky;
+  top: 0;
+  border-bottom: 1px solid;
+  background-color: white;
+`;
 
 const TypeSelector = props => (
   <Box>
     {Object.keys(schemaTypes).map(parent => (
       <Box key={parent} mb={3}>
-        <Text fontWeight="bold" mb={2}>
-          {parent}
-        </Text>
+        <Heading py={2} mb={2}>
+          <Text fontWeight="bold">{parent}</Text>
+        </Heading>
         {schemaTypes[parent].map(type => {
           const value = `${parent}.${type}`;
           const isIncluded = includes(store.elements, value);

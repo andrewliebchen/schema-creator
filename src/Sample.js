@@ -5,14 +5,14 @@ import CountControl from "./CountControl";
 import CsvDownloader from "react-csv-downloader";
 import datef from "datef";
 import React from "react";
-import SampleRow from "./SampleRow";
 import store from "./store";
+import SampleTable from "./SampleTable";
 
 const Sample = props => {
   const samples = getSamples(store.count, store.elements);
   return (
     <Box>
-      <Flex width={1} justifyContent="space-between" alignItems="center">
+      <Flex width={1} justifyContent="space-between" alignItems="center" mb={2}>
         <Heading>Sample</Heading>
         <Flex>
           <CountControl />
@@ -24,22 +24,7 @@ const Sample = props => {
           </CsvDownloader>
         </Flex>
       </Flex>
-      <table>
-        <thead>
-          <tr>
-            {store.elements.map((element, i) => (
-              <th key={i}>
-                <Text>{element}</Text>
-              </th>
-            ))}
-          </tr>
-        </thead>
-        <tbody>
-          {samples.map((sample, i) => (
-            <SampleRow key={i} sample={sample} />
-          ))}
-        </tbody>
-      </table>
+      <SampleTable samples={samples} />
     </Box>
   );
 };

@@ -2,9 +2,12 @@ import React, { Component } from "react";
 import store from "./store";
 import { view } from "react-easy-state";
 import Card from "./Card";
-import { Text, Box, Heading, Flex } from "rebass";
+import { Text, Box, Heading, Flex, Button } from "rebass";
 import TypeSelector from "./TypeSelector";
-import { Trash, Plus } from "react-feather";
+import { Trash, Plus, X } from "react-feather";
+import Input from "./Input";
+
+// Put this state in the store
 
 class Schema extends Component {
   constructor(props) {
@@ -15,42 +18,38 @@ class Schema extends Component {
   }
 
   render() {
+    const { editing } = this.state;
     return (
-      <Box>
-        {this.state.editing ? (
-          <Box>
-            <Flex justifyContent="space-between">
-              <Heading>Select schema</Heading>
-              <Text onClick={() => this.setState({ editing: false })}>
-                Done
-              </Text>
-            </Flex>
-            <TypeSelector />
-          </Box>
-        ) : (
-          <Box>
+      <Flex flexDirection="column">
+        <Flex justifyContent="space-between" alignItems="center" mb={2}>
+          {editing ? (
+            <Input type="Search" placeholder="search" />
+          ) : (
             <Heading>Schema</Heading>
-            {store.elements.map((element, i) => (
-              <Card
-                key={i}
-                text={element}
-                icon={
-                  <Trash
-                    data-tip="Remove"
-                    onClick={() => store.elements.splice(i, 1)}
-                    size={18}
-                  />
-                }
-              />
-            ))}
+          )}
+
+          <Button onClick={() => this.setState({ editing: !editing })}>
+            {editing ? "Done" : "Add"}
+          </Button>
+        </Flex>
+        {editing ? (
+          <TypeSelector />
+        ) : (
+          store.elements.map((element, i) => (
             <Card
-              onClick={() => this.setState({ editing: true })}
-              text="Add schema elements"
-              icon={<Plus size={18} />}
+              key={i}
+              text={element}
+              icon={
+                <Trash
+                  data-tip="Remove"
+                  onClick={() => store.elements.splice(i, 1)}
+                  size={18}
+                />
+              }
             />
-          </Box>
+          ))
         )}
-      </Box>
+      </Flex>
     );
   }
 }
