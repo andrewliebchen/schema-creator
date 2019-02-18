@@ -6,6 +6,7 @@ import CsvDownloader from "react-csv-downloader";
 import datef from "datef";
 import React from "react";
 import store from "./store";
+import Card from "./Card";
 import SampleTable from "./SampleTable";
 
 const Sample = props => {
@@ -20,11 +21,15 @@ const Sample = props => {
             datas={samples}
             filename={`Sample ${datef("MM-dd-YY h:mm:ss", new Date())}`}
           >
-            <Button ml={2}>Export CSV</Button>
+            <Button bg="black" ml={2}>
+              Export CSV
+            </Button>
           </CsvDownloader>
         </Flex>
       </Flex>
-      <SampleTable samples={samples} />
+      <Card>
+        <SampleTable samples={samples} />
+      </Card>
     </Box>
   );
 };

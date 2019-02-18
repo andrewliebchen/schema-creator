@@ -28,11 +28,14 @@ const TypeSelector = props => (
           return (
             <Card
               key={type}
+              mb={1}
               value={value}
               onClick={() => store.elements.push(value)}
               fontWeight={isIncluded ? "bold" : "normal"}
               text={type}
-              icon={isIncluded && <Check size={18} />}
+              icon={isIncluded && <Check size={18} color="white" />}
+              selected={isIncluded}
+              hover
             />
           );
         })}
