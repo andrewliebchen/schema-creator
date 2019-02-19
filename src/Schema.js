@@ -23,34 +23,29 @@ const Schema = props => (
     {store.editingSchema ? (
       <TypeSelector />
     ) : (
-      store.elements.map((element, i) => {
-        const schema = Object.values(schemaTypes)
-          .flat()
-          .find(schema => schema.stub === element);
-        return (
-          <Card
-            key={i}
-            text={
-              <Flex alignItems="center">
-                <Text mr={1}>{capitalize(element.split(".")[0])}</Text>
-                <ChevronRight size={18} />
-                <Text ml={1} fontWeight="bold">
-                  {schema.label}
-                </Text>
-              </Flex>
-            }
-            value={schema.stub}
-            mb={1}
-            icon={
-              <Trash
-                data-tip="Remove"
-                onClick={() => store.elements.splice(i, 1)}
-                size={18}
-              />
-            }
-          />
-        );
-      })
+      store.elements.map(element => (
+        <Card
+          key={element.stub}
+          text={
+            <Flex alignItems="center">
+              <Text mr={1}>{capitalize(element.category)}</Text>
+              <ChevronRight size={18} />
+              <Text ml={1} fontWeight="bold">
+                {element.label}
+              </Text>
+            </Flex>
+          }
+          value={element.stub}
+          mb={1}
+          icon={
+            <Trash
+              data-tip="Remove"
+              onClick={() => console.log("Fix this")}
+              size={18}
+            />
+          }
+        />
+      ))
     )}
   </Flex>
 );

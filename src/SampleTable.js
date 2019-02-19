@@ -18,7 +18,7 @@ const SampleTable = props => (
     <Header>
       {store.elements.map((element, i) => (
         <Cell key={i}>
-          <Text fontWeight="bold">{element}</Text>
+          <Text fontWeight="bold">{element.label}</Text>
         </Cell>
       ))}
     </Header>

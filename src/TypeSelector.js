@@ -1,9 +1,8 @@
 import { Box, Text, Flex } from "rebass";
 import { Check } from "react-feather";
-import { schemaTypes } from "./data";
+import { schemaTypes, categories } from "./data";
 import { view } from "react-easy-state";
 import Card from "./Card";
-import includes from "lodash.includes";
 import React from "react";
 import store from "./store";
 import styled from "styled-components";
@@ -16,29 +15,35 @@ const Heading = styled(Flex)`
   background-color: white;
 `;
 
+// // FIXME: Selected
+
 const TypeSelector = props => (
   <Box>
-    {Object.keys(schemaTypes).map(parent => (
-      <Box key={parent} mb={3}>
+    {categories.map(category => (
+      <Box key={category} mb={3}>
         <Heading py={2} mb={2}>
-          <Text fontWeight="bold">{capitalize(parent)}</Text>
+          <Text fontWeight="bold">{capitalize(category)}</Text>
         </Heading>
-        {schemaTypes[parent].map(schema => {
-          const isIncluded = includes(store.elements, schema.stub);
-          return (
-            <Card
-              key={schema.stub}
-              mb={1}
-              value={schema.stub}
-              onClick={() => store.elements.push(schema.stub)}
-              fontWeight={isIncluded ? "bold" : "normal"}
-              text={schema.label}
-              icon={isIncluded && <Check size={18} color="white" />}
-              selected={isIncluded}
-              hover
-            />
-          );
-        })}
+        {schemaTypes
+          .filter(schema => schema.category === category)
+          .map(schema => {
+            const isIncluded = store.elements.find(
+              element => element.stub === schema.stub
+            );
+            return (
+              <Card
+                key={schema.stub}
+                mb={1}
+                value={schema.stub}
+                onClick={() => store.elements.push(schema)}
+                fontWeight={isIncluded ? "bold" : "normal"}
+                text={schema.label}
+                icon={isIncluded && <Check size={18} color="white" />}
+                selected={isIncluded}
+                hover
+              />
+            );
+          })}
       </Box>
     ))}
   </Box>
