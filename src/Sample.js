@@ -37,7 +37,7 @@ const Sample = props => {
             filename={`Sample ${datef("MM-dd-YY h:mm:ss", new Date())}`}
           >
             <Button bg="black" ml={2}>
-              Export CSV
+              Export
             </Button>
           </CsvDownloader>
         </Flex>

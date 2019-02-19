@@ -24,7 +24,7 @@ const theme = {
 };
 
 const SampleJson = props => (
-  <Box p={2}>
+  <Box px={3}>
     <JSONTree data={props.samples} theme={theme} />
   </Box>
 );

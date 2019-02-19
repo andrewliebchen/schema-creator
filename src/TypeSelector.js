@@ -7,6 +7,7 @@ import includes from "lodash.includes";
 import React from "react";
 import store from "./store";
 import styled from "styled-components";
+import capitalize from "lodash.capitalize";
 
 const Heading = styled(Flex)`
   position: sticky;
@@ -20,19 +21,18 @@ const TypeSelector = props => (
     {Object.keys(schemaTypes).map(parent => (
       <Box key={parent} mb={3}>
         <Heading py={2} mb={2}>
-          <Text fontWeight="bold">{parent}</Text>
+          <Text fontWeight="bold">{capitalize(parent)}</Text>
         </Heading>
-        {schemaTypes[parent].map(type => {
-          const value = `${parent}.${type}`;
-          const isIncluded = includes(store.elements, value);
+        {schemaTypes[parent].map(schema => {
+          const isIncluded = includes(store.elements, schema.stub);
           return (
             <Card
-              key={type}
+              key={schema.stub}
               mb={1}
-              value={value}
-              onClick={() => store.elements.push(value)}
+              value={schema.stub}
+              onClick={() => store.elements.push(schema.stub)}
               fontWeight={isIncluded ? "bold" : "normal"}
-              text={type}
+              text={schema.label}
               icon={isIncluded && <Check size={18} color="white" />}
               selected={isIncluded}
               hover
