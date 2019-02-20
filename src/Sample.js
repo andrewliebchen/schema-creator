@@ -7,6 +7,9 @@ import React from "react";
 import SampleJson from "./SampleJson";
 import SampleTable from "./SampleTable";
 import store from "./store";
+import fileDownload from "js-file-download";
+import json2csv from "json2csv";
+import datef from "datef";
 
 const viewOptions = ["Table", "JSON"];
 
@@ -33,7 +36,23 @@ const Sample = props => {
           <Button bg="black" ml={3}>
             Copy
           </Button>
-          <Button bg="black" ml={1}>
+          <Button
+            bg="black"
+            ml={1}
+            onClick={() => {
+              if (store.view === viewOptions[0]) {
+                fileDownload(
+                  json2csv.parse(samples),
+                  `Sample ${datef("MM-dd-YY h:mm:ss", new Date())}.csv`
+                );
+              } else {
+                fileDownload(
+                  JSON.stringify(samples),
+                  `Sample ${datef("MM-dd-YY h:mm:ss", new Date())}.json`
+                );
+              }
+            }}
+          >
             Export
           </Button>
         </Flex>
