@@ -1,5 +1,7 @@
 import faker from "faker";
 import times from "lodash.times";
+import json2csv from "json2csv";
+import datef from "datef";
 
 export const genSample = element => {
   return faker[element.category][element.stub]();
@@ -16,4 +18,22 @@ export const getSamples = (count, elements) => {
     samples[i] = sample;
   });
   return samples;
+};
+
+export const sampleConverter = (samples, type) => {
+  let raw;
+  let fileExt;
+
+  if (type === "Table") {
+    raw = json2csv.parse(samples);
+    fileExt = "csv";
+  } else {
+    raw = JSON.stringify(samples);
+    fileExt = "json";
+  }
+
+  return {
+    raw: raw,
+    filename: `Sample ${datef("MM-dd-YY h:mm:ss", new Date())}.${fileExt}`
+  };
 };

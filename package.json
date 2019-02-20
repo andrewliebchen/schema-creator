@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "clipboard-copy": "^2.0.1",
     "datef": "^3.0.0",
     "faker": "^4.1.0",
     "js-file-download": "^0.4.4",

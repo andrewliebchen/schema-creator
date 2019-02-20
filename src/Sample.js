@@ -1,5 +1,5 @@
 import { Box, Heading, Flex, Button } from "rebass";
-import { getSamples } from "./utils";
+import { getSamples, sampleConverter } from "./utils";
 import { view } from "react-easy-state";
 import Card from "./Card";
 import CountControl from "./CountControl";
@@ -8,8 +8,7 @@ import SampleJson from "./SampleJson";
 import SampleTable from "./SampleTable";
 import store from "./store";
 import fileDownload from "js-file-download";
-import json2csv from "json2csv";
-import datef from "datef";
+import copy from "clipboard-copy";
 
 const viewOptions = ["Table", "JSON"];
 
@@ -33,24 +32,22 @@ const Sample = props => {
             ))}
           </Flex>
           <CountControl />
-          <Button bg="black" ml={3}>
+          <Button
+            bg="black"
+            ml={3}
+            onClick={() => {
+              const conversion = sampleConverter(samples, store.view);
+              copy(conversion.raw);
+            }}
+          >
             Copy
           </Button>
           <Button
             bg="black"
             ml={1}
             onClick={() => {
-              if (store.view === viewOptions[0]) {
-                fileDownload(
-                  json2csv.parse(samples),
-                  `Sample ${datef("MM-dd-YY h:mm:ss", new Date())}.csv`
-                );
-              } else {
-                fileDownload(
-                  JSON.stringify(samples),
-                  `Sample ${datef("MM-dd-YY h:mm:ss", new Date())}.json`
-                );
-              }
+              const conversion = sampleConverter(samples, store.view);
+              fileDownload(conversion.raw, conversion.filename);
             }}
           >
             Export
