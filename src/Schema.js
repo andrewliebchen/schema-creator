@@ -1,13 +1,11 @@
-import { Heading, Flex, Button, Box, Text } from "rebass";
+import { Heading, Flex, Button, Text } from "rebass";
 import { Trash, ChevronRight } from "react-feather";
 import { view } from "react-easy-state";
+import capitalize from "lodash.capitalize";
 import Card from "./Card";
-import Input from "./Input";
 import React from "react";
 import store from "./store";
 import TypeSelector from "./TypeSelector";
-import { schemaTypes } from "./data";
-import capitalize from "lodash.capitalize";
 
 const Schema = props => (
   <Flex flexDirection="column">

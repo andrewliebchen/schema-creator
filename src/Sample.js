@@ -1,4 +1,4 @@
-import { Box, Heading, Flex, Button, Text } from "rebass";
+import { Box, Heading, Flex, Button } from "rebass";
 import { getSamples } from "./utils";
 import { view } from "react-easy-state";
 import Card from "./Card";
