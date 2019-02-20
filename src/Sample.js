@@ -3,8 +3,6 @@ import { getSamples } from "./utils";
 import { view } from "react-easy-state";
 import Card from "./Card";
 import CountControl from "./CountControl";
-import CsvDownloader from "react-csv-downloader";
-import datef from "datef";
 import React from "react";
 import SampleJson from "./SampleJson";
 import SampleTable from "./SampleTable";
@@ -32,14 +30,12 @@ const Sample = props => {
             ))}
           </Flex>
           <CountControl />
-          <CsvDownloader
-            datas={samples}
-            filename={`Sample ${datef("MM-dd-YY h:mm:ss", new Date())}`}
-          >
-            <Button bg="black" ml={2}>
-              Export
-            </Button>
-          </CsvDownloader>
+          <Button bg="black" ml={3}>
+            Copy
+          </Button>
+          <Button bg="black" ml={1}>
+            Export
+          </Button>
         </Flex>
       </Flex>
       <Card>

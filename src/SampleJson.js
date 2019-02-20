@@ -1,31 +1,27 @@
 import React from "react";
-import JSONTree from "react-json-tree";
 import { Box } from "rebass";
+import JSONPretty from "react-json-pretty";
 
 const theme = {
-  scheme: "colors",
-  author: "mrmrs (http://clrs.cc)",
-  base00: "#111111",
-  base01: "#333333",
-  base02: "#555555",
-  base03: "#777777",
-  base04: "#999999",
-  base05: "#bbbbbb",
-  base06: "#dddddd",
-  base07: "#ffffff",
-  base08: "#ff4136",
-  base09: "#ff851b",
-  base0A: "#ffdc00",
-  base0B: "#2ecc40",
-  base0C: "#7fdbff",
-  base0D: "#0074d9",
-  base0E: "#b10dc9",
-  base0F: "#85144b"
+  main: `
+    background-color: black;
+    overflow: auto;
+    line-height: 1.6;
+    font-size: 16px;
+    color: rgba(255, 255, 255, 0.7);
+    `,
+  key: `
+    color: rgba(255, 255, 255, 0.7);
+  `,
+  string: `
+    color: white;
+    font-weight: bold;
+  `
 };
 
 const SampleJson = props => (
-  <Box px={3}>
-    <JSONTree data={props.samples} theme={theme} />
+  <Box p={3} bg="black">
+    <JSONPretty data={props.samples} theme={theme} />
   </Box>
 );
 

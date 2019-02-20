@@ -1,10 +1,11 @@
-import { Text, Flex } from "rebass";
+import { Flex } from "rebass";
 import { view } from "react-easy-state";
 import Cell from "./Cell";
 import React from "react";
 import SampleRow from "./SampleRow";
 import store from "./store";
 import styled from "styled-components";
+import Key from "./Key";
 
 const Header = styled(Flex)`
   border-bottom: 1px solid;
@@ -18,7 +19,7 @@ const SampleTable = props => (
     <Header>
       {store.elements.map((element, i) => (
         <Cell key={i}>
-          <Text fontWeight="bold">{element.label}</Text>
+          <Key {...element} />
         </Cell>
       ))}
     </Header>

@@ -1,11 +1,11 @@
-import { Heading, Flex, Button, Text } from "rebass";
-import { Trash, ChevronRight } from "react-feather";
+import { Heading, Flex, Button } from "rebass";
+import { Trash } from "react-feather";
 import { view } from "react-easy-state";
-import capitalize from "lodash.capitalize";
 import Card from "./Card";
 import React from "react";
 import store from "./store";
 import TypeSelector from "./TypeSelector";
+import Key from "./Key";
 
 const Schema = props => (
   <Flex flexDirection="column">
@@ -24,15 +24,7 @@ const Schema = props => (
       store.elements.map(element => (
         <Card
           key={element.stub}
-          text={
-            <Flex alignItems="center">
-              <Text mr={1}>{capitalize(element.category)}</Text>
-              <ChevronRight size={18} />
-              <Text ml={1} fontWeight="bold">
-                {element.label}
-              </Text>
-            </Flex>
-          }
+          text={<Key {...element} />}
           value={element.stub}
           mb={1}
           icon={
