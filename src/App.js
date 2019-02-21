@@ -1,6 +1,5 @@
 import { Flex, Box } from "rebass";
 import React from "react";
-import ReactTooltip from "react-tooltip";
 import Sample from "./Sample";
 import Schema from "./Schema";
 
@@ -12,7 +11,6 @@ const App = props => (
     <Box width={4 / 5} p={3}>
       <Sample />
     </Box>
-    <ReactTooltip />
   </Flex>
 );
 

@@ -19,7 +19,7 @@ const SampleTable = props => (
     <Header width={1}>
       {store.elements.map((element, i) => (
         <Cell key={i}>
-          <Key {...element} />
+          <Key small {...element} />
         </Cell>
       ))}
     </Header>
