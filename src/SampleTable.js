@@ -15,8 +15,12 @@ const Header = styled(Flex)`
 `;
 
 const SampleTable = props => (
-  <Flex width={1} flexDirection="column">
-    <Header>
+  <Flex
+    width={1}
+    flexDirection="column"
+    style={{ overflowX: "auto", overflowY: "hidden" }}
+  >
+    <Header width={1}>
       {store.elements.map((element, i) => (
         <Cell key={i}>
           <Key {...element} />

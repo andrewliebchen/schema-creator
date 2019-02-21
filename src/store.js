@@ -1,7 +1,10 @@
 import { store } from "react-easy-state";
+import simpleId from "simple-id";
 
 export default store({
-  elements: [{ category: "name", stub: "findName", label: "Full Name" }],
+  elements: [
+    { id: simpleId(), category: "name", stub: "findName", label: "Full Name" }
+  ],
   count: 10,
   editingSchema: false,
   view: "Table"

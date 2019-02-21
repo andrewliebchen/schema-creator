@@ -2,11 +2,13 @@ import { Box, Text, Flex } from "rebass";
 import { Check } from "react-feather";
 import { schemaTypes, categories } from "./data";
 import { view } from "react-easy-state";
+import capitalize from "lodash.capitalize";
 import Card from "./Card";
 import React from "react";
+import remove from "lodash.remove";
+import simpleId from "simple-id";
 import store from "./store";
 import styled from "styled-components";
-import capitalize from "lodash.capitalize";
 
 const Heading = styled(Flex)`
   position: sticky;
@@ -14,8 +16,6 @@ const Heading = styled(Flex)`
   border-bottom: 1px solid;
   background-color: white;
 `;
-
-// // FIXME: Selected
 
 const TypeSelector = props => (
   <Box>
@@ -35,7 +35,14 @@ const TypeSelector = props => (
                 key={schema.stub}
                 mb={1}
                 value={schema.stub}
-                onClick={() => store.elements.push(schema)}
+                onClick={() => {
+                  if (isIncluded) {
+                    console.log(isIncluded.id);
+                    remove(store.elements, { id: isIncluded.id });
+                  } else {
+                    store.elements.push({ ...schema, id: simpleId() });
+                  }
+                }}
                 fontWeight={isIncluded ? "bold" : "normal"}
                 text={schema.label}
                 icon={isIncluded && <Check size={18} color="white" />}

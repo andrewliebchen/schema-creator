@@ -5,7 +5,7 @@ import { Text, Flex } from "rebass";
 import PropTypes from "prop-types";
 
 const Key = props => (
-  <Flex alignItems="center">
+  <Flex alignItems="center" style={{ overflow: "hidden" }}>
     <Text mr={1}>{capitalize(props.category)}</Text>
     <ChevronRight size={18} />
     <Text ml={1} fontWeight="bold">
