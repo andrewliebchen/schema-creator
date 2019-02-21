@@ -6,6 +6,7 @@ import SampleRow from "./SampleRow";
 import store from "./store";
 import styled from "styled-components";
 import Key from "./Key";
+import { Table, Column } from "knoll";
 
 const Header = styled(Flex)`
   border-bottom: 1px solid;
@@ -14,9 +15,20 @@ const Header = styled(Flex)`
   background-color: white;
 `;
 
+// Use https://www.npmjs.com/package/knoll for this?
+
 const SampleTable = props => (
   <Flex width={1} flexDirection="column">
-    <Header width={1}>
+    <Table data={props.samples}>
+      {store.elements.map(element => (
+        <Column
+          key={element.id}
+          header={<Key small {...element} />}
+          cell={row => row[`${element.category}.${element.stub}`]}
+        />
+      ))}
+    </Table>
+    {/* <Header width={1}>
       {store.elements.map((element, i) => (
         <Cell key={i}>
           <Key small {...element} />
@@ -27,7 +39,7 @@ const SampleTable = props => (
       {props.samples.map((sample, i) => (
         <SampleRow key={i} sample={sample} />
       ))}
-    </div>
+    </div> */}
   </Flex>
 );
 
