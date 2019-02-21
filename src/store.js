@@ -5,7 +5,7 @@ export default store({
   elements: [
     { id: simpleId(), category: "name", stub: "findName", label: "Full Name" }
   ],
-  count: 10,
+  count: 100,
   editingSchema: false,
   view: "Table"
 });

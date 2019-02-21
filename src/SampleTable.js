@@ -15,11 +15,7 @@ const Header = styled(Flex)`
 `;
 
 const SampleTable = props => (
-  <Flex
-    width={1}
-    flexDirection="column"
-    style={{ overflowX: "auto", overflowY: "hidden" }}
-  >
+  <Flex width={1} flexDirection="column">
     <Header width={1}>
       {store.elements.map((element, i) => (
         <Cell key={i}>
@@ -27,9 +23,11 @@ const SampleTable = props => (
         </Cell>
       ))}
     </Header>
-    {props.samples.map((sample, i) => (
-      <SampleRow key={i} sample={sample} />
-    ))}
+    <div style={{ overflowX: "auto", overflowY: "hidden" }}>
+      {props.samples.map((sample, i) => (
+        <SampleRow key={i} sample={sample} />
+      ))}
+    </div>
   </Flex>
 );
 
