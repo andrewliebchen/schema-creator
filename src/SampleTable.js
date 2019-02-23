@@ -1,22 +1,16 @@
 import { Flex, Button } from "rebass";
+import { Table, Column } from "knoll";
 import { view } from "react-easy-state";
+import Key from "./Key";
 import React from "react";
 import store from "./store";
-import styled from "styled-components";
-import Key from "./Key";
-import { Table, Column } from "knoll";
 
 const components = {
-  table: styled.table`
-    border-spacing: 0;
-  `,
-  headerCell: styled.th`
-    border-bottom: 1px solid black;
-    padding: 8px;
-  `,
-  cell: styled.td`
-    padding: 8px;
-  `
+  table: props => <table style={{ borderSpacing: 0 }} {...props} />,
+  headerCell: props => (
+    <th style={{ borderBottom: "1px solid black", padding: 8 }} {...props} />
+  ),
+  cell: props => <td style={{ padding: 8 }} {...props} />
 };
 
 const SampleTable = props => (

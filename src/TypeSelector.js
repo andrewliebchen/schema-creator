@@ -1,5 +1,5 @@
-import { Box, Text, Flex } from "rebass";
-import { Check } from "react-feather";
+import { Box } from "rebass";
+import { Check, ArrowRight } from "react-feather";
 import { schemaTypes, categories } from "./data";
 import { view } from "react-easy-state";
 import capitalize from "lodash.capitalize";
@@ -10,30 +10,29 @@ import simpleId from "simple-id";
 import store from "./store";
 import styled from "styled-components";
 
-const Heading = styled(Flex)`
+const Root = styled(Box)`
   position: sticky;
   top: 0;
-  border-bottom: 1px solid;
-  background-color: white;
 `;
 
 const TypeSelector = props => (
-  <Box>
-    {categories.map(category => (
-      <Box key={category} mb={3}>
-        <Heading py={2} mb={2}>
-          <Text fontWeight="bold">{capitalize(category)}</Text>
-        </Heading>
-        {schemaTypes
-          .filter(schema => schema.category === category)
+  <Root>
+    {store.selectedCategory
+      ? schemaTypes
+          .filter(schema => schema.category === store.selectedCategory)
           .map(schema => {
             const isIncluded = store.elements.find(
               element => element.stub === schema.stub
             );
             return (
               <Card
+                fontWeight={isIncluded ? "bold" : "normal"}
+                hover
+                icon={isIncluded && <Check size={18} color="white" />}
                 key={schema.stub}
                 mb={1}
+                selected={isIncluded}
+                text={schema.label}
                 value={schema.stub}
                 onClick={() => {
                   if (isIncluded) {
@@ -43,17 +42,21 @@ const TypeSelector = props => (
                     store.elements.push({ ...schema, id: simpleId() });
                   }
                 }}
-                fontWeight={isIncluded ? "bold" : "normal"}
-                text={schema.label}
-                icon={isIncluded && <Check size={18} color="white" />}
-                selected={isIncluded}
-                hover
               />
             );
-          })}
-      </Box>
-    ))}
-  </Box>
+          })
+      : categories.map(category => (
+          <Card
+            hover
+            icon={<ArrowRight size={18} />}
+            key={category}
+            mb={1}
+            onClick={() => (store.selectedCategory = category)}
+            text={capitalize(category)}
+            value={category}
+          />
+        ))}
+  </Root>
 );
 
 export default view(TypeSelector);

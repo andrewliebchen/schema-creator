@@ -1,6 +1,6 @@
 import React from "react";
 import capitalize from "lodash.capitalize";
-import { ChevronRight } from "react-feather";
+import { ArrowRight } from "react-feather";
 import { Text, Flex } from "rebass";
 import PropTypes from "prop-types";
 
@@ -9,7 +9,7 @@ const Key = props => (
     <Text mr={1} fontSize={props.small ? 1 : 2}>
       {capitalize(props.category)}
     </Text>
-    <ChevronRight size={props.small ? 12 : 18} />
+    <ArrowRight size={props.small ? 12 : 18} />
     <Text ml={1} fontWeight="bold" fontSize={props.small ? 1 : 2}>
       {props.label}
     </Text>
