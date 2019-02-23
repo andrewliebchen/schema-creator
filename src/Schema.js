@@ -1,15 +1,21 @@
 import { Heading, Flex, Button } from "rebass";
-import { ArrowLeft } from "react-feather";
+import { ArrowLeft, Trash } from "react-feather";
 import capitalize from "lodash.capitalize";
 import { view } from "react-easy-state";
 import Card from "./Card";
 import Key from "./Key";
 import React from "react";
 import store from "./store";
+import styled from "styled-components";
 import TypeSelector from "./TypeSelector";
 
+const Root = styled(Flex)`
+  position: sticky;
+  top: 0;
+`;
+
 const Schema = props => (
-  <Flex flexDirection="column">
+  <Root flexDirection="column" p={3}>
     <Flex justifyContent="space-between" alignItems="center" mb={2}>
       {store.selectedCategory ? (
         <Flex alignItems="center">
@@ -24,7 +30,10 @@ const Schema = props => (
       )}
       <Button
         bg="black"
-        onClick={() => (store.editingSchema = !store.editingSchema)}
+        onClick={() => {
+          store.editingSchema = !store.editingSchema;
+          store.selectedCategory = false;
+        }}
       >
         {store.editingSchema ? "Done" : "Edit"}
       </Button>
@@ -33,10 +42,26 @@ const Schema = props => (
       <TypeSelector />
     ) : (
       store.elements.map((element, i) => (
-        <Card key={i} text={<Key {...element} />} value={element.stub} mb={1} />
+        <Card
+          key={i}
+          text={<Key {...element} />}
+          value={element.stub}
+          mb={1}
+          icon={
+            <Trash
+              size={18}
+              onClick={() =>
+                store.elements.splice(
+                  store.elements.findIndex(schema => schema.id === element.id),
+                  1
+                )
+              }
+            />
+          }
+        />
       ))
     )}
-  </Flex>
+  </Root>
 );
 
 export default view(Schema);

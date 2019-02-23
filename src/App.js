@@ -5,7 +5,7 @@ import Schema from "./Schema";
 
 const App = props => (
   <Flex>
-    <Box width={1 / 5} p={3}>
+    <Box width={1 / 5}>
       <Schema />
     </Box>
     <Box width={4 / 5} p={3}>

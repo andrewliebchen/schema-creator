@@ -1,4 +1,4 @@
-import { Flex, Button } from "rebass";
+import { Flex, Button, Text } from "rebass";
 import { Table, Column } from "knoll";
 import { view } from "react-easy-state";
 import Key from "./Key";
@@ -10,7 +10,18 @@ const components = {
   headerCell: props => (
     <th style={{ borderBottom: "1px solid black", padding: 8 }} {...props} />
   ),
-  cell: props => <td style={{ padding: 8 }} {...props} />
+  cell: props => (
+    <td
+      style={{
+        padding: 8,
+        maxWidth: 200,
+        overflow: "hidden",
+        textOverflow: "ellipsis",
+        whiteSpace: "nowrap"
+      }}
+      {...props}
+    />
+  )
 };
 
 const SampleTable = props => (
@@ -20,7 +31,9 @@ const SampleTable = props => (
         <Column
           key={element.id}
           header={<Key small {...element} />}
-          cell={row => row[`${element.category}.${element.stub}`]}
+          cell={row => (
+            <Text>{row[`${element.category}.${element.stub}`]}</Text>
+          )}
         />
       ))}
     </Table>
