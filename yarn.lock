@@ -3972,10 +3972,6 @@ ieee754@^1.1.4:
   version "1.1.12"
   resolved "https://registry.yarnpkg.com/ieee754/-/ieee754-1.1.12.tgz#50bf24e5b9c8bb98af4964c941cdb0918da7b60b"
 
-if-is-image@^1.0.6:
-  version "1.0.6"
-  resolved "https://registry.yarnpkg.com/if-is-image/-/if-is-image-1.0.6.tgz#c9fe1e965740895b0311da0d04ed7714111ead56"
-
 iferr@^0.1.5:
   version "0.1.5"
   resolved "https://registry.yarnpkg.com/iferr/-/iferr-0.1.5.tgz#c60eed69e6d8fdb6b3104a1fcbca1c192dc5b501"
@@ -6961,6 +6957,10 @@ react-json-pretty@^2.0.0:
   resolved "https://registry.yarnpkg.com/react-json-pretty/-/react-json-pretty-2.0.0.tgz#703bdf7c680afefe3796f4ec00f6424c7865d985"
   dependencies:
     prop-types "^15.6.2"
+
+react-pretty-numbers@^3.0.0:
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/react-pretty-numbers/-/react-pretty-numbers-3.0.0.tgz#045e613350f3b48031305ad2f62f62a53fc05d8a"
 
 react-scripts@2.1.5:
   version "2.1.5"

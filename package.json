@@ -19,6 +19,7 @@
     "react-easy-state": "^6.1.1",
     "react-feather": "^1.1.6",
     "react-json-pretty": "^2.0.0",
+    "react-pretty-numbers": "^3.0.0",
     "react-scripts": "2.1.5",
     "rebass": "^3.0.1",
     "simple-id": "^1.0.0",

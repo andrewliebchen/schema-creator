@@ -4,6 +4,7 @@ import { view } from "react-easy-state";
 import Key from "./Key";
 import React from "react";
 import store from "./store";
+import SampleCell from "./SampleCell";
 
 const components = {
   table: props => <table style={{ borderSpacing: 0 }} {...props} />,
@@ -22,18 +23,6 @@ const components = {
       {...props}
     />
   )
-};
-
-const SampleCell = props => {
-  const cellContent = props.row[`${props.category}.${props.stub}`];
-  if (
-    (props.category === "image" || props.stub === "image") &&
-    props.stub !== "dataUri"
-  ) {
-    return <img src={cellContent} height={48} width="auto" alt={props.stub} />;
-  } else {
-    return <Text>{cellContent}</Text>;
-  }
 };
 
 const SampleTable = props => (

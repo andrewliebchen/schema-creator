@@ -5,7 +5,8 @@ Generate random data from a schema.
 ## Todo
 
 - ⬜️ Click to add random schema value
-- ⬜️ Types in table cells (image, numbers, etc.)
+- ✅ Render sample images as images
+- ✅ Better format for numbers
 - ⬜️ Fix formatting for date schema in table
 - ⬜️ Better styled button
 - ⬜️ Pre-set schemas (using Faker's helpers)
