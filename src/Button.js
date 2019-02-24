@@ -1,4 +1,4 @@
-import { Box, Text } from "rebass";
+import { Box } from "rebass";
 import PropTypes from "prop-types";
 import React from "react";
 import styled from "styled-components";

@@ -4,7 +4,7 @@ Generate random data from a schema.
 
 ## Todo
 
-- ⬜️ Click to add random schema value
+- ✅ Click to add random schema value
 - ✅ Render sample images as images
 - ✅ Better format for numbers
 - ⬜️ Fix formatting for date schema in table
@@ -13,4 +13,5 @@ Generate random data from a schema.
 - ⬜️ Change column titles/keys
 - ⬜️ DND reorder
 - ⬜️ Nesting
+- ⬜️ Animation
 - ⬜️ Deploy

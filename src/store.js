@@ -3,14 +3,7 @@ import simpleId from "simple-id";
 
 export default store({
   elements: [
-    { id: simpleId(), category: "name", stub: "findName", label: "Full Name" },
-    {
-      id: simpleId(),
-      category: "random",
-      stub: "number",
-      label: "Number",
-      type: "number"
-    }
+    { id: simpleId(), category: "name", stub: "findName", label: "Full Name" }
   ],
   count: 100,
   editingSchema: false,

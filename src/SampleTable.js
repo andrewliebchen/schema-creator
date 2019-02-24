@@ -1,4 +1,4 @@
-import { Flex, Text } from "rebass";
+import { Flex } from "rebass";
 import { Table, Column } from "knoll";
 import { view } from "react-easy-state";
 import Button from "./Button";

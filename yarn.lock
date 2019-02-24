@@ -5129,6 +5129,10 @@ lodash.remove@^4.7.0:
   version "4.7.0"
   resolved "https://registry.yarnpkg.com/lodash.remove/-/lodash.remove-4.7.0.tgz#f31d31e7c39a0690d5074ec0d3627162334ee626"
 
+lodash.sample@^4.2.1:
+  version "4.2.1"
+  resolved "https://registry.yarnpkg.com/lodash.sample/-/lodash.sample-4.2.1.tgz#5e4291b0c753fa1abeb0aab8fb29df1b66f07f6d"
+
 lodash.set@^4.3.2:
   version "4.3.2"
   resolved "https://registry.yarnpkg.com/lodash.set/-/lodash.set-4.3.2.tgz#d8757b1da807dde24816b0d6a84bea1a76230b23"

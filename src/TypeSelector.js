@@ -2,10 +2,12 @@ import { Box } from "rebass";
 import { Check, ArrowRight } from "react-feather";
 import { schemaTypes, categories } from "./data";
 import { view } from "react-easy-state";
+import Button from "./Button";
 import capitalize from "lodash.capitalize";
 import Card from "./Card";
 import React from "react";
 import remove from "lodash.remove";
+import sample from "lodash.sample";
 import simpleId from "simple-id";
 import store from "./store";
 import styled from "styled-components";
@@ -56,6 +58,15 @@ const TypeSelector = props => (
             value={category}
           />
         ))}
+    <Box mt={2}>
+      <Button
+        onClick={() =>
+          store.elements.push({ ...sample(schemaTypes), id: simpleId() })
+        }
+      >
+        I'm feeling lucky
+      </Button>
+    </Box>
   </Root>
 );
 
