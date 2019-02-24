@@ -24,6 +24,18 @@ const components = {
   )
 };
 
+const SampleCell = props => {
+  const cellContent = props.row[`${props.category}.${props.stub}`];
+  if (
+    (props.category === "image" || props.stub === "image") &&
+    props.stub !== "dataUri"
+  ) {
+    return <img src={cellContent} height={48} width="auto" alt={props.stub} />;
+  } else {
+    return <Text>{cellContent}</Text>;
+  }
+};
+
 const SampleTable = props => (
   <Flex width={1} flexDirection="column">
     <Table data={props.samples} components={components}>
@@ -31,9 +43,7 @@ const SampleTable = props => (
         <Column
           key={element.id}
           header={<Key small {...element} />}
-          cell={row => (
-            <Text>{row[`${element.category}.${element.stub}`]}</Text>
-          )}
+          cell={row => <SampleCell row={row} {...element} />}
         />
       ))}
     </Table>

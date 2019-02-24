@@ -10,4 +10,6 @@ Generate random data from a schema.
 - ⬜️ Better styled button
 - ⬜️ Pre-set schemas (using Faker's helpers)
 - ⬜️ Change column titles/keys
+- ⬜️ DND reorder
+- ⬜️ Nesting
 - ⬜️ Deploy
