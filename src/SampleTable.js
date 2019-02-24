@@ -1,10 +1,11 @@
-import { Flex, Button, Text } from "rebass";
+import { Flex, Text } from "rebass";
 import { Table, Column } from "knoll";
 import { view } from "react-easy-state";
+import Button from "./Button";
 import Key from "./Key";
 import React from "react";
-import store from "./store";
 import SampleCell from "./SampleCell";
+import store from "./store";
 
 const components = {
   table: props => <table style={{ borderSpacing: 0 }} {...props} />,
@@ -37,7 +38,7 @@ const SampleTable = props => (
       ))}
     </Table>
     <Flex p={1}>
-      <Button width={1} bg="black" onClick={() => store.count + 10}>
+      <Button width={1} onClick={() => store.count + 10}>
         Add 10 more...
       </Button>
     </Flex>

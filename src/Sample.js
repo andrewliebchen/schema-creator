@@ -1,14 +1,15 @@
-import { Box, Heading, Flex, Button } from "rebass";
+import { Box, Heading, Flex } from "rebass";
 import { getSamples, sampleConverter } from "./utils";
 import { view } from "react-easy-state";
+import Button from "./Button";
 import Card from "./Card";
+import copy from "clipboard-copy";
 import CountControl from "./CountControl";
+import fileDownload from "js-file-download";
 import React from "react";
 import SampleJson from "./SampleJson";
 import SampleTable from "./SampleTable";
 import store from "./store";
-import fileDownload from "js-file-download";
-import copy from "clipboard-copy";
 
 const viewOptions = ["Table", "JSON"];
 
@@ -23,9 +24,9 @@ const Sample = props => {
             {viewOptions.map(view => (
               <Button
                 key={view}
-                bg={store.view === view ? "black" : "white"}
-                color={store.view === view ? "white" : "black"}
+                type={store.view === view ? "black" : "white"}
                 onClick={() => (store.view = view)}
+                ml={1}
               >
                 {view}
               </Button>
@@ -33,7 +34,7 @@ const Sample = props => {
           </Flex>
           <CountControl />
           <Button
-            bg="black"
+            type="black"
             ml={3}
             onClick={() => {
               const conversion = sampleConverter(samples, store.view);
@@ -43,7 +44,7 @@ const Sample = props => {
             Copy
           </Button>
           <Button
-            bg="black"
+            type="black"
             ml={1}
             onClick={() => {
               const conversion = sampleConverter(samples, store.view);

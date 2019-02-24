@@ -8,7 +8,7 @@ Generate random data from a schema.
 - ✅ Render sample images as images
 - ✅ Better format for numbers
 - ⬜️ Fix formatting for date schema in table
-- ⬜️ Better styled button
+- ✅ Better styled button
 - ⬜️ Pre-set schemas (using Faker's helpers)
 - ⬜️ Change column titles/keys
 - ⬜️ DND reorder

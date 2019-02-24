@@ -1,7 +1,8 @@
-import { Heading, Flex, Button } from "rebass";
 import { ArrowLeft, Trash } from "react-feather";
-import capitalize from "lodash.capitalize";
+import { Heading, Flex } from "rebass";
 import { view } from "react-easy-state";
+import Button from "./Button";
+import capitalize from "lodash.capitalize";
 import Card from "./Card";
 import Key from "./Key";
 import React from "react";
@@ -29,7 +30,6 @@ const Schema = props => (
         <Heading>Schema</Heading>
       )}
       <Button
-        bg="black"
         onClick={() => {
           store.editingSchema = !store.editingSchema;
           store.selectedCategory = false;
