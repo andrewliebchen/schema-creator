@@ -1,4 +1,4 @@
-import { Box } from "rebass";
+import { Box, Flex, Text } from "rebass";
 import { Check, ArrowRight, File, Folder } from "react-feather";
 import { schemaTypes, categories } from "./data";
 import { view } from "react-easy-state";
@@ -28,15 +28,10 @@ const TypeSelector = props => (
             );
             return (
               <Card
-                fontWeight={isIncluded ? "bold" : "normal"}
                 hover
-                icon={<File size={18} color={isIncluded ? "white" : "black"} />}
-                action={isIncluded && <Check size={18} color="white" />}
                 key={schema.stub}
                 mb={1}
                 selected={isIncluded}
-                text={schema.label}
-                value={schema.stub}
                 onClick={() => {
                   if (isIncluded) {
                     console.log(isIncluded.id);
@@ -45,20 +40,38 @@ const TypeSelector = props => (
                     store.elements.push({ ...schema, id: simpleId() });
                   }
                 }}
-              />
+              >
+                <Flex justifyContent="space-between" alignItems="center" p={3}>
+                  <Flex alignItems="center">
+                    <File size={18} color={isIncluded ? "white" : "black"} />
+                    <Text
+                      ml={1}
+                      fontWeight={isIncluded ? "bold" : "normal"}
+                      color={isIncluded ? "white" : "black"}
+                    >
+                      {schema.label}
+                    </Text>
+                  </Flex>
+                  {isIncluded && <Check size={18} color="white" />}
+                </Flex>
+              </Card>
             );
           })
       : categories.map(category => (
           <Card
             hover
-            icon={<Folder size={18} />}
-            action={<ArrowRight size={18} />}
             key={category}
             mb={1}
             onClick={() => (store.selectedCategory = category)}
-            text={capitalize(category)}
-            value={category}
-          />
+          >
+            <Flex justifyContent="space-between" alignItems="center" p={3}>
+              <Flex alignItems="center">
+                <Folder size={18} />
+                <Text ml={1}>{capitalize(category)}</Text>
+              </Flex>
+              <ArrowRight size={18} />
+            </Flex>
+          </Card>
         ))}
     <Box mt={2}>
       <Button

@@ -32,11 +32,7 @@ const SampleTable = props => (
       {store.elements.map(element => (
         <Column
           key={element.id}
-          header={
-            element.userLabel || (
-              <Key small {...element} width={1} justifyContent="center" />
-            )
-          }
+          header={<Key small {...element} width={1} justifyContent="center" />}
           cell={row => <SampleCell row={row} {...element} />}
         />
       ))}

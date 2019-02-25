@@ -19,6 +19,8 @@ const theme = {
   `
 };
 
+// TODO: Use userLabel field for key
+
 const SampleJson = props => (
   <Box p={3} bg="black">
     <JSONPretty data={props.samples} theme={theme} />

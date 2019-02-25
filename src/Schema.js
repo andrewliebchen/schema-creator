@@ -1,11 +1,10 @@
-import { ArrowLeft, Trash, File } from "react-feather";
+import { ArrowLeft } from "react-feather";
 import { Heading, Flex } from "rebass";
 import { view } from "react-easy-state";
 import Button from "./Button";
 import capitalize from "lodash.capitalize";
-import Card from "./Card";
-import Key from "./Key";
 import React from "react";
+import SchemaElement from "./SchemaElement";
 import store from "./store";
 import styled from "styled-components";
 import TypeSelector from "./TypeSelector";
@@ -41,27 +40,8 @@ const Schema = props => (
     {store.editingSchema ? (
       <TypeSelector />
     ) : (
-      store.elements.map((element, i) => (
-        <Card
-          element={element}
-          key={element.id}
-          text={element.userLabel || <Key {...element} />}
-          value={`${element.category}.${element.stub}`}
-          mb={1}
-          editable
-          icon={<File size={18} />}
-          action={
-            <Trash
-              size={18}
-              onClick={() =>
-                store.elements.splice(
-                  store.elements.findIndex(schema => schema.id === element.id),
-                  1
-                )
-              }
-            />
-          }
-        />
+      store.elements.map(element => (
+        <SchemaElement key={element.id} {...element} />
       ))
     )}
   </Root>
