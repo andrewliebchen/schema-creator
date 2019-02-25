@@ -1,4 +1,4 @@
-import { ArrowLeft, Trash } from "react-feather";
+import { ArrowLeft, Trash, File } from "react-feather";
 import { Heading, Flex } from "rebass";
 import { view } from "react-easy-state";
 import Button from "./Button";
@@ -47,7 +47,8 @@ const Schema = props => (
           text={<Key {...element} />}
           value={element.stub}
           mb={1}
-          icon={
+          icon={<File size={18} />}
+          action={
             <Trash
               size={18}
               onClick={() =>

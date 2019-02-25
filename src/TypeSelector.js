@@ -1,5 +1,5 @@
 import { Box } from "rebass";
-import { Check, ArrowRight } from "react-feather";
+import { Check, ArrowRight, File, Folder } from "react-feather";
 import { schemaTypes, categories } from "./data";
 import { view } from "react-easy-state";
 import Button from "./Button";
@@ -30,7 +30,8 @@ const TypeSelector = props => (
               <Card
                 fontWeight={isIncluded ? "bold" : "normal"}
                 hover
-                icon={isIncluded && <Check size={18} color="white" />}
+                icon={<File size={18} color={isIncluded ? "white" : "black"} />}
+                action={isIncluded && <Check size={18} color="white" />}
                 key={schema.stub}
                 mb={1}
                 selected={isIncluded}
@@ -50,7 +51,8 @@ const TypeSelector = props => (
       : categories.map(category => (
           <Card
             hover
-            icon={<ArrowRight size={18} />}
+            icon={<Folder size={18} />}
+            action={<ArrowRight size={18} />}
             key={category}
             mb={1}
             onClick={() => (store.selectedCategory = category)}

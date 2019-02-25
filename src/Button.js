@@ -18,10 +18,7 @@ const Element = styled.button`
   padding: 8px 16px;
   width: 100%;
 
-  &:hover {
-    box-shadow: inset 0 0 0 1px black, 0 0 0 1px white, 0 0 0 2px black;
-  }
-
+  &:hover,
   &:focus {
     outline: none;
     box-shadow: 0 0 0 1px white, 0 0 0 3px black;

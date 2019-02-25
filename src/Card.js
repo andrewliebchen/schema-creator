@@ -21,13 +21,17 @@ const Card = props => (
   >
     {props.children || (
       <Flex justifyContent="space-between" alignItems="center" p={3}>
-        <Text
-          fontWeight={props.fontWeight}
-          color={props.selected ? "white" : "black"}
-        >
-          {props.text}
-        </Text>
-        {props.icon}
+        <Flex alignItems="center">
+          {props.icon}
+          <Text
+            ml={1}
+            fontWeight={props.fontWeight}
+            color={props.selected ? "white" : "black"}
+          >
+            {props.text}
+          </Text>
+        </Flex>
+        {props.action}
       </Flex>
     )}
   </Root>
@@ -38,6 +42,7 @@ Card.propTyeps = {
   fontWeight: PropTypes.oneOf(["normal", "bold"]),
   text: PropTypes.string,
   icon: PropTypes.node,
+  action: PropTypes.node,
   hover: PropTypes.boolean
 };
 
