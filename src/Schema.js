@@ -43,10 +43,12 @@ const Schema = props => (
     ) : (
       store.elements.map((element, i) => (
         <Card
-          key={i}
-          text={<Key {...element} />}
-          value={element.stub}
+          element={element}
+          key={element.id}
+          text={element.userLabel || <Key {...element} />}
+          value={`${element.category}.${element.stub}`}
           mb={1}
+          editable
           icon={<File size={18} />}
           action={
             <Trash
