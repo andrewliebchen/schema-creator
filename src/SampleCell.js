@@ -1,9 +1,9 @@
-import React from "react";
+import { categories } from "./data";
+import { Text } from "rebass";
 import NumericLabel from "react-pretty-numbers";
 import PropTypes from "prop-types";
-import { categories } from "./data";
+import React from "react";
 import styled from "styled-components";
-import { Text } from "rebass";
 
 const Number = styled.span`
   font-feature-settings: "tnum";
@@ -56,10 +56,10 @@ const SampleCell = props => {
 };
 
 SampleCell.props = {
-  row: PropTypes.object,
-  type: PropTypes.oneOf(["image", "number"]),
   category: PropTypes.oneOf(categories),
-  stub: PropTypes.string
+  row: PropTypes.object,
+  stub: PropTypes.string,
+  type: PropTypes.oneOf(["image", "number"])
 };
 
 export default SampleCell;

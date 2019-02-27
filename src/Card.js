@@ -24,8 +24,8 @@ const Card = props => (
 );
 
 Card.propTyeps = {
-  selected: PropTypes.boolean,
-  hover: PropTypes.boolean
+  hover: PropTypes.boolean,
+  selected: PropTypes.boolean
 };
 
 export default Card;

@@ -10,7 +10,7 @@ Generate random data from a schema.
 - ⬜️ Fix formatting for date schema in table
 - ✅ Better styled button
 - ⬜️ Pre-set schemas (using Faker's helpers)
-- ⬜️ Change column titles/keys
+- ✅ Change column titles/keys
 - ⬜️ DND reorder
 - ⬜️ Nesting
 - ⬜️ Animation

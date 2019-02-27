@@ -36,8 +36,8 @@ Button.defaultProps = {
 };
 
 Button.propTypes = {
-  type: PropTypes.oneOf(["black", "white"]),
   ml: PropTypes.number,
+  type: PropTypes.oneOf(["black", "white"]),
   width: PropTypes.number
 };
 

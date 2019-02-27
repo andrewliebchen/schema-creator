@@ -71,8 +71,8 @@ class SchemaElement extends Component {
 }
 
 SchemaElement.propTyeps = {
-  id: PropTypes.number,
   category: PropTypes.oneOf([categories]),
+  id: PropTypes.number,
   stub: PropTypes.string
 };
 

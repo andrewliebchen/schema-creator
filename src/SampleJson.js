@@ -1,14 +1,14 @@
-import React from "react";
 import { Box } from "rebass";
 import JSONPretty from "react-json-pretty";
+import React from "react";
 
 const theme = {
   main: `
     background-color: black;
-    overflow: auto;
-    line-height: 1.6;
-    font-size: 16px;
     color: rgba(255, 255, 255, 0.7);
+    font-size: 16px;
+    line-height: 1.6;
+    overflow: auto;
     `,
   key: `
     color: rgba(255, 255, 255, 0.7);

@@ -1,7 +1,7 @@
-import faker from "faker";
-import times from "lodash.times";
-import json2csv from "json2csv";
 import datef from "datef";
+import faker from "faker";
+import json2csv from "json2csv";
+import times from "lodash.times";
 
 export const genSample = element => {
   return faker[element.category][element.stub]();

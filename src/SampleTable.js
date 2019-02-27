@@ -3,6 +3,7 @@ import { Table, Column } from "knoll";
 import { view } from "react-easy-state";
 import Button from "./Button";
 import Key from "./Key";
+import PropTypes from "prop-types";
 import React from "react";
 import SampleCell from "./SampleCell";
 import store from "./store";
@@ -15,9 +16,9 @@ const components = {
   cell: props => (
     <td
       style={{
-        padding: 8,
         maxWidth: 200,
         overflow: "hidden",
+        padding: 8,
         textOverflow: "ellipsis",
         whiteSpace: "nowrap"
       }}
@@ -44,5 +45,9 @@ const SampleTable = props => (
     </Flex>
   </Flex>
 );
+
+SampleTable.propTypes = {
+  samples: PropTypes.array
+};
 
 export default view(SampleTable);
