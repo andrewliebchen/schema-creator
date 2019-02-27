@@ -6,6 +6,11 @@ const Input = styled.input`
   font-size: inherit;
   border: 1px solid;
   border-radius: 4px;
+
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 0 1px white, 0 0 0 3px black;
+  }
 `;
 
 export default Input;

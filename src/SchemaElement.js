@@ -16,6 +16,16 @@ class SchemaElement extends Component {
       editing: false,
       value: `${this.props.category}.${this.props.stub}`
     };
+    this._handleSave = this._handleSave.bind(this);
+  }
+
+  _handleSave() {
+    const matchingElement = store.elements.find(
+      element => element.id === this.props.id
+    );
+
+    matchingElement.userLabel = this.state.value;
+    this.setState({ editing: false });
   }
 
   render() {
@@ -29,19 +39,14 @@ class SchemaElement extends Component {
             py={2}
           >
             <Input
+              autoFocus
               value={this.state.value}
               onChange={event => this.setState({ value: event.target.value })}
+              onKeyPress={event => event.which === 13 && this._handleSave()}
             />
             <Flex>
               <X onClick={() => this.setState({ editing: false })} />
-              <Check
-                onClick={() => {
-                  store.elements.find(
-                    element => element.id === this.props.id
-                  ).userLabel = this.state.value;
-                  this.setState({ editing: false });
-                }}
-              />
+              <Check onClick={this._handleSave} />
             </Flex>
           </Flex>
         ) : (
