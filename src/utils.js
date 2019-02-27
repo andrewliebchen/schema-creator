@@ -37,3 +37,12 @@ export const sampleConverter = (samples, type) => {
     filename: `Sample ${datef("MM-dd-YY h:mm:ss", new Date())}.${fileExt}`
   };
 };
+
+export const renameKeys = (keysMap, obj) =>
+  Object.keys(obj).reduce(
+    (acc, key) => ({
+      ...acc,
+      ...{ [keysMap[key] || key]: obj[key] }
+    }),
+    {}
+  );

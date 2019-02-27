@@ -8,5 +8,5 @@ export default store({
   count: 100,
   editingSchema: false,
   selectedCategory: false,
-  view: "Table"
+  view: "JSON"
 });

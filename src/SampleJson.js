@@ -1,6 +1,9 @@
 import { Box } from "rebass";
 import JSONPretty from "react-json-pretty";
 import React from "react";
+import store from "./store";
+import { view } from "react-easy-state";
+import { renameKeys } from "./utils";
 
 const theme = {
   main: `
@@ -19,12 +22,22 @@ const theme = {
   `
 };
 
-// TODO: Use userLabel field for key
+const SampleJson = props => {
+  let keysMap = {};
+  store.elements.map(element => {
+    if (element.userLabel) {
+      keysMap[`${element.category}.${element.stub}`] = element.userLabel;
+    }
+    return false;
+  });
+  const samplesWithUserLabels = props.samples.map(sample =>
+    renameKeys(keysMap, sample)
+  );
+  return (
+    <Box p={3} bg="black">
+      <JSONPretty data={samplesWithUserLabels} theme={theme} />
+    </Box>
+  );
+};
 
-const SampleJson = props => (
-  <Box p={3} bg="black">
-    <JSONPretty data={props.samples} theme={theme} />
-  </Box>
-);
-
-export default SampleJson;
+export default view(SampleJson);
