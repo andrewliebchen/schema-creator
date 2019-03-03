@@ -39,7 +39,7 @@ const SampleTable = props => (
       ))}
     </Table>
     <Flex p={1}>
-      <Button width={1} onClick={() => store.count + 10}>
+      <Button width={1} onClick={() => (store.count = store.count + 10)}>
         Add 10 more...
       </Button>
     </Flex>
