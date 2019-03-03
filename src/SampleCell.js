@@ -4,6 +4,7 @@ import NumericLabel from "react-pretty-numbers";
 import PropTypes from "prop-types";
 import React from "react";
 import styled from "styled-components";
+import datef from "datef";
 
 const Number = styled.span`
   font-feature-settings: "tnum";
@@ -48,6 +49,9 @@ const SampleCell = props => {
     case "numberish":
       cell = <Number>{cellContent}</Number>;
       break;
+    case "date":
+      cell = <Text>{datef("MMM d, YYYY h:mm a", cellContent)}</Text>;
+      break;
     default:
       cell = cellContent;
   }
@@ -59,7 +63,7 @@ SampleCell.props = {
   category: PropTypes.oneOf(categories),
   row: PropTypes.object,
   stub: PropTypes.string,
-  type: PropTypes.oneOf(["image", "number"])
+  type: PropTypes.oneOf(["image", "number", "date"])
 };
 
 export default SampleCell;

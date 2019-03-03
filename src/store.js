@@ -3,10 +3,17 @@ import simpleId from "simple-id";
 
 export default store({
   elements: [
-    { id: simpleId(), category: "name", stub: "findName", label: "Full Name" }
+    { id: simpleId(), category: "name", stub: "findName", label: "Full Name" },
+    {
+      id: simpleId(),
+      category: "date",
+      stub: "past",
+      label: "Past",
+      type: "date"
+    }
   ],
-  count: 100,
+  count: 10,
   editingSchema: false,
   selectedCategory: false,
-  view: "JSON"
+  view: "Table"
 });
