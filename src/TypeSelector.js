@@ -1,7 +1,8 @@
 import { Box, Flex, Text } from "rebass";
 import { Check, ArrowRight, File, Folder } from "react-feather";
 import { schemaTypes, categories } from "./data";
-import { SlideIn, Absolute, Relative } from "./Animation";
+import { SlideIn } from "./Animation";
+import { Absolute, Relative } from "./StyleHelpers";
 import { view } from "react-easy-state";
 import Button from "./Button";
 import capitalize from "lodash.capitalize";

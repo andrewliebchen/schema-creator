@@ -17,7 +17,7 @@ const Sample = props => {
   const samples = getSamples(store.count, store.elements);
   return (
     <Box>
-      <Flex width={1} justifyContent="space-between" alignItems="center" mb={2}>
+      <Flex width={1} justifyContent="space-between" alignItems="center" mb={3}>
         <Heading>Sample</Heading>
         <Flex>
           <Flex alignItems="center" mr={2}>

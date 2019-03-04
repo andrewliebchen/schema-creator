@@ -9,5 +9,6 @@ export default store({
   editingSchema: false,
   selectedCategory: false,
   view: "Table",
-  toast: { show: false, message: "Copied to clipboard" }
+  toast: { show: false, message: "Copied to clipboard" },
+  showHelp: false
 });

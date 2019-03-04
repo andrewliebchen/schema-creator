@@ -1,33 +1,31 @@
 import { ArrowLeft } from "react-feather";
 import { Heading, Flex } from "rebass";
-import { SlideIn, Relative, Absolute } from "./Animation";
+import { SlideIn } from "./Animation";
+import { Relative, Absolute, Sticky, Pointer } from "./StyleHelpers";
 import { view } from "react-easy-state";
 import Button from "./Button";
 import capitalize from "lodash.capitalize";
 import React from "react";
 import SchemaElement from "./SchemaElement";
 import store from "./store";
-import styled from "styled-components";
 import TypeSelector from "./TypeSelector";
-
-const Root = styled(Flex)`
-  position: sticky;
-  top: 0;
-`;
+import Help from "./Help";
 
 const Schema = props => (
-  <Root flexDirection="column" p={3}>
-    <Flex justifyContent="space-between" alignItems="center" mb={2}>
+  <Sticky p={3}>
+    <Flex justifyContent="space-between" alignItems="center" mb={3}>
       {store.selectedCategory ? (
         <Flex alignItems="center">
-          <ArrowLeft
-            onClick={() => (store.selectedCategory = false)}
-            style={{ cursor: "pointer" }}
-          />
+          <Pointer onClick={() => (store.selectedCategory = false)}>
+            <ArrowLeft />
+          </Pointer>
           <Heading ml={2}>{capitalize(store.selectedCategory)}</Heading>
         </Flex>
       ) : (
-        <Heading>Schema</Heading>
+        <Flex alignItems="center">
+          <Heading mr={2}>Schema</Heading>
+          <Help />
+        </Flex>
       )}
       <Button
         onClick={() => {
@@ -52,7 +50,7 @@ const Schema = props => (
         </Absolute>
       </SlideIn>
     </Relative>
-  </Root>
+  </Sticky>
 );
 
 export default view(Schema);
