@@ -8,5 +8,6 @@ export default store({
   count: 10,
   editingSchema: false,
   selectedCategory: false,
-  view: "Table"
+  view: "Table",
+  toast: { show: false, message: "Copied to clipboard" }
 });

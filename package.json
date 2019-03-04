@@ -19,6 +19,7 @@
     "react-dom": "^16.8.2",
     "react-easy-state": "^6.1.1",
     "react-feather": "^1.1.6",
+    "react-interval": "^2.0.2",
     "react-json-pretty": "^2.0.0",
     "react-pretty-numbers": "^3.0.0",
     "react-scripts": "2.1.5",

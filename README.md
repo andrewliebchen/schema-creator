@@ -18,5 +18,5 @@ Generate random data from a schema.
 - ✅ "10 more" button on JSON
 - ✅ Deploy
 - ⬜️ Meta tags and Favicon
-- ⬜️ Analytics (Heap?)
-- ⬜️ "Copied to clipboard" toast
+- ✅ Analytics (Heap?)
+- ✅ "Copied to clipboard" toast

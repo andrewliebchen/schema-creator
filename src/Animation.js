@@ -34,3 +34,22 @@ export const SlideIn = transition.div.attrs({
     transition:  200ms ease-in-out;
   }
 `;
+
+export const SlideUp = transition.div.attrs({
+  unmountOnExit: true
+})`
+  &:enter {
+    transform: translateY(100%);
+  }
+  &:enter-active {
+    transform: translateY(0);
+    transition:  150ms ease-in-out;
+  }
+  &:exit {
+    transform: translateY(0);
+  }
+  &:exit-active {
+    transform: translateY(100%);
+    transition:  150ms ease-in-out;
+  }
+`;

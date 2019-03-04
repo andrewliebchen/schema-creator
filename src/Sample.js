@@ -39,6 +39,7 @@ const Sample = props => {
             onClick={() => {
               const conversion = sampleConverter(samples, store.view);
               copy(conversion.raw);
+              store.toast.show = true;
             }}
           >
             Copy
