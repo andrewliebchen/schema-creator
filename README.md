@@ -15,8 +15,8 @@ Generate random data from a schema.
 - ⬜️ Nesting
 - ✅ Animate schema panel
 - ⬜️ Animate table/JSON?
-- ⬜️ "10 more" button on JSON
+- ✅ "10 more" button on JSON
 - ✅ Deploy
 - ⬜️ Meta tags and Favicon
-- ⬜️ Analytics
+- ⬜️ Analytics (Heap?)
 - ⬜️ "Copied to clipboard" toast
