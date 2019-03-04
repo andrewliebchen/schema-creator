@@ -21,7 +21,9 @@ const Element = styled.button`
   &:hover,
   &:focus {
     outline: none;
-    box-shadow: 0 0 0 1px white, 0 0 0 3px black;
+    box-shadow: 0 0 0 1px
+        ${props => (props.type === "black" ? "white" : "black")},
+      0 0 0 3px ${props => props.type};
   }
 `;
 

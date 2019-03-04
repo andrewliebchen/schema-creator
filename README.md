@@ -13,5 +13,7 @@ Generate random data from a schema.
 - ✅ Change column titles/keys
 - ⬜️ DND reorder
 - ⬜️ Nesting
-- ⬜️ Animation
+- ✅ Animate schema panel
+- ⬜️ Animate table/JSON?
+- ⬜️ "10 more" button on JSON
 - ⬜️ Deploy
