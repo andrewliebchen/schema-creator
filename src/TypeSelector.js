@@ -1,6 +1,7 @@
 import { Box, Flex, Text } from "rebass";
 import { Check, ArrowRight, File, Folder } from "react-feather";
 import { schemaTypes, categories } from "./data";
+import { SlideIn, Absolute, Relative } from "./Animation";
 import { view } from "react-easy-state";
 import Button from "./Button";
 import capitalize from "lodash.capitalize";
@@ -10,17 +11,41 @@ import remove from "lodash.remove";
 import sample from "lodash.sample";
 import simpleId from "simple-id";
 import store from "./store";
-import styled from "styled-components";
-
-const Root = styled(Box)`
-  position: sticky;
-  top: 0;
-`;
 
 const TypeSelector = props => (
-  <Root>
-    {store.selectedCategory
-      ? schemaTypes
+  <Relative>
+    <SlideIn in={!store.selectedCategory} timeout={200}>
+      <Absolute>
+        {categories.map(category => (
+          <Card
+            hover
+            key={category}
+            mb={1}
+            onClick={() => (store.selectedCategory = category)}
+          >
+            <Flex justifyContent="space-between" alignItems="center" p={3}>
+              <Flex alignItems="center">
+                <Folder size={18} />
+                <Text ml={1}>{capitalize(category)}</Text>
+              </Flex>
+              <ArrowRight size={18} />
+            </Flex>
+          </Card>
+        ))}
+        <Box mt={2}>
+          <Button
+            onClick={() =>
+              store.elements.push({ ...sample(schemaTypes), id: simpleId() })
+            }
+          >
+            I'm feeling lucky
+          </Button>
+        </Box>
+      </Absolute>
+    </SlideIn>
+    <SlideIn in={store.selectedCategory} timeout={200}>
+      <Absolute>
+        {schemaTypes
           .filter(schema => schema.category === store.selectedCategory)
           .map(schema => {
             const isIncluded = store.elements.find(
@@ -56,33 +81,10 @@ const TypeSelector = props => (
                 </Flex>
               </Card>
             );
-          })
-      : categories.map(category => (
-          <Card
-            hover
-            key={category}
-            mb={1}
-            onClick={() => (store.selectedCategory = category)}
-          >
-            <Flex justifyContent="space-between" alignItems="center" p={3}>
-              <Flex alignItems="center">
-                <Folder size={18} />
-                <Text ml={1}>{capitalize(category)}</Text>
-              </Flex>
-              <ArrowRight size={18} />
-            </Flex>
-          </Card>
-        ))}
-    <Box mt={2}>
-      <Button
-        onClick={() =>
-          store.elements.push({ ...sample(schemaTypes), id: simpleId() })
-        }
-      >
-        I'm feeling lucky
-      </Button>
-    </Box>
-  </Root>
+          })}
+      </Absolute>
+    </SlideIn>
+  </Relative>
 );
 
 export default view(TypeSelector);

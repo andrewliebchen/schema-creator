@@ -1,5 +1,6 @@
 import { ArrowLeft } from "react-feather";
 import { Heading, Flex } from "rebass";
+import { SlideIn, Relative, Absolute } from "./Animation";
 import { view } from "react-easy-state";
 import Button from "./Button";
 import capitalize from "lodash.capitalize";
@@ -37,13 +38,20 @@ const Schema = props => (
         {store.editingSchema ? "Done" : "Edit"}
       </Button>
     </Flex>
-    {store.editingSchema ? (
-      <TypeSelector />
-    ) : (
-      store.elements.map(element => (
-        <SchemaElement key={element.id} {...element} />
-      ))
-    )}
+    <Relative>
+      <SlideIn in={!store.editingSchema} timeout={200}>
+        <Absolute>
+          {store.elements.map(element => (
+            <SchemaElement key={element.id} {...element} />
+          ))}
+        </Absolute>
+      </SlideIn>
+      <SlideIn in={store.editingSchema} timeout={200}>
+        <Absolute>
+          <TypeSelector />
+        </Absolute>
+      </SlideIn>
+    </Relative>
   </Root>
 );
 

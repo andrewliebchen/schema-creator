@@ -1,4 +1,5 @@
 export const categories = [
+  // "helpers",
   "address",
   "commerce",
   "company",
@@ -16,6 +17,25 @@ export const categories = [
 ];
 
 export const schemaTypes = [
+  // {
+  //   category: "helpers",
+  //   stub: "createCard",
+  //   label: "Create Card",
+  //   type: "helper"
+  // },
+  // {
+  //   category: "helpers",
+  //   stub: "contextualCard",
+  //   label: "Contextual Card",
+  //   type: "helper"
+  // },
+  // { category: "helpers", stub: "userCard", label: "User Card", type: "helper" },
+  // {
+  //   category: "helpers",
+  //   stub: "createTransaction",
+  //   label: "Transaction",
+  //   type: "helper"
+  // },
   {
     category: "address",
     stub: "zipCode",

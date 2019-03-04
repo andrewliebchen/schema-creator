@@ -15,7 +15,7 @@ const Card = props => (
   <Root
     border={1}
     borderColor="black"
-    bg={props.selected && "black"}
+    bg={props.selected ? "black" : "white"}
     borderRadius={4}
     {...props}
   >
