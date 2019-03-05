@@ -23,6 +23,7 @@ const TypeSelector = props => (
             key={category}
             mb={1}
             onClick={() => (store.selectedCategory = category)}
+            id="schemaCategorySelector"
           >
             <Flex justifyContent="space-between" alignItems="center" p={3}>
               <Flex alignItems="center">
@@ -35,6 +36,7 @@ const TypeSelector = props => (
         ))}
         <Box mt={2}>
           <Button
+            id="randomSchemaElementButton"
             onClick={() =>
               store.elements.push({ ...sample(schemaTypes), id: simpleId() })
             }
@@ -58,6 +60,7 @@ const TypeSelector = props => (
                 key={schema.stub}
                 mb={1}
                 selected={isIncluded}
+                id="schemaElementToggleSelect"
                 onClick={() => {
                   if (isIncluded) {
                     console.log(isIncluded.id);

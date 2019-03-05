@@ -11,6 +11,7 @@ const CountControl = props => (
       type="number"
       value={store.count}
       onChange={event => (store.count = event.target.value)}
+      id="sampleCountControlInput"
     />
   </Flex>
 );

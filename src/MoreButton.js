@@ -10,6 +10,7 @@ const MoreButton = props => (
     <Button
       width={1}
       onClick={() => (store.count = store.count + 10)}
+      id="moreSamplesButton"
       {...props}
     >
       Add 10 more...

@@ -27,6 +27,7 @@ const Sample = props => {
                 type={store.view === view ? "black" : "white"}
                 onClick={() => (store.view = view)}
                 ml={1}
+                id="toggleSampleView"
               >
                 {view}
               </Button>
@@ -36,6 +37,7 @@ const Sample = props => {
           <Button
             type="black"
             ml={3}
+            id="copySampleButton"
             onClick={() => {
               const conversion = sampleConverter(samples, store.view);
               copy(conversion.raw);
@@ -47,6 +49,7 @@ const Sample = props => {
           <Button
             type="black"
             ml={1}
+            id="exportSampleButton"
             onClick={() => {
               const conversion = sampleConverter(samples, store.view);
               fileDownload(conversion.raw, conversion.filename);

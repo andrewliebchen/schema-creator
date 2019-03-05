@@ -30,7 +30,7 @@ const Background = styled.div`
 
 const Help = props => (
   <div style={{ position: "relative", zIndex: 9 }}>
-    <Pointer onClick={() => (store.showHelp = true)}>
+    <Pointer onClick={() => (store.showHelp = true)} id="helpModalToggle">
       <HelpCircle />
     </Pointer>
 

@@ -16,7 +16,10 @@ const Schema = props => (
     <Flex justifyContent="space-between" alignItems="center" mb={3}>
       {store.selectedCategory ? (
         <Flex alignItems="center">
-          <Pointer onClick={() => (store.selectedCategory = false)}>
+          <Pointer
+            onClick={() => (store.selectedCategory = false)}
+            id="goBackSchemaCategory"
+          >
             <ArrowLeft />
           </Pointer>
           <Heading ml={2}>{capitalize(store.selectedCategory)}</Heading>

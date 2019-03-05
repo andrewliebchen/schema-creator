@@ -45,20 +45,31 @@ class SchemaElement extends Component {
               onKeyPress={event => event.which === 13 && this._handleSave()}
             />
             <Flex>
-              <X onClick={() => this.setState({ editing: false })} />
-              <Check onClick={this._handleSave} />
+              <X
+                onClick={() => this.setState({ editing: false })}
+                id="cancelCustomSchemaElementTitle"
+              />
+              <Check
+                onClick={this._handleSave}
+                id="saveCustomSchemaElementTitle"
+              />
             </Flex>
           </Flex>
         ) : (
           <Flex justifyContent="space-between" alignItems="center" p={3}>
             <Flex alignItems="center">
               <File size={18} />
-              <Text ml={1} onClick={() => this.setState({ editing: true })}>
+              <Text
+                ml={1}
+                onClick={() => this.setState({ editing: true })}
+                id="toggleSchemaElementTitleEdit"
+              >
                 <Key {...this.props} />
               </Text>
             </Flex>
             <Trash
               size={18}
+              id="removeSchemaElement"
               onClick={() =>
                 store.elements.splice(
                   store.elements.findIndex(
