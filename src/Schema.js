@@ -28,6 +28,7 @@ const Schema = props => (
         </Flex>
       )}
       <Button
+        id="schemaEditToggle"
         onClick={() => {
           store.editingSchema = !store.editingSchema;
           store.selectedCategory = false;
