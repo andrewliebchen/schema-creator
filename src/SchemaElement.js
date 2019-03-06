@@ -49,12 +49,14 @@ class SchemaElement extends Component {
               <Pointer
                 id="cancelCustomSchemaElementTitle"
                 onClick={() => this.setState({ editing: false })}
+                title="Cancel"
               >
                 <X />
               </Pointer>
               <Pointer
                 id="saveCustomSchemaElementTitle"
                 onClick={this._handleSave}
+                title="Save"
               >
                 <Check />
               </Pointer>
@@ -78,6 +80,7 @@ class SchemaElement extends Component {
                   id="toggleSchemaElementTitleEdit"
                   mr={1}
                   onClick={() => this.setState({ editing: true })}
+                  title="Edit"
                 >
                   <Edit3 size={18} />
                 </Pointer>
@@ -91,6 +94,7 @@ class SchemaElement extends Component {
                       1
                     )
                   }
+                  title="Delete"
                 >
                   <Trash size={18} />
                 </Pointer>

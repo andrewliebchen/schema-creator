@@ -19,6 +19,7 @@ const Schema = props => (
           <Pointer
             onClick={() => (store.selectedCategory = false)}
             id="goBackSchemaCategory"
+            title="Go back"
           >
             <ArrowLeft />
           </Pointer>

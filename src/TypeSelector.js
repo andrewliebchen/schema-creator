@@ -15,7 +15,7 @@ import store from "./store";
 
 const TypeSelector = props => (
   <Relative>
-    <SlideIn in={!store.selectedCategory} timeout={200}>
+    <SlideIn in={store.selectedCategory ? false : true} timeout={200}>
       <Absolute>
         {categories.map(category => (
           <Card
@@ -46,7 +46,7 @@ const TypeSelector = props => (
         </Box>
       </Absolute>
     </SlideIn>
-    <SlideIn in={store.selectedCategory} timeout={200}>
+    <SlideIn in={store.selectedCategory ? true : false} timeout={200}>
       <Absolute>
         {schemaTypes
           .filter(schema => schema.category === store.selectedCategory)
@@ -61,6 +61,7 @@ const TypeSelector = props => (
                 mb={1}
                 selected={isIncluded}
                 id="schemaElementToggleSelect"
+                title={isIncluded && "Added to schema"}
                 onClick={() => {
                   if (isIncluded) {
                     console.log(isIncluded.id);
