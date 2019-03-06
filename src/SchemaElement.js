@@ -1,5 +1,5 @@
 import { categories } from "./data";
-import { Check, X, File, Trash } from "react-feather";
+import { Check, X, File, Trash, Edit3 } from "react-feather";
 import { Flex, Text } from "rebass";
 import { view } from "react-easy-state";
 import Card from "./Card";
@@ -8,6 +8,7 @@ import Key from "./Key";
 import PropTypes from "prop-types";
 import React, { Component } from "react";
 import store from "./store";
+import { Pointer, ShowOnHover } from "./StyleHelpers";
 
 class SchemaElement extends Component {
   constructor(props) {
@@ -40,19 +41,23 @@ class SchemaElement extends Component {
           >
             <Input
               autoFocus
-              value={this.state.value}
               onChange={event => this.setState({ value: event.target.value })}
               onKeyPress={event => event.which === 13 && this._handleSave()}
+              value={this.state.value}
             />
             <Flex>
-              <X
-                onClick={() => this.setState({ editing: false })}
+              <Pointer
                 id="cancelCustomSchemaElementTitle"
-              />
-              <Check
-                onClick={this._handleSave}
+                onClick={() => this.setState({ editing: false })}
+              >
+                <X />
+              </Pointer>
+              <Pointer
                 id="saveCustomSchemaElementTitle"
-              />
+                onClick={this._handleSave}
+              >
+                <Check />
+              </Pointer>
             </Flex>
           </Flex>
         ) : (
@@ -60,25 +65,37 @@ class SchemaElement extends Component {
             <Flex alignItems="center">
               <File size={18} />
               <Text
+                id="toggleSchemaElementTitleEdit"
                 ml={1}
                 onClick={() => this.setState({ editing: true })}
-                id="toggleSchemaElementTitleEdit"
               >
                 <Key {...this.props} />
               </Text>
             </Flex>
-            <Trash
-              size={18}
-              id="removeSchemaElement"
-              onClick={() =>
-                store.elements.splice(
-                  store.elements.findIndex(
-                    schema => schema.id === this.props.id
-                  ),
-                  1
-                )
-              }
-            />
+            <ShowOnHover>
+              <Flex>
+                <Pointer
+                  id="toggleSchemaElementTitleEdit"
+                  mr={1}
+                  onClick={() => this.setState({ editing: true })}
+                >
+                  <Edit3 size={18} />
+                </Pointer>
+                <Pointer
+                  id="removeSchemaElement"
+                  onClick={() =>
+                    store.elements.splice(
+                      store.elements.findIndex(
+                        schema => schema.id === this.props.id
+                      ),
+                      1
+                    )
+                  }
+                >
+                  <Trash size={18} />
+                </Pointer>
+              </Flex>
+            </ShowOnHover>
           </Flex>
         )}
       </Card>

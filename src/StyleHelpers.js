@@ -19,3 +19,13 @@ export const Sticky = styled(Box)`
   position: sticky;
   top: 0;
 `;
+
+export const ShowOnHover = styled(Box)`
+  opacity: 0;
+  pointer-events: none;
+
+  *:hover > & {
+    opacity: 1;
+    pointer-events: auto;
+  }
+`;
