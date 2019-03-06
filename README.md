@@ -17,7 +17,7 @@ Schema Creator helps you generate an unlimited amount of random data from a sche
 - ⬜️ Animate table/JSON?
 - ✅ "10 more" button on JSON
 - ✅ Deploy
-- ⬜️ ⭐️ Meta tags and Favicon
+- ✅ ⭐️ Meta tags and Favicon
 - ✅ Analytics (Heap?)
 - ✅ "Copied to clipboard" toast
 - ✅ ⭐️ "What is this" explainer
@@ -25,4 +25,4 @@ Schema Creator helps you generate an unlimited amount of random data from a sche
 - ✅ ⭐️ Style providers (pointer, sticky, absolute, relative...)
 - ✅ ⭐️ Refs for event triggers
 - ✅ ⭐️ Icon for edit header name
-- ⬜️ Use react hooks
+- ✅ Use react hooks
