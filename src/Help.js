@@ -1,10 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import Card from "./Card";
 import { Text, Heading } from "rebass";
 import Button from "./Button";
 import styled from "styled-components";
-import store from "./store";
-import { view } from "react-easy-state";
 import { Pointer } from "./StyleHelpers";
 import { HelpCircle } from "react-feather";
 import { Fade, SlideDown } from "./Animation";
@@ -28,33 +26,37 @@ const Background = styled.div`
   z-index: 99;
 `;
 
-const Help = props => (
-  <div style={{ position: "relative", zIndex: 9 }}>
-    <Pointer
-      onClick={() => (store.showHelp = true)}
-      id="helpModalToggle"
-      title="What's this all about?"
-    >
-      <HelpCircle />
-    </Pointer>
+const Help = () => {
+  const [showModal, setShowModal] = useState(false);
 
-    <Fade in={store.showHelp} timeout={200}>
-      <Background onClick={() => (store.showHelp = false)} />
-    </Fade>
+  return (
+    <div style={{ position: "relative", zIndex: 9 }}>
+      <Pointer
+        onClick={() => setShowModal(true)}
+        id="helpModalToggle"
+        title="What's this all about?"
+      >
+        <HelpCircle />
+      </Pointer>
 
-    <Center>
-      <SlideDown in={store.showHelp} timeout={200}>
-        <Card p={4}>
-          <Heading mb={3}>What is this?</Heading>
-          <Text mb={4}>
-            Schema Creator helps you generate an unlimited amount of random data
-            from a schema you define. Export as a CSV or JSON.
-          </Text>
-          <Button onClick={() => (store.showHelp = false)}>Okay!</Button>
-        </Card>
-      </SlideDown>
-    </Center>
-  </div>
-);
+      <Fade in={showModal} timeout={200}>
+        <Background onClick={() => setShowModal(false)} />
+      </Fade>
 
-export default view(Help);
+      <Center>
+        <SlideDown in={showModal} timeout={200}>
+          <Card p={4}>
+            <Heading mb={3}>What is this?</Heading>
+            <Text mb={4}>
+              Schema Creator helps you generate an unlimited amount of random
+              data from a schema you define. Export as a CSV or JSON.
+            </Text>
+            <Button onClick={() => setShowModal(false)}>Okay!</Button>
+          </Card>
+        </SlideDown>
+      </Center>
+    </div>
+  );
+};
+
+export default Help;

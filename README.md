@@ -21,7 +21,7 @@ Schema Creator helps you generate an unlimited amount of random data from a sche
 - ✅ Analytics (Heap?)
 - ✅ "Copied to clipboard" toast
 - ✅ ⭐️ "What is this" explainer
-- ⬜️ ⭐️ Tooltips
+- ✅ ⭐️ Tooltips
 - ✅ ⭐️ Style providers (pointer, sticky, absolute, relative...)
 - ✅ ⭐️ Refs for event triggers
 - ✅ ⭐️ Icon for edit header name

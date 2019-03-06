@@ -1,111 +1,98 @@
 import { categories } from "./data";
 import { Check, X, File, Trash, Edit3 } from "react-feather";
 import { Flex, Text } from "rebass";
+import { Pointer, ShowOnHover } from "./StyleHelpers";
 import { view } from "react-easy-state";
 import Card from "./Card";
 import Input from "./Input";
 import Key from "./Key";
 import PropTypes from "prop-types";
-import React, { Component } from "react";
+import React, { useState } from "react";
 import store from "./store";
-import { Pointer, ShowOnHover } from "./StyleHelpers";
 
-class SchemaElement extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      editing: false,
-      value: `${this.props.category}.${this.props.stub}`
-    };
-    this._handleSave = this._handleSave.bind(this);
-  }
+const SchemaElement = props => {
+  const [value, setValue] = useState(`${props.category}.${props.stub}`);
+  const [editing, setEditing] = useState(false);
 
-  _handleSave() {
+  const handleSave = () => {
     const matchingElement = store.elements.find(
-      element => element.id === this.props.id
+      element => element.id === props.id
     );
 
-    matchingElement.userLabel = this.state.value;
-    this.setState({ editing: false });
-  }
+    matchingElement.userLabel = value;
+    setEditing(false);
+  };
 
-  render() {
-    return (
-      <Card mb={1}>
-        {this.state.editing ? (
-          <Flex
-            alignItems="center"
-            justifyContent="space-between"
-            px={3}
-            py={2}
-          >
-            <Input
-              autoFocus
-              onChange={event => this.setState({ value: event.target.value })}
-              onKeyPress={event => event.which === 13 && this._handleSave()}
-              value={this.state.value}
-            />
+  return (
+    <Card mb={1}>
+      {editing ? (
+        <Flex alignItems="center" justifyContent="space-between" px={3} py={2}>
+          <Input
+            autoFocus
+            onChange={event => setValue(event.target.value)}
+            onKeyPress={event => {
+              event.which === 13 && handleSave();
+            }}
+            value={value}
+          />
+          <Flex>
+            <Pointer
+              id="cancelCustomSchemaElementTitle"
+              onClick={() => setEditing(false)}
+              title="Cancel"
+            >
+              <X />
+            </Pointer>
+            <Pointer
+              id="saveCustomSchemaElementTitle"
+              onClick={() => handleSave()}
+              title="Save"
+            >
+              <Check />
+            </Pointer>
+          </Flex>
+        </Flex>
+      ) : (
+        <Flex justifyContent="space-between" alignItems="center" p={3}>
+          <Flex alignItems="center">
+            <File size={18} />
+            <Text
+              id="toggleSchemaElementTitleEdit"
+              ml={1}
+              onClick={() => setEditing(true)}
+            >
+              <Key {...props} />
+            </Text>
+          </Flex>
+          <ShowOnHover>
             <Flex>
               <Pointer
-                id="cancelCustomSchemaElementTitle"
-                onClick={() => this.setState({ editing: false })}
-                title="Cancel"
+                id="toggleSchemaElementTitleEdit"
+                mr={1}
+                onClick={() => setEditing(true)}
+                title="Edit"
               >
-                <X />
+                <Edit3 size={18} />
               </Pointer>
               <Pointer
-                id="saveCustomSchemaElementTitle"
-                onClick={this._handleSave}
-                title="Save"
+                id="removeSchemaElement"
+                onClick={() =>
+                  store.elements.splice(
+                    store.elements.findIndex(schema => schema.id === props.id),
+                    1
+                  )
+                }
+                title="Delete"
               >
-                <Check />
+                <Trash size={18} />
               </Pointer>
             </Flex>
-          </Flex>
-        ) : (
-          <Flex justifyContent="space-between" alignItems="center" p={3}>
-            <Flex alignItems="center">
-              <File size={18} />
-              <Text
-                id="toggleSchemaElementTitleEdit"
-                ml={1}
-                onClick={() => this.setState({ editing: true })}
-              >
-                <Key {...this.props} />
-              </Text>
-            </Flex>
-            <ShowOnHover>
-              <Flex>
-                <Pointer
-                  id="toggleSchemaElementTitleEdit"
-                  mr={1}
-                  onClick={() => this.setState({ editing: true })}
-                  title="Edit"
-                >
-                  <Edit3 size={18} />
-                </Pointer>
-                <Pointer
-                  id="removeSchemaElement"
-                  onClick={() =>
-                    store.elements.splice(
-                      store.elements.findIndex(
-                        schema => schema.id === this.props.id
-                      ),
-                      1
-                    )
-                  }
-                  title="Delete"
-                >
-                  <Trash size={18} />
-                </Pointer>
-              </Flex>
-            </ShowOnHover>
-          </Flex>
-        )}
-      </Card>
-    );
-  }
-}
+          </ShowOnHover>
+        </Flex>
+      )}
+    </Card>
+  );
+};
 
 SchemaElement.propTyeps = {
   category: PropTypes.oneOf([categories]),

@@ -6,7 +6,7 @@ import Card from "./Card";
 import copy from "clipboard-copy";
 import CountControl from "./CountControl";
 import fileDownload from "js-file-download";
-import React from "react";
+import React, { useState } from "react";
 import SampleJson from "./SampleJson";
 import SampleTable from "./SampleTable";
 import store from "./store";
@@ -14,7 +14,9 @@ import store from "./store";
 const viewOptions = ["Table", "JSON"];
 
 const Sample = props => {
+  const [currentView, setCurrentView] = useState(viewOptions[0]);
   const samples = getSamples(store.count, store.elements);
+
   return (
     <Box>
       <Flex width={1} justifyContent="space-between" alignItems="center" mb={3}>
@@ -24,8 +26,8 @@ const Sample = props => {
             {viewOptions.map(view => (
               <Button
                 key={view}
-                type={store.view === view ? "black" : "white"}
-                onClick={() => (store.view = view)}
+                type={currentView === view ? "black" : "white"}
+                onClick={() => setCurrentView(view)}
                 ml={1}
                 id="toggleSampleView"
               >
@@ -39,7 +41,7 @@ const Sample = props => {
             ml={3}
             id="copySampleButton"
             onClick={() => {
-              const conversion = sampleConverter(samples, store.view);
+              const conversion = sampleConverter(samples, currentView);
               copy(conversion.raw);
               store.toast.show = true;
             }}
@@ -51,7 +53,7 @@ const Sample = props => {
             ml={1}
             id="exportSampleButton"
             onClick={() => {
-              const conversion = sampleConverter(samples, store.view);
+              const conversion = sampleConverter(samples, currentView);
               fileDownload(conversion.raw, conversion.filename);
             }}
           >
@@ -60,8 +62,8 @@ const Sample = props => {
         </Flex>
       </Flex>
       <Card>
-        {store.view === viewOptions[0] && <SampleTable samples={samples} />}
-        {store.view === viewOptions[1] && <SampleJson samples={samples} />}
+        {currentView === viewOptions[0] && <SampleTable samples={samples} />}
+        {currentView === viewOptions[1] && <SampleJson samples={samples} />}
       </Card>
     </Box>
   );
