@@ -1,6 +1,7 @@
 {
   "version": 2,
   "name": "schema-creator",
+  "alias": "schema-creator",
   "builds": [
     {
       "src": "package.json",
