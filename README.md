@@ -9,7 +9,7 @@ Schema Creator helps you generate an unlimited amount of random data from a sche
 - ✅ Better format for numbers
 - ✅ Fix formatting for date schema in table
 - ✅ Better styled button
-- ⬜️ ⭐️ Pre-set schemas (using Faker's helpers)
+- ✅ ⭐️ Pre-set schemas (using Faker's helpers)
 - ✅ Change column titles/keys
 - ⬜️ DND reorder
 - ⬜️ Nesting
@@ -26,3 +26,4 @@ Schema Creator helps you generate an unlimited amount of random data from a sche
 - ✅ ⭐️ Refs for event triggers
 - ✅ ⭐️ Icon for edit header name
 - ✅ Use react hooks
+- ⬜️ Schema search

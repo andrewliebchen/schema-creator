@@ -5,6 +5,7 @@ export default store({
   elements: [
     { id: simpleId(), category: "name", stub: "findName", label: "Full Name" }
   ],
+  selectedHelpers: [],
   count: 10,
   editingSchema: false,
   selectedCategory: false,

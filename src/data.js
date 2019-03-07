@@ -1,5 +1,4 @@
 export const categories = [
-  // "helpers",
   "address",
   "commerce",
   "company",
@@ -17,25 +16,6 @@ export const categories = [
 ];
 
 export const schemaTypes = [
-  // {
-  //   category: "helpers",
-  //   stub: "createCard",
-  //   label: "Create Card",
-  //   type: "helper"
-  // },
-  // {
-  //   category: "helpers",
-  //   stub: "contextualCard",
-  //   label: "Contextual Card",
-  //   type: "helper"
-  // },
-  // { category: "helpers", stub: "userCard", label: "User Card", type: "helper" },
-  // {
-  //   category: "helpers",
-  //   stub: "createTransaction",
-  //   label: "Transaction",
-  //   type: "helper"
-  // },
   {
     category: "address",
     stub: "zipCode",
@@ -230,4 +210,41 @@ export const schemaTypes = [
   { category: "system", stub: "directoryPath", label: "Directory Path" },
   { category: "system", stub: "filePath", label: "File Path" },
   { category: "system", stub: "semver", label: "Semver", type: "numberish" }
+];
+
+export const helpers = [
+  {
+    label: "Profile",
+    stub: "profile",
+    elements: [
+      { category: "name", stub: "findName", label: "Full Name" },
+      { category: "image", stub: "avatar", label: "Avatar", type: "image" },
+      { category: "internet", stub: "email", label: "Email" },
+      { category: "internet", stub: "userName", label: "User Name" },
+      {
+        category: "phone",
+        stub: "phoneNumberFormat",
+        label: "Phone Number Formatted",
+        type: "numberish"
+      },
+      { category: "image", stub: "image", label: "Cover Image", type: "image" }
+    ]
+  },
+  {
+    label: "Business",
+    stub: "business",
+    elements: [
+      { category: "company", stub: "companyName", label: "Company Name" },
+      { category: "company", stub: "catchPhrase", label: "Catch Phrase" },
+      { category: "company", stub: "bs", label: "B.S." },
+      {
+        category: "phone",
+        stub: "phoneNumberFormat",
+        label: "Phone Number Formatted",
+        type: "numberish"
+      },
+      { category: "internet", stub: "url", label: "URL" },
+      { category: "commerce", stub: "color", label: "Color" }
+    ]
+  }
 ];
