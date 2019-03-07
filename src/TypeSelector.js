@@ -70,9 +70,9 @@ const TypeSelector = props => (
                 mb={1}
                 id="helperElementToggleSelect"
                 onClick={() => {
-                  helper.elements.map(element => {
-                    store.elements.push({ ...element, id: simpleId() });
-                  });
+                  helper.elements.map(element =>
+                    store.elements.push({ ...element, id: simpleId() })
+                  );
                 }}
               >
                 <Flex justifyContent="space-between" alignItems="center" p={3}>

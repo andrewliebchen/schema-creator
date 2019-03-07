@@ -1,9 +1,9 @@
-import React from "react";
-import store from "./store";
-import { view } from "react-easy-state";
 import { Flex } from "rebass";
+import { view } from "react-easy-state";
 import Button from "./Button";
 import PropTypes from "prop-types";
+import React from "react";
+import store from "./store";
 
 const MoreButton = props => (
   <Flex p={1}>

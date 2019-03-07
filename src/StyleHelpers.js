@@ -1,5 +1,5 @@
-import styled from "styled-components";
 import { Box } from "rebass";
+import styled from "styled-components";
 
 export const Relative = styled(Box)`
   position: relative;

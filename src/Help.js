@@ -1,11 +1,11 @@
-import React, { useState } from "react";
-import Card from "./Card";
+import { Fade, SlideDown } from "./Animation";
+import { HelpCircle } from "react-feather";
+import { Pointer } from "./StyleHelpers";
 import { Text, Heading } from "rebass";
 import Button from "./Button";
+import Card from "./Card";
+import React, { useState } from "react";
 import styled from "styled-components";
-import { Pointer } from "./StyleHelpers";
-import { HelpCircle } from "react-feather";
-import { Fade, SlideDown } from "./Animation";
 
 const Center = styled.div`
   position: fixed;
