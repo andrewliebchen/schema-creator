@@ -12,21 +12,15 @@ import store from "./store";
 import { genSample } from "./utils";
 
 const SchemaElement = props => (
-  <Card mb={1} hover>
+  <Card mb={1} hover borderColor={props.color}>
     <Flex alignItems="center" p={3}>
-      <div
-        style={{
-          height: 18,
-          width: 18,
-          borderRadius: 4,
-          backgroundColor: props.color
-        }}
-      />
       <Box ml={2} mr="auto">
         <Flex alignItems="center">
-          <Text>{props.stub}</Text>
+          <Text color={props.color}>{props.stub}</Text>
         </Flex>
-        <Text fontWeight="bold">{props.sample}</Text>
+        <Text fontWeight="bold" color={props.color}>
+          {props.sample}
+        </Text>
       </Box>
       <ShowOnHover>
         <Flex>
@@ -39,7 +33,7 @@ const SchemaElement = props => (
             }
             title="Refresh"
           >
-            <RefreshCcw size={18} />
+            <RefreshCcw size={18} color={props.color} />
           </Pointer>
           <Pointer
             onClick={() =>
@@ -50,7 +44,7 @@ const SchemaElement = props => (
             }
             title="Delete"
           >
-            <Trash size={18} />
+            <Trash size={18} color={props.color} />
           </Pointer>
         </Flex>
       </ShowOnHover>

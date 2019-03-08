@@ -3432,6 +3432,11 @@ flat-cache@^1.2.1:
     rimraf "~2.6.2"
     write "^0.2.1"
 
+flat-colors@^3.3.11:
+  version "3.3.11"
+  resolved "https://registry.yarnpkg.com/flat-colors/-/flat-colors-3.3.11.tgz#869e372b70ae289d6512bbdabd8e3baf3ba7f942"
+  integrity sha512-JLOPZKATex6dUscEn2pbvYiNPbUoxubBN+wu2meJ/V4j6Jhuw3fJaPQBoOIk2D9Ndq1l6GAhiw+SW7d//Lg3Dg==
+
 flatten@^1.0.2:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/flatten/-/flatten-1.0.2.tgz#dae46a9d78fbe25292258cc1e780a41d95c03782"

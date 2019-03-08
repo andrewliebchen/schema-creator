@@ -3,7 +3,9 @@ import faker from "faker";
 import json2csv from "json2csv";
 import times from "lodash.times";
 import simpleId from "simple-id";
-import bikeshed from "@jxnblk/bikeshed";
+import FlatColors from "flat-colors";
+
+console.log(FlatColors()[3]);
 
 export const genSample = element => {
   return faker[element.category][element.stub]();
@@ -14,7 +16,7 @@ export const genElement = schema => {
     ...schema,
     id: simpleId(),
     sample: genSample(schema),
-    color: bikeshed()
+    color: FlatColors()[3] // Returned array is [r, g, b, hex, name]
   };
 };
 

@@ -13,15 +13,18 @@ const Root = styled(Base)`
 `;
 
 const Card = props => (
-  <Root bg={props.selected ? "black" : "white"} {...props}>
+  <Root
+    border={1}
+    borderRadius={4}
+    bg={props.selected ? "black" : "white"}
+    {...props}
+  >
     {props.children}
   </Root>
 );
 
 Card.defaultProps = {
-  borderColor: "black",
-  border: 1,
-  borderRadius: 4
+  borderColor: "black"
 };
 
 Card.propTyeps = {

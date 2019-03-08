@@ -7,6 +7,7 @@
     "clipboard-copy": "^2.0.1",
     "datef": "^3.0.0",
     "faker": "^4.1.0",
+    "flat-colors": "^3.3.11",
     "js-file-download": "^0.4.4",
     "json2csv": "^4.3.4",
     "knoll": "^4.0.0",
