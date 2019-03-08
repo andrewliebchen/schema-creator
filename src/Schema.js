@@ -9,7 +9,8 @@ import React, { useState } from "react";
 import SchemaElement from "./SchemaElement";
 import store from "./store";
 import TypeSelector from "./TypeSelector";
-import Help from "./Help";
+
+// TODO: Rename <Elements />?
 
 const Schema = props => {
   const [editing, setEditing] = useState(false);
@@ -31,7 +32,6 @@ const Schema = props => {
         ) : (
           <Flex alignItems="center">
             <Heading mr={2}>Schema</Heading>
-            <Help />
           </Flex>
         )}
         <Button

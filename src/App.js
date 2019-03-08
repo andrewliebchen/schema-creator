@@ -9,9 +9,8 @@ const App = props => (
     <Box width={1 / 5}>
       <Schema />
     </Box>
-    <Box width={4 / 5} p={3}>
-      <Sample />
-    </Box>
+    <Box width={2 / 5}>Structure</Box>
+    <Box width={2 / 5}>Preview</Box>
     <Toast />
   </Flex>
 );

@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@jxnblk/bikeshed": "^1.0.0-beta.1",
     "clipboard-copy": "^2.0.1",
     "datef": "^3.0.0",
     "faker": "^4.1.0",

@@ -2,9 +2,20 @@ import datef from "datef";
 import faker from "faker";
 import json2csv from "json2csv";
 import times from "lodash.times";
+import simpleId from "simple-id";
+import bikeshed from "@jxnblk/bikeshed";
 
 export const genSample = element => {
   return faker[element.category][element.stub]();
+};
+
+export const genElement = schema => {
+  return {
+    ...schema,
+    id: simpleId(),
+    sample: genSample(schema),
+    color: bikeshed()
+  };
 };
 
 export const getSamples = (count, elements) => {

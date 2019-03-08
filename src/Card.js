@@ -7,25 +7,27 @@ const Root = styled(Base)`
   cursor: ${props => props.hover && "pointer"};
 
   &:hover {
-    box-shadow: ${props => props.hover && "inset 0 0 0 2px black"};
+    box-shadow: ${props =>
+      props.hover && `inset 0 0 0 2px ${props.borderColor}`};
   }
 `;
 
 const Card = props => (
-  <Root
-    border={1}
-    borderColor="black"
-    bg={props.selected ? "black" : "white"}
-    borderRadius={4}
-    {...props}
-  >
+  <Root bg={props.selected ? "black" : "white"} {...props}>
     {props.children}
   </Root>
 );
 
+Card.defaultProps = {
+  borderColor: "black",
+  border: 1,
+  borderRadius: 4
+};
+
 Card.propTyeps = {
   hover: PropTypes.boolean,
-  selected: PropTypes.boolean
+  selected: PropTypes.boolean,
+  borderColor: PropTypes.string
 };
 
 export default Card;

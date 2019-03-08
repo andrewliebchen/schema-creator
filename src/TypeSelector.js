@@ -12,6 +12,7 @@ import remove from "lodash.remove";
 import sample from "lodash.sample";
 import simpleId from "simple-id";
 import store from "./store";
+import { genElement } from "./utils";
 
 const TypeSelector = props => (
   <Relative>
@@ -48,16 +49,6 @@ const TypeSelector = props => (
             </Flex>
           </Card>
         ))}
-        <Box mt={2}>
-          <Button
-            id="randomSchemaElementButton"
-            onClick={() =>
-              store.elements.push({ ...sample(schemaTypes), id: simpleId() })
-            }
-          >
-            I'm feeling lucky
-          </Button>
-        </Box>
       </Absolute>
     </SlideIn>
     <SlideIn in={store.selectedCategory ? true : false} timeout={200}>
@@ -70,8 +61,8 @@ const TypeSelector = props => (
                 mb={1}
                 id="helperElementToggleSelect"
                 onClick={() => {
-                  helper.elements.map(element =>
-                    store.elements.push({ ...element, id: simpleId() })
+                  helper.elements.map(schema =>
+                    store.elements.push(genElement(schema))
                   );
                 }}
               >
@@ -103,7 +94,7 @@ const TypeSelector = props => (
                       if (isIncluded) {
                         remove(store.elements, { id: isIncluded.id });
                       } else {
-                        store.elements.push({ ...schema, id: simpleId() });
+                        store.elements.push(genElement(schema));
                       }
                     }}
                   >
