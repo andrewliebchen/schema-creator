@@ -1,22 +1,23 @@
 import { categories } from "./data";
-import { Check, X, File, Trash, Edit3, RefreshCcw } from "react-feather";
+import { File, Trash, RefreshCcw } from "react-feather";
 import { Flex, Text, Box } from "rebass";
 import { Pointer, ShowOnHover } from "./StyleHelpers";
 import { view } from "react-easy-state";
 import Card from "./Card";
-import Input from "./Input";
-import Key from "./Key";
 import PropTypes from "prop-types";
-import React, { useState } from "react";
+import React from "react";
 import store from "./store";
 import { genSample } from "./utils";
 
-const SchemaElement = props => (
+const DataElement = props => (
   <Card mb={1} hover borderColor={props.color}>
     <Flex alignItems="center" p={3}>
+      <File color={props.color} />
       <Box ml={2} mr="auto">
         <Flex alignItems="center">
-          <Text color={props.color}>{props.stub}</Text>
+          <Text color={props.color} ml={1}>
+            {props.stub}
+          </Text>
         </Flex>
         <Text fontWeight="bold" color={props.color}>
           {props.sample}
@@ -52,7 +53,7 @@ const SchemaElement = props => (
   </Card>
 );
 
-SchemaElement.propTyeps = {
+DataElement.propTyeps = {
   category: PropTypes.oneOf([categories]),
   id: PropTypes.number,
   stub: PropTypes.string,
@@ -60,4 +61,4 @@ SchemaElement.propTyeps = {
   color: PropTypes.string
 };
 
-export default view(SchemaElement);
+export default view(DataElement);

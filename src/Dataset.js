@@ -6,13 +6,11 @@ import { view } from "react-easy-state";
 import Button from "./Button";
 import capitalize from "lodash.capitalize";
 import React, { useState } from "react";
-import SchemaElement from "./SchemaElement";
+import DataElement from "./DataElement";
 import store from "./store";
-import TypeSelector from "./TypeSelector";
+import DataSchemaSelector from "./DataSchemaSelector";
 
-// TODO: Rename <Elements />?
-
-const Schema = props => {
+const Dataset = props => {
   const [editing, setEditing] = useState(false);
 
   return (
@@ -48,13 +46,13 @@ const Schema = props => {
         <SlideIn in={!editing} timeout={200}>
           <Absolute>
             {store.elements.map(element => (
-              <SchemaElement key={element.id} {...element} />
+              <DataElement key={element.id} {...element} />
             ))}
           </Absolute>
         </SlideIn>
         <SlideIn in={editing} timeout={200}>
           <Absolute>
-            <TypeSelector />
+            <DataSchemaSelector />
           </Absolute>
         </SlideIn>
       </Relative>
@@ -62,4 +60,4 @@ const Schema = props => {
   );
 };
 
-export default view(Schema);
+export default view(Dataset);

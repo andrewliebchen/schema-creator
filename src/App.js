@@ -1,15 +1,17 @@
 import { Flex, Box } from "rebass";
 import React from "react";
-import Sample from "./Sample";
-import Schema from "./Schema";
+import Dataset from "./Dataset";
 import Toast from "./Toast";
+import Structure from "./Structure";
 
 const App = props => (
   <Flex>
     <Box width={1 / 5}>
-      <Schema />
+      <Dataset />
     </Box>
-    <Box width={2 / 5}>Structure</Box>
+    <Box width={2 / 5}>
+      <Structure />
+    </Box>
     <Box width={2 / 5}>Preview</Box>
     <Toast />
   </Flex>

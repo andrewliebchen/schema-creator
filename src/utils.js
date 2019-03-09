@@ -5,8 +5,6 @@ import times from "lodash.times";
 import simpleId from "simple-id";
 import FlatColors from "flat-colors";
 
-console.log(FlatColors()[3]);
-
 export const genSample = element => {
   return faker[element.category][element.stub]();
 };

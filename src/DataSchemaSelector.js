@@ -1,20 +1,17 @@
-import { Box, Flex, Text } from "rebass";
+import { Flex, Text } from "rebass";
 import { Check, ArrowRight, File, Folder, Book } from "react-feather";
 import { schemaTypes, categories, helpers } from "./data";
 import { SlideIn } from "./Animation";
 import { Absolute, Relative } from "./StyleHelpers";
 import { view } from "react-easy-state";
-import Button from "./Button";
 import capitalize from "lodash.capitalize";
 import Card from "./Card";
 import React from "react";
 import remove from "lodash.remove";
-import sample from "lodash.sample";
-import simpleId from "simple-id";
 import store from "./store";
 import { genElement } from "./utils";
 
-const TypeSelector = props => (
+const DataSchemaSelector = props => (
   <Relative>
     <SlideIn in={store.selectedCategory ? false : true} timeout={200}>
       <Absolute>
@@ -126,4 +123,4 @@ const TypeSelector = props => (
   </Relative>
 );
 
-export default view(TypeSelector);
+export default view(DataSchemaSelector);

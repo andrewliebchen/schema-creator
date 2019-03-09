@@ -1,5 +1,4 @@
 import { store } from "react-easy-state";
-import simpleId from "simple-id";
 import { genElement } from "./utils";
 
 const defaultSchema = {
