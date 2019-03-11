@@ -1,8 +1,9 @@
 import { Flex, Box } from "rebass";
-import React from "react";
 import Dataset from "./Dataset";
-import Toast from "./Toast";
+import React from "react";
 import Structure from "./Structure";
+import Toast from "./Toast";
+import Preview from "./Preview";
 
 const App = props => (
   <Flex>
@@ -12,7 +13,9 @@ const App = props => (
     <Box width={2 / 5}>
       <Structure />
     </Box>
-    <Box width={2 / 5}>Preview</Box>
+    <Box width={2 / 5}>
+      <Preview />
+    </Box>
     <Toast />
   </Flex>
 );

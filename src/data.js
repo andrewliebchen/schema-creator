@@ -248,3 +248,19 @@ export const helpers = [
     ]
   }
 ];
+
+export const components = [
+  "Text",
+  "Box",
+  "Flex",
+  "Heading",
+  "Button",
+  "Link",
+  "Image",
+  "Card"
+];
+
+export const componentProps = [
+  { key: "width", type: "number" },
+  { key: "p", type: "number" }
+];

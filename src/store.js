@@ -4,7 +4,12 @@ import { genElement } from "./utils";
 const defaultSchema = {
   category: "name",
   stub: "findName",
-  label: "Full Name"
+  label: "Full Name",
+  component: {
+    element: "Text",
+    children: null,
+    props: { color: "red" }
+  }
 };
 
 export default store({
