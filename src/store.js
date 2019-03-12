@@ -5,11 +5,9 @@ const defaultSchema = {
   category: "name",
   stub: "findName",
   label: "Full Name",
-  component: {
-    element: "Text",
-    children: null,
-    props: { color: "red" }
-  }
+  componentElement: "Text",
+  componentChildren: null,
+  componentProps: [{ key: "color", value: "black" }]
 };
 
 export default store({

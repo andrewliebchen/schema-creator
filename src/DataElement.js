@@ -16,7 +16,7 @@ const DataElement = props => (
       <Box ml={2} mr="auto">
         <Flex alignItems="center">
           <Text color={props.color} fontSize={1}>
-            {props.stub}
+            {props.category}.{props.stub}
           </Text>
         </Flex>
         <Text fontWeight="bold" color={props.color}>

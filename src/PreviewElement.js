@@ -1,17 +1,20 @@
 import React from "react";
-import { Text, Button } from "rebass";
+import { Text, Button, Card } from "rebass";
 import store from "./store";
 import { view } from "react-easy-state";
 import PropTypes from "prop-types";
 
-const components = { Text: Text, Button: Button };
+const components = { Text: Text, Button: Button, Card: Card };
 
 const PreviewElement = props => {
   const element = store.elements.find(element => element.id === props.id);
+  let elementProps = {};
+  element.componentProps.map(prop => (elementProps[prop.key] = prop.value));
+
   return React.createElement(
-    components[element.component.element],
-    element.component.props,
-    element.sample
+    components[element.componentElement],
+    elementProps,
+    props.sample || element.sample
   );
 };
 
