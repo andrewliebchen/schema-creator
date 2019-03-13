@@ -249,50 +249,245 @@ export const helpers = [
   }
 ];
 
-export const components = [
-  "Text",
-  "Box",
-  "Flex",
-  "Heading",
-  "Button",
-  "Link",
-  "Image",
-  "Card"
+export const componentLibrary = [
+  { name: "Text" },
+  { name: "Box" },
+  { name: "Flex" },
+  { name: "Heading" },
+  { name: "Button" },
+  { name: "Link" },
+  { name: "Image" },
+  { name: "Card" }
 ];
 
 export const componentProps = [
-  { key: "m", label: "margin", type: "number" },
-  { key: "mt", label: "margin-top", type: "number" },
-  { key: "mr", label: "margin-right", type: "number" },
-  { key: "mb", label: "margin-bottom", type: "number" },
-  { key: "ml", label: "margin-left", type: "number" },
-  { key: "mx", label: "margin-left and margin-right", type: "number" },
-  { key: "my", label: "margin-top and margin-bottom", type: "number" },
-  { key: "p", label: "padding", type: "number" },
-  { key: "pt", label: "padding-top", type: "number" },
-  { key: "pr", label: "padding-right", type: "number" },
-  { key: "pb", label: "padding-bottom", type: "number" },
-  { key: "pl", label: "padding-left", type: "number" },
-  { key: "px", label: "padding-left and padding-right", type: "number" },
-  { key: "py", label: "padding-top and padding-bottom", type: "number" },
-  { key: "width", label: "responsive width", type: "number" },
-  { key: "fontSize", label: "responsive font size", type: "number" },
-  { key: "color", label: "text color", type: "text" },
-  { key: "bg", label: "background color", type: "text" },
-  { key: "flex", label: "flex shorthand property", type: "text" },
-  { key: "order", label: "order property", type: "text" },
-  { key: "alignSelf", label: "align-self property", type: "text" },
-  { key: "flexWrap", label: "flex-wrap property", type: "text" },
-  { key: "flexDirection", label: "flex-direction property", type: "text" },
-  { key: "alignItems", label: "align-items property", type: "text" },
-  { key: "justifyContent", label: "justify-content property", type: "text" },
-  { key: "fontFamily", label: "font-family property", type: "text" },
-  { key: "textAlign", label: "text-align property", type: "text" },
-  { key: "lineHeight", label: "line-height property", type: "text" },
-  { key: "letterSpacing", label: "letter-spacing property", type: "text" },
-  { key: "fontWeight", label: "font-weight property", type: "text" },
-  { key: "border", label: "border width", type: "string" },
-  { key: "borderColor", label: "border-color property", type: "text" },
-  { key: "borderRadius", label: "border-radius property", type: "number" },
-  { key: "height", label: "height property", type: "number" }
+  {
+    key: "m",
+    label: "Margin",
+    type: "number",
+    components: ["Box", "Flex", "Text", "Heading", "Button", "Link", "Image"]
+  },
+  {
+    key: "mt",
+    label: "Top margin",
+    type: "number",
+    components: ["Box", "Flex", "Text", "Heading", "Button", "Link", "Image"]
+  },
+  {
+    key: "mr",
+    label: "Right margin",
+    type: "number",
+    components: ["Box", "Flex", "Text", "Heading", "Button", "Link", "Image"]
+  },
+  {
+    key: "mb",
+    label: "Bottom margin",
+    type: "number",
+    components: ["Box", "Flex", "Text", "Heading", "Button", "Link", "Image"]
+  },
+  {
+    key: "ml",
+    label: "Left margin",
+    type: "number",
+    components: ["Box", "Flex", "Text", "Heading", "Button", "Link", "Image"]
+  },
+  {
+    key: "mx",
+    label: "Horizontal margin",
+    type: "number",
+    components: ["Box", "Flex", "Text", "Heading", "Button", "Link", "Image"]
+  },
+  {
+    key: "my",
+    label: "Vertical margin",
+    type: "number",
+    components: ["Box", "Flex", "Text", "Heading", "Button", "Link", "Image"]
+  },
+  {
+    key: "p",
+    label: "Padding",
+    type: "number",
+    components: ["Box", "Flex", "Text", "Heading", "Button", "Link", "Image"]
+  },
+  {
+    key: "pt",
+    label: "Top padding",
+    type: "number",
+    components: ["Box", "Flex", "Text", "Heading", "Button", "Link", "Image"]
+  },
+  {
+    key: "pr",
+    label: "Right padding",
+    type: "number",
+    components: ["Box", "Flex", "Text", "Heading", "Button", "Link", "Image"]
+  },
+  {
+    key: "pb",
+    label: "Bottom padding",
+    type: "number",
+    components: ["Box", "Flex", "Text", "Heading", "Button", "Link", "Image"]
+  },
+  {
+    key: "pl",
+    label: "Left padding",
+    type: "number",
+    components: ["Box", "Flex", "Text", "Heading", "Button", "Link", "Image"]
+  },
+  {
+    key: "px",
+    label: "Horizontal padding",
+    type: "number",
+    components: ["Box", "Flex", "Text", "Heading", "Button", "Link", "Image"]
+  },
+  {
+    key: "py",
+    label: "Vertical padding",
+    type: "number",
+    components: ["Box", "Flex", "Text", "Heading", "Button", "Link", "Image"]
+  },
+  {
+    key: "width",
+    label: "Width",
+    type: "number",
+    components: ["Box", "Flex", "Text", "Heading", "Button", "Link", "Image"]
+  },
+  {
+    key: "fontSize",
+    label: "Font size",
+    type: "number",
+    components: ["Box", "Flex", "Text", "Heading", "Button", "Link", "Image"]
+  },
+  {
+    key: "color",
+    label: "Text color",
+    type: "text",
+    components: ["Box", "Flex", "Text", "Heading", "Button", "Link", "Image"]
+  },
+  {
+    key: "bg",
+    label: "Background color",
+    type: "text",
+    components: [
+      "Box",
+      "Flex",
+      "Text",
+      "Heading",
+      "Button",
+      "Link",
+      "Image",
+      "Card"
+    ]
+  },
+  {
+    key: "flex",
+    label: "flex shorthand property",
+    type: "text",
+    components: ["Box", "Flex", "Text", "Heading", "Button", "Link", "Image"]
+  },
+  {
+    key: "order",
+    label: "order",
+    type: "text",
+    components: ["Box", "Flex", "Text", "Heading", "Button", "Link", "Image"]
+  },
+  {
+    key: "alignSelf",
+    label: "align-self",
+    type: "text",
+    components: ["Box", "Flex", "Text", "Heading", "Button", "Link", "Image"]
+  },
+  { key: "flexWrap", label: "flex-wrap", type: "text", components: ["Flex"] },
+  {
+    key: "flexDirection",
+    label: "flex-direction",
+    type: "text",
+    components: ["Flex"]
+  },
+  {
+    key: "alignItems",
+    label: "align-items",
+    type: "text",
+    components: ["Flex"]
+  },
+  {
+    key: "justifyContent",
+    label: "justify-content",
+    type: "text",
+    components: ["Flex"]
+  },
+  {
+    key: "fontFamily",
+    label: "font-family",
+    type: "text",
+    components: ["Text", "Heading"]
+  },
+  {
+    key: "textAlign",
+    label: "text-align",
+    type: "text",
+    components: ["Text", "Heading"]
+  },
+  {
+    key: "lineHeight",
+    label: "line-height",
+    type: "text",
+    components: ["Text", "Heading"]
+  },
+  {
+    key: "letterSpacing",
+    label: "letter-spacing",
+    type: "text",
+    components: ["Text", "Heading"]
+  },
+  {
+    key: "fontWeight",
+    label: "font-weight",
+    type: "text",
+    components: ["Text", "Heading", "Button"]
+  },
+  {
+    key: "border",
+    label: "Border width",
+    type: "string",
+    components: ["Button", "Card"]
+  },
+  {
+    key: "borderColor",
+    label: "border-color",
+    type: "text",
+    components: ["Button", "Card"]
+  },
+  {
+    key: "borderRadius",
+    label: "border-radius",
+    type: "number",
+    components: ["Button", "Image", "Card"]
+  },
+  { key: "height", label: "height", type: "number", components: ["Image"] },
+  { key: "boxShadow", label: "box-shadow", type: "text", components: ["Card"] },
+  {
+    key: "backgroundImage",
+    label: "background-image",
+    type: "text",
+    components: ["Card"]
+  },
+  {
+    key: "backgroundSize",
+    label: "background-size",
+    type: "text",
+    components: ["Card"]
+  },
+  {
+    key: "backgroundPosition",
+    label: "background-position",
+    type: "text",
+    components: ["Card"]
+  },
+  {
+    key: "backgroundRepeat",
+    label: "background-repeat",
+    type: "text",
+    components: ["Card"]
+  },
+  { key: "opacity", label: "Opacity", type: "number", components: ["Card"] }
 ];

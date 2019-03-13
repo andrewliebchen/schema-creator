@@ -1,7 +1,7 @@
 import React from "react";
 import Card from "./Card";
 import { Box, Text, Flex, Link } from "rebass";
-import { components, componentProps } from "./data";
+import { componentLibrary, componentProps } from "./data";
 import PropTypes from "prop-types";
 import store from "./store";
 import { view } from "react-easy-state";
@@ -18,9 +18,9 @@ const StructureElement = props => {
           value={element.componentElement}
           onChange={event => (element.componentElement = event.target.value)}
         >
-          {components.map(component => (
-            <option key={component} value={component}>
-              {component}
+          {componentLibrary.map(component => (
+            <option key={component.name} value={component.name}>
+              {component.name}
             </option>
           ))}
         </select>
@@ -48,11 +48,15 @@ const StructureElement = props => {
                 (element.componentProps[i].key = event.target.value)
               }
             >
-              {componentProps.map(prop => (
-                <option key={prop.key} value={prop.key}>
-                  {prop.key}
-                </option>
-              ))}
+              {componentProps
+                .filter(prop =>
+                  prop.components.includes(element.componentElement)
+                )
+                .map(prop => (
+                  <option key={prop.key} value={prop.key}>
+                    {prop.key}
+                  </option>
+                ))}
             </select>
             <Input
               type={

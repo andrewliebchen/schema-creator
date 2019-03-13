@@ -1,10 +1,19 @@
 import React from "react";
-import { Text, Button, Card } from "rebass";
+import { Text, Box, Flex, Heading, Button, Link, Image, Card } from "rebass";
 import store from "./store";
 import { view } from "react-easy-state";
 import PropTypes from "prop-types";
 
-const components = { Text: Text, Button: Button, Card: Card };
+const components = {
+  Text: Text,
+  Box: Box,
+  Flex: Flex,
+  Heading: Heading,
+  Button: Button,
+  Link: Link,
+  Image: Image,
+  Card: Card
+};
 
 const PreviewElement = props => {
   const element = store.elements.find(element => element.id === props.id);
