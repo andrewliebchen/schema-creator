@@ -7,6 +7,7 @@ import store from "./store";
 import { view } from "react-easy-state";
 import { File } from "react-feather";
 import Input from "./Input";
+import Select from "./Select";
 
 const StructureElement = props => {
   const element = store.elements.find(element => element.id === props.id);
@@ -14,7 +15,7 @@ const StructureElement = props => {
     <Card mb={1} p={3}>
       <Box mb={2}>
         <Text fontSize={0}>Element</Text>
-        <select
+        <Select
           value={element.componentElement}
           onChange={event => (element.componentElement = event.target.value)}
         >
@@ -23,7 +24,7 @@ const StructureElement = props => {
               {component.name}
             </option>
           ))}
-        </select>
+        </Select>
       </Box>
       <Box mb={2}>
         <Text fontSize={0}>Children</Text>
@@ -42,7 +43,8 @@ const StructureElement = props => {
         <Text fontSize={0}>Props</Text>
         {element.componentProps.map((componentProp, i) => (
           <Flex alignItems="center" key={i} mt={1}>
-            <select
+            <Select
+              width={1}
               defaultValue={componentProp.key}
               onChange={event =>
                 (element.componentProps[i].key = event.target.value)
@@ -54,19 +56,22 @@ const StructureElement = props => {
                 )
                 .map(prop => (
                   <option key={prop.key} value={prop.key}>
-                    {prop.key}
+                    {prop.label}
                   </option>
                 ))}
-            </select>
-            <Input
-              type={
-                componentProps.find(prop => prop.key === componentProp.key).type
-              }
-              defaultValue={componentProp.value}
-              onChange={event =>
-                (element.componentProps[i].value = event.target.value)
-              }
-            />
+            </Select>
+            <Box width={1} ml={2}>
+              <Input
+                type={
+                  componentProps.find(prop => prop.key === componentProp.key)
+                    .type
+                }
+                defaultValue={componentProp.value}
+                onChange={event =>
+                  (element.componentProps[i].value = event.target.value)
+                }
+              />
+            </Box>
           </Flex>
         ))}
         <Link

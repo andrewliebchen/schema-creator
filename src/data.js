@@ -360,13 +360,13 @@ export const componentProps = [
   {
     key: "color",
     label: "Text color",
-    type: "text",
+    type: "color",
     components: ["Box", "Flex", "Text", "Heading", "Button", "Link", "Image"]
   },
   {
     key: "bg",
     label: "Background color",
-    type: "text",
+    type: "color",
     components: [
       "Box",
       "Flex",
@@ -448,13 +448,13 @@ export const componentProps = [
   {
     key: "border",
     label: "Border width",
-    type: "string",
+    type: "text",
     components: ["Button", "Card"]
   },
   {
     key: "borderColor",
     label: "border-color",
-    type: "text",
+    type: "color",
     components: ["Button", "Card"]
   },
   {
