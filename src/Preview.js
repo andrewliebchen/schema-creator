@@ -14,9 +14,7 @@ const Preview = props => (
       <CountControl />
     </Flex>
     {store.structureElements.map(element => {
-      const schemaElement = store.dataElements.find(
-        schemaElement => schemaElement.id === element.children
-      );
+      const schemaElement = store.findDataElement("id", element.children);
       return (
         <Box key={element.id}>
           <PreviewElement id={element.id} sample={schemaElement.sample} />

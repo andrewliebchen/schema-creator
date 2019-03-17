@@ -10,12 +10,8 @@ import Select from "./Select";
 import store from "./store";
 
 const StructureElement = props => {
-  const element = store.structureElements.find(
-    element => element.id === props.id
-  );
-  const schemaElement = store.dataElements.find(
-    schemaElement => schemaElement.id === element.children
-  );
+  const element = store.findStructureElement("id", props.id);
+  const schemaElement = store.findDataElement("id", element.children);
 
   console.log(element.props);
   return (

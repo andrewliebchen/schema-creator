@@ -7,7 +7,6 @@ import { view } from "react-easy-state";
 import capitalize from "lodash.capitalize";
 import Card from "./Card";
 import React from "react";
-import remove from "lodash.remove";
 import store from "./store";
 import { genElement } from "./utils";
 
@@ -58,9 +57,7 @@ const DataSchemaSelector = props => (
                 mb={1}
                 id="helperElementToggleSelect"
                 onClick={() => {
-                  helper.elements.map(schema =>
-                    store.dataElements.push(genElement(schema))
-                  );
+                  helper.elements.map(schema => store.createElement(schema));
                 }}
               >
                 <Flex justifyContent="space-between" alignItems="center" p={3}>
@@ -76,9 +73,7 @@ const DataSchemaSelector = props => (
           : schemaTypes
               .filter(schema => schema.category === store.selectedCategory)
               .map(schema => {
-                const isIncluded = store.dataElements.find(
-                  element => element.stub === schema.stub
-                );
+                const isIncluded = store.findDataElements("stub", schema.stub);
                 return (
                   <Card
                     hover
@@ -89,9 +84,9 @@ const DataSchemaSelector = props => (
                     title={isIncluded && "Added to schema"}
                     onClick={() => {
                       if (isIncluded) {
-                        remove(store.dataElements, { id: isIncluded.id });
+                        store.destroyElement(isIncluded.id);
                       } else {
-                        store.dataElements.push(genElement(schema));
+                        store.createElement(schema);
                       }
                     }}
                   >

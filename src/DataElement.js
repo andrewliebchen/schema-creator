@@ -26,23 +26,14 @@ const DataElement = props => (
           <Pointer
             mr={1}
             onClick={() =>
-              (store.dataElements.find(
-                element => element.id === props.id
-              ).sample = genSample(props))
+              (store.findDataElement("id", props.id).sample = genSample(props))
             }
             title="Refresh"
           >
             <RefreshCcw size={18} />
           </Pointer>
           <Pointer
-            onClick={() =>
-              store.dataElements.splice(
-                store.dataElements.findIndex(
-                  schema => schema.id === props.id
-                ),
-                1
-              )
-            }
+            onClick={() => store.destroyElement(props.id)}
             title="Delete"
           >
             <Trash size={18} />
