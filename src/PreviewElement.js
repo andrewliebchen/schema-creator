@@ -3,6 +3,7 @@ import { Text, Box, Flex, Heading, Button, Link, Image, Card } from "rebass";
 import store from "./store";
 import { view } from "react-easy-state";
 import PropTypes from "prop-types";
+import { genSample } from "./utils";
 
 const components = {
   Text: Text,
@@ -16,14 +17,17 @@ const components = {
 };
 
 const PreviewElement = props => {
-  const element = store.schemaElements.find(element => element.id === props.id);
+  const element = store.structureElements.find(
+    element => element.id === props.id
+  );
+
   let elementProps = {};
-  element.componentProps.map(prop => (elementProps[prop.key] = prop.value));
+  element.props.map(prop => (elementProps[prop.key] = prop.value));
 
   return React.createElement(
-    components[element.componentElement],
+    components[element.component],
     elementProps,
-    props.sample || element.sample
+    props.sample
   );
 };
 

@@ -260,96 +260,231 @@ export const componentLibrary = [
   { name: "Card" }
 ];
 
-export const componentProps = [
+export const componentLibraryProps = [
   {
     key: "m",
     label: "Margin",
     type: "number",
-    components: ["Box", "Flex", "Text", "Heading", "Button", "Link", "Image"]
+    components: [
+      "Box",
+      "Card",
+      "Flex",
+      "Text",
+      "Heading",
+      "Button",
+      "Link",
+      "Image"
+    ]
   },
   {
     key: "mt",
     label: "Top margin",
     type: "number",
-    components: ["Box", "Flex", "Text", "Heading", "Button", "Link", "Image"]
+    components: [
+      "Box",
+      "Card",
+      "Flex",
+      "Text",
+      "Heading",
+      "Button",
+      "Link",
+      "Image"
+    ]
   },
   {
     key: "mr",
     label: "Right margin",
     type: "number",
-    components: ["Box", "Flex", "Text", "Heading", "Button", "Link", "Image"]
+    components: [
+      "Box",
+      "Card",
+      "Flex",
+      "Text",
+      "Heading",
+      "Button",
+      "Link",
+      "Image"
+    ]
   },
   {
     key: "mb",
     label: "Bottom margin",
     type: "number",
-    components: ["Box", "Flex", "Text", "Heading", "Button", "Link", "Image"]
+    components: [
+      "Box",
+      "Card",
+      "Flex",
+      "Text",
+      "Heading",
+      "Button",
+      "Link",
+      "Image"
+    ]
   },
   {
     key: "ml",
     label: "Left margin",
     type: "number",
-    components: ["Box", "Flex", "Text", "Heading", "Button", "Link", "Image"]
+    components: [
+      "Box",
+      "Card",
+      "Flex",
+      "Text",
+      "Heading",
+      "Button",
+      "Link",
+      "Image"
+    ]
   },
   {
     key: "mx",
     label: "Horizontal margin",
     type: "number",
-    components: ["Box", "Flex", "Text", "Heading", "Button", "Link", "Image"]
+    components: [
+      "Box",
+      "Card",
+      "Flex",
+      "Text",
+      "Heading",
+      "Button",
+      "Link",
+      "Image"
+    ]
   },
   {
     key: "my",
     label: "Vertical margin",
     type: "number",
-    components: ["Box", "Flex", "Text", "Heading", "Button", "Link", "Image"]
+    components: [
+      "Box",
+      "Card",
+      "Flex",
+      "Text",
+      "Heading",
+      "Button",
+      "Link",
+      "Image"
+    ]
   },
   {
     key: "p",
     label: "Padding",
     type: "number",
-    components: ["Box", "Flex", "Text", "Heading", "Button", "Link", "Image"]
+    components: [
+      "Box",
+      "Card",
+      "Flex",
+      "Text",
+      "Heading",
+      "Button",
+      "Link",
+      "Image"
+    ]
   },
   {
     key: "pt",
     label: "Top padding",
     type: "number",
-    components: ["Box", "Flex", "Text", "Heading", "Button", "Link", "Image"]
+    components: [
+      "Box",
+      "Card",
+      "Flex",
+      "Text",
+      "Heading",
+      "Button",
+      "Link",
+      "Image"
+    ]
   },
   {
     key: "pr",
     label: "Right padding",
     type: "number",
-    components: ["Box", "Flex", "Text", "Heading", "Button", "Link", "Image"]
+    components: [
+      "Box",
+      "Card",
+      "Flex",
+      "Text",
+      "Heading",
+      "Button",
+      "Link",
+      "Image"
+    ]
   },
   {
     key: "pb",
     label: "Bottom padding",
     type: "number",
-    components: ["Box", "Flex", "Text", "Heading", "Button", "Link", "Image"]
+    components: [
+      "Box",
+      "Card",
+      "Flex",
+      "Text",
+      "Heading",
+      "Button",
+      "Link",
+      "Image"
+    ]
   },
   {
     key: "pl",
     label: "Left padding",
     type: "number",
-    components: ["Box", "Flex", "Text", "Heading", "Button", "Link", "Image"]
+    components: [
+      "Box",
+      "Card",
+      "Flex",
+      "Text",
+      "Heading",
+      "Button",
+      "Link",
+      "Image"
+    ]
   },
   {
     key: "px",
     label: "Horizontal padding",
     type: "number",
-    components: ["Box", "Flex", "Text", "Heading", "Button", "Link", "Image"]
+    components: [
+      "Box",
+      "Card",
+      "Flex",
+      "Text",
+      "Heading",
+      "Button",
+      "Link",
+      "Image"
+    ]
   },
   {
     key: "py",
     label: "Vertical padding",
     type: "number",
-    components: ["Box", "Flex", "Text", "Heading", "Button", "Link", "Image"]
+    components: [
+      "Box",
+      "Card",
+      "Flex",
+      "Text",
+      "Heading",
+      "Button",
+      "Link",
+      "Image"
+    ]
   },
   {
     key: "width",
     label: "Width",
     type: "number",
-    components: ["Box", "Flex", "Text", "Heading", "Button", "Link", "Image"]
+    components: [
+      "Box",
+      "Card",
+      "Flex",
+      "Text",
+      "Heading",
+      "Button",
+      "Link",
+      "Image"
+    ]
   },
   {
     key: "fontSize",

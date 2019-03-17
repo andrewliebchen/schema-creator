@@ -1,17 +1,17 @@
 import { store } from "react-easy-state";
-import { genElement } from "./utils";
+import { genElement, genComponent } from "./utils";
 
-const defaultSchema = {
+const defaultSchemaElement = genElement({
   category: "name",
   stub: "findName",
   label: "Full Name"
-};
+});
 
 export default store({
-  schemaElements: [genElement(defaultSchema)],
+  schemaElements: [defaultSchemaElement],
+  structureElements: [genComponent(defaultSchemaElement.id)],
   selectedHelpers: [],
   count: 10,
-  editingSchema: false,
   selectedCategory: false,
   toast: { show: false, message: "Copied to clipboard" }
 });

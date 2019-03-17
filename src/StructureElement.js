@@ -1,5 +1,5 @@
 import { Box, Text, Flex, Link } from "rebass";
-import { componentLibrary, componentProps } from "./data";
+import { componentLibrary, componentLibraryProps } from "./data";
 import { File } from "react-feather";
 import { view } from "react-easy-state";
 import Card from "./Card";
@@ -10,23 +10,30 @@ import Select from "./Select";
 import store from "./store";
 
 const StructureElement = props => {
-  const element = store.schemaElements.find(element => element.id === props.id);
+  const element = store.structureElements.find(
+    element => element.id === props.id
+  );
+  const schemaElement = store.schemaElements.find(
+    schemaElement => schemaElement.id === element.children
+  );
+
+  console.log(element.props);
   return (
     <Card mb={1} p={3}>
       <Box mb={3}>
         <Flex alignItems="center">
-          <File color={element.color} />
+          <File color={schemaElement.color} />
           <Box ml={1}>
             <Text>
-              {element.category}.{element.stub}
+              {schemaElement.category}.{schemaElement.stub}
             </Text>
           </Box>
         </Flex>
       </Box>
       <Box mb={3}>
         <Select
-          value={element.componentElement}
-          onChange={event => (element.componentElement = event.target.value)}
+          value={element.component}
+          onChange={event => (element.component = event.target.value)}
         >
           {componentLibrary.map(component => (
             <option key={component.name} value={component.name}>
@@ -40,8 +47,8 @@ const StructureElement = props => {
           <Text>Props</Text>
           <Link
             onClick={() =>
-              element.componentProps.push({
-                key: componentProps[0].key,
+              element.props.push({
+                key: componentLibraryProps[0].key,
                 value: 0
               })
             }
@@ -49,19 +56,15 @@ const StructureElement = props => {
             Add
           </Link>
         </Flex>
-        {element.componentProps.map((componentProp, i) => (
+        {element.props.map((elementProp, i) => (
           <Flex alignItems="center" key={i} mt={1}>
             <Select
               width={1}
-              defaultValue={componentProp.key}
-              onChange={event =>
-                (element.componentProps[i].key = event.target.value)
-              }
+              defaultValue={elementProp.key}
+              onChange={event => (element.props[i].key = event.target.value)}
             >
-              {componentProps
-                .filter(prop =>
-                  prop.components.includes(element.componentElement)
-                )
+              {componentLibraryProps
+                .filter(prop => prop.components.includes(element.component))
                 .map(prop => (
                   <option key={prop.key} value={prop.key}>
                     {prop.label}
@@ -72,12 +75,11 @@ const StructureElement = props => {
               width={1}
               ml={2}
               type={
-                componentProps.find(prop => prop.key === componentProp.key).type
+                componentLibraryProps.find(prop => prop.key === elementProp.key)
+                  .type
               }
-              defaultValue={componentProp.value}
-              onChange={event =>
-                (element.componentProps[i].value = event.target.value)
-              }
+              defaultValue={elementProp.value}
+              onChange={event => (element.props[i].value = event.target.value)}
             />
           </Flex>
         ))}

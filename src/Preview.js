@@ -13,14 +13,23 @@ const Preview = props => (
       <Heading>Preview</Heading>
       <CountControl />
     </Flex>
-    {store.schemaElements.map(element => (
-      <Box key={element.id}>
-        <PreviewElement id={element.id} />
-        {_.times(store.count - 1, i => (
-          <PreviewElement key={i} id={element.id} sample={genSample(element)} />
-        ))}
-      </Box>
-    ))}
+    {store.structureElements.map(element => {
+      const schemaElement = store.schemaElements.find(
+        schemaElement => schemaElement.id === element.children
+      );
+      return (
+        <Box key={element.id}>
+          <PreviewElement id={element.id} sample={schemaElement.sample} />
+          {_.times(store.count - 1, i => (
+            <PreviewElement
+              key={i}
+              id={element.id}
+              sample={genSample(schemaElement)}
+            />
+          ))}
+        </Box>
+      );
+    })}
   </Box>
 );
 

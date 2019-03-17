@@ -14,10 +14,16 @@ export const genElement = schema => {
     ...schema,
     id: simpleId(),
     sample: genSample(schema),
-    color: bikeshed(),
-    componentElement: "Text",
-    componentChildren: null,
-    componentProps: []
+    color: bikeshed()
+  };
+};
+
+export const genComponent = id => {
+  return {
+    id: simpleId(),
+    children: id,
+    component: "Text",
+    props: []
   };
 };
 
