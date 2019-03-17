@@ -4,10 +4,7 @@ import { genElement } from "./utils";
 const defaultSchema = {
   category: "name",
   stub: "findName",
-  label: "Full Name",
-  componentElement: "Text",
-  componentChildren: null,
-  componentProps: []
+  label: "Full Name"
 };
 
 export default store({

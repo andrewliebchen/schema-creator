@@ -3,7 +3,6 @@ import faker from "faker";
 import json2csv from "json2csv";
 import times from "lodash.times";
 import simpleId from "simple-id";
-// import FlatColors from "flat-colors";
 import bikeshed from "@jxnblk/bikeshed";
 
 export const genSample = element => {
@@ -15,7 +14,10 @@ export const genElement = schema => {
     ...schema,
     id: simpleId(),
     sample: genSample(schema),
-    color: bikeshed()
+    color: bikeshed(),
+    componentElement: "Text",
+    componentChildren: null,
+    componentProps: []
   };
 };
 
