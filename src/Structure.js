@@ -1,10 +1,8 @@
-import React from "react";
-import { Box, Heading, Text, Flex } from "rebass";
-import Button from "./Button";
-import Card from "./Card";
-import store from "./store";
+import { Box, Heading, Flex } from "rebass";
 import { view } from "react-easy-state";
-import { components } from "./data";
+import Button from "./Button";
+import React from "react";
+import store from "./store";
 import StructureElement from "./StructureElement";
 
 const Structure = props => (

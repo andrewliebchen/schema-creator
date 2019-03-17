@@ -1,13 +1,13 @@
-import React from "react";
-import Card from "./Card";
 import { Box, Text, Flex, Link } from "rebass";
 import { componentLibrary, componentProps } from "./data";
-import PropTypes from "prop-types";
-import store from "./store";
-import { view } from "react-easy-state";
 import { File } from "react-feather";
+import { view } from "react-easy-state";
+import Card from "./Card";
 import Input from "./Input";
+import PropTypes from "prop-types";
+import React from "react";
 import Select from "./Select";
+import store from "./store";
 
 const StructureElement = props => {
   const element = store.elements.find(element => element.id === props.id);

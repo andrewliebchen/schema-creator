@@ -1,12 +1,11 @@
-import React from "react";
-import { Box, Flex, Heading } from "rebass";
-import store from "./store";
-import { view } from "react-easy-state";
-import Button from "./Button";
-import PreviewElement from "./PreviewElement";
-import CountControl from "./CountControl";
 import _ from "lodash";
+import { Box, Flex, Heading } from "rebass";
 import { genSample } from "./utils";
+import { view } from "react-easy-state";
+import CountControl from "./CountControl";
+import PreviewElement from "./PreviewElement";
+import React from "react";
+import store from "./store";
 
 const Preview = props => (
   <Box p={3}>
