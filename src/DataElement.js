@@ -10,7 +10,7 @@ import React from "react";
 import store from "./store";
 
 const DataElement = props => (
-  <Card mb={1} hover borderColor={props.color}>
+  <Card mb={1} hover>
     <Flex alignItems="center" p={3}>
       <File color={props.color} />
       <Box ml={2} mr="auto">

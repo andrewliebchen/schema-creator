@@ -7,7 +7,7 @@ const defaultSchema = {
   label: "Full Name",
   componentElement: "Text",
   componentChildren: null,
-  componentProps: [{ key: "color", value: "black" }]
+  componentProps: []
 };
 
 export default store({

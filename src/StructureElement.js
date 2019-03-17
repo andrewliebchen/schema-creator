@@ -13,8 +13,17 @@ const StructureElement = props => {
   const element = store.elements.find(element => element.id === props.id);
   return (
     <Card mb={1} p={3}>
-      <Box mb={2}>
-        <Text fontSize={0}>Element</Text>
+      <Box mb={3}>
+        <Flex alignItems="center">
+          <File color={element.color} />
+          <Box ml={1}>
+            <Text color={element.color}>
+              {element.category}.{element.stub}
+            </Text>
+          </Box>
+        </Flex>
+      </Box>
+      <Box mb={3}>
         <Select
           value={element.componentElement}
           onChange={event => (element.componentElement = event.target.value)}
@@ -26,21 +35,20 @@ const StructureElement = props => {
           ))}
         </Select>
       </Box>
-      <Box mb={2}>
-        <Text fontSize={0}>Children</Text>
-        <Card p={1} borderColor={element.color}>
-          <Flex alignItems="center">
-            <File color={element.color} size={18} />
-            <Box ml={1}>
-              <Text color={element.color}>
-                {element.category}.{element.stub}
-              </Text>
-            </Box>
-          </Flex>
-        </Card>
-      </Box>
       <Box>
-        <Text fontSize={0}>Props</Text>
+        <Flex justifyContent="space-between" mb={1}>
+          <Text>Props</Text>
+          <Link
+            onClick={() =>
+              element.componentProps.push({
+                key: componentProps[0].key,
+                value: 0
+              })
+            }
+          >
+            Add
+          </Link>
+        </Flex>
         {element.componentProps.map((componentProp, i) => (
           <Flex alignItems="center" key={i} mt={1}>
             <Select
@@ -60,30 +68,19 @@ const StructureElement = props => {
                   </option>
                 ))}
             </Select>
-            <Box width={1} ml={2}>
-              <Input
-                type={
-                  componentProps.find(prop => prop.key === componentProp.key)
-                    .type
-                }
-                defaultValue={componentProp.value}
-                onChange={event =>
-                  (element.componentProps[i].value = event.target.value)
-                }
-              />
-            </Box>
+            <Input
+              width={1}
+              ml={2}
+              type={
+                componentProps.find(prop => prop.key === componentProp.key).type
+              }
+              defaultValue={componentProp.value}
+              onChange={event =>
+                (element.componentProps[i].value = event.target.value)
+              }
+            />
           </Flex>
         ))}
-        <Link
-          onClick={() =>
-            element.componentProps.push({
-              key: componentProps[0].key,
-              value: 0
-            })
-          }
-        >
-          Add prop
-        </Link>
       </Box>
     </Card>
   );
