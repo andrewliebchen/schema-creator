@@ -26,7 +26,7 @@ const DataElement = props => (
           <Pointer
             mr={1}
             onClick={() =>
-              (store.schemaElements.find(
+              (store.dataElements.find(
                 element => element.id === props.id
               ).sample = genSample(props))
             }
@@ -36,8 +36,8 @@ const DataElement = props => (
           </Pointer>
           <Pointer
             onClick={() =>
-              store.schemaElements.splice(
-                store.schemaElements.findIndex(
+              store.dataElements.splice(
+                store.dataElements.findIndex(
                   schema => schema.id === props.id
                 ),
                 1

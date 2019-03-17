@@ -15,7 +15,7 @@ const viewOptions = ["Table", "JSON"];
 
 const Sample = props => {
   const [currentView, setCurrentView] = useState(viewOptions[0]);
-  const samples = getSamples(store.count, store.schemaElements);
+  const samples = getSamples(store.count, store.dataElements);
 
   return (
     <Box>

@@ -1,9 +1,8 @@
-import React from "react";
 import { Text, Box, Flex, Heading, Button, Link, Image, Card } from "rebass";
-import store from "./store";
 import { view } from "react-easy-state";
 import PropTypes from "prop-types";
-import { genSample } from "./utils";
+import React from "react";
+import store from "./store";
 
 const components = {
   Text: Text,

@@ -1,15 +1,15 @@
 import { store } from "react-easy-state";
 import { genElement, genComponent } from "./utils";
 
-const defaultSchemaElement = genElement({
+const defaultDataElement = genElement({
   category: "name",
   stub: "findName",
   label: "Full Name"
 });
 
 export default store({
-  schemaElements: [defaultSchemaElement],
-  structureElements: [genComponent(defaultSchemaElement.id)],
+  dataElements: [defaultDataElement],
+  structureElements: [genComponent(defaultDataElement.id)],
   selectedHelpers: [],
   count: 10,
   selectedCategory: false,

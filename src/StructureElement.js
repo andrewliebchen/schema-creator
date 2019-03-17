@@ -13,7 +13,7 @@ const StructureElement = props => {
   const element = store.structureElements.find(
     element => element.id === props.id
   );
-  const schemaElement = store.schemaElements.find(
+  const schemaElement = store.dataElements.find(
     schemaElement => schemaElement.id === element.children
   );
 

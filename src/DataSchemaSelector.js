@@ -59,7 +59,7 @@ const DataSchemaSelector = props => (
                 id="helperElementToggleSelect"
                 onClick={() => {
                   helper.elements.map(schema =>
-                    store.schemaElements.push(genElement(schema))
+                    store.dataElements.push(genElement(schema))
                   );
                 }}
               >
@@ -76,7 +76,7 @@ const DataSchemaSelector = props => (
           : schemaTypes
               .filter(schema => schema.category === store.selectedCategory)
               .map(schema => {
-                const isIncluded = store.schemaElements.find(
+                const isIncluded = store.dataElements.find(
                   element => element.stub === schema.stub
                 );
                 return (
@@ -89,9 +89,9 @@ const DataSchemaSelector = props => (
                     title={isIncluded && "Added to schema"}
                     onClick={() => {
                       if (isIncluded) {
-                        remove(store.schemaElements, { id: isIncluded.id });
+                        remove(store.dataElements, { id: isIncluded.id });
                       } else {
-                        store.schemaElements.push(genElement(schema));
+                        store.dataElements.push(genElement(schema));
                       }
                     }}
                   >
