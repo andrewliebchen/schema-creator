@@ -25,7 +25,7 @@ const theme = {
 
 const SampleJson = props => {
   let keysMap = {};
-  store.elements.map(element => {
+  store.schemaElements.map(element => {
     if (element.userLabel) {
       keysMap[`${element.category}.${element.stub}`] = element.userLabel;
     }

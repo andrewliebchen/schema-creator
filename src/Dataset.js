@@ -45,7 +45,7 @@ const Dataset = props => {
       <Relative>
         <SlideIn in={!editing} timeout={200}>
           <Absolute>
-            {store.elements.map(element => (
+            {store.schemaElements.map(element => (
               <DataElement key={element.id} {...element} />
             ))}
           </Absolute>

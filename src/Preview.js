@@ -13,7 +13,7 @@ const Preview = props => (
       <Heading>Preview</Heading>
       <CountControl />
     </Flex>
-    {store.elements.map(element => (
+    {store.schemaElements.map(element => (
       <Box key={element.id}>
         <PreviewElement id={element.id} />
         {_.times(store.count - 1, i => (

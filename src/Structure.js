@@ -11,7 +11,7 @@ const Structure = props => (
       <Heading>Structure</Heading>
       <Button>Add</Button>
     </Flex>
-    {store.elements.map(element => (
+    {store.schemaElements.map(element => (
       <StructureElement key={element.id} {...element} />
     ))}
   </Box>

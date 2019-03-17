@@ -30,7 +30,7 @@ const components = {
 const SampleTable = props => (
   <Flex width={1} flexDirection="column">
     <Table data={props.samples} components={components}>
-      {store.elements.map(element => (
+      {store.schemaElements.map(element => (
         <Column
           key={element.id}
           header={<Key small {...element} width={1} justifyContent="center" />}

@@ -10,7 +10,7 @@ import Select from "./Select";
 import store from "./store";
 
 const StructureElement = props => {
-  const element = store.elements.find(element => element.id === props.id);
+  const element = store.schemaElements.find(element => element.id === props.id);
   return (
     <Card mb={1} p={3}>
       <Box mb={3}>

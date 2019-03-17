@@ -8,7 +8,7 @@ const defaultSchema = {
 };
 
 export default store({
-  elements: [genElement(defaultSchema)],
+  schemaElements: [genElement(defaultSchema)],
   selectedHelpers: [],
   count: 10,
   editingSchema: false,

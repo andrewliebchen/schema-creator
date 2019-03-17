@@ -16,7 +16,7 @@ const components = {
 };
 
 const PreviewElement = props => {
-  const element = store.elements.find(element => element.id === props.id);
+  const element = store.schemaElements.find(element => element.id === props.id);
   let elementProps = {};
   element.componentProps.map(prop => (elementProps[prop.key] = prop.value));
 
