@@ -17,7 +17,7 @@ const StructureElement = props => {
         <Flex alignItems="center">
           <File color={element.color} />
           <Box ml={1}>
-            <Text color={element.color}>
+            <Text>
               {element.category}.{element.stub}
             </Text>
           </Box>

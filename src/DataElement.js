@@ -15,13 +15,11 @@ const DataElement = props => (
       <File color={props.color} />
       <Box ml={2} mr="auto">
         <Flex alignItems="center">
-          <Text color={props.color} fontSize={1}>
+          <Text fontSize={1}>
             {props.category}.{props.stub}
           </Text>
         </Flex>
-        <Text fontWeight="bold" color={props.color}>
-          {props.sample}
-        </Text>
+        <Text fontWeight="bold">{props.sample}</Text>
       </Box>
       <ShowOnHover>
         <Flex>
@@ -34,7 +32,7 @@ const DataElement = props => (
             }
             title="Refresh"
           >
-            <RefreshCcw size={18} color={props.color} />
+            <RefreshCcw size={18} />
           </Pointer>
           <Pointer
             onClick={() =>
@@ -47,7 +45,7 @@ const DataElement = props => (
             }
             title="Delete"
           >
-            <Trash size={18} color={props.color} />
+            <Trash size={18} />
           </Pointer>
         </Flex>
       </ShowOnHover>
