@@ -1,4 +1,4 @@
-import _ from "lodash";
+import times from "lodash.times";
 import { Box, Flex, Heading } from "rebass";
 import { genSample } from "./utils";
 import { view } from "react-easy-state";
@@ -18,7 +18,7 @@ const Preview = props => (
       return (
         <Box key={element.id}>
           <PreviewElement id={element.id} sample={schemaElement.sample} />
-          {_.times(store.count - 1, i => (
+          {times(store.count - 1, i => (
             <PreviewElement
               key={i}
               id={element.id}

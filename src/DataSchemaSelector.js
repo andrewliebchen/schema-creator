@@ -8,7 +8,6 @@ import capitalize from "lodash.capitalize";
 import Card from "./Card";
 import React from "react";
 import store from "./store";
-import { genElement } from "./utils";
 
 const DataSchemaSelector = props => (
   <Relative>
@@ -73,7 +72,7 @@ const DataSchemaSelector = props => (
           : schemaTypes
               .filter(schema => schema.category === store.selectedCategory)
               .map(schema => {
-                const isIncluded = store.findDataElements("stub", schema.stub);
+                const isIncluded = store.findDataElement("stub", schema.stub);
                 return (
                   <Card
                     hover

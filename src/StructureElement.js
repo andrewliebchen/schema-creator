@@ -8,22 +8,26 @@ import PropTypes from "prop-types";
 import React from "react";
 import Select from "./Select";
 import store from "./store";
+import Checkbox from "./Checkbox";
+import { Pointer } from "./StyleHelpers";
 
 const StructureElement = props => {
   const element = store.findStructureElement("id", props.id);
   const schemaElement = store.findDataElement("id", element.children);
 
-  console.log(element.props);
   return (
     <Card mb={1} p={3}>
       <Box mb={3}>
-        <Flex alignItems="center">
-          <File color={schemaElement.color} />
-          <Box ml={1}>
-            <Text>
+        <Flex alignItems="center" justifyContent="space-between">
+          <Flex alignItems="center">
+            <File color={schemaElement.color} />
+            <Text ml={1}>
               {schemaElement.category}.{schemaElement.stub}
             </Text>
-          </Box>
+          </Flex>
+          <Pointer onClick={props.onSelect}>
+            <Checkbox checked={props.selected} />
+          </Pointer>
         </Flex>
       </Box>
       <Box mb={3}>

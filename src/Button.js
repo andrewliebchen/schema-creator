@@ -25,6 +25,12 @@ const Element = styled.button`
         ${props => (props.type === "black" ? "white" : "black")},
       0 0 0 3px ${props => props.type};
   }
+
+  &:disabled {
+    opacity: 0.5;
+    pointer-events: none;
+    cursor: not-allowed;
+  }
 `;
 
 const Button = props => (
