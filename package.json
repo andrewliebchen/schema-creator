@@ -12,6 +12,7 @@
     "json2csv": "^4.3.4",
     "knoll": "^4.0.0",
     "lodash.capitalize": "^4.2.1",
+    "lodash.flatmapdeep": "^4.10.0",
     "lodash.includes": "^4.3.0",
     "lodash.remove": "^4.7.0",
     "lodash.sample": "^4.2.1",

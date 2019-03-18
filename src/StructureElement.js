@@ -21,6 +21,10 @@ const SchemaChild = props => (
 );
 
 const StructureElement = props => {
+  console.log(
+    store.structureElements.map(element => element.children.map(child => child))
+  );
+
   return (
     <Card mb={1} p={3}>
       {/* <Pointer onClick={props.onSelect}>
@@ -51,12 +55,14 @@ const StructureElement = props => {
         <Flex justifyContent="space-between" mb={1}>
           <Text>Props</Text>
           <Link
-            onClick={() =>
-              props.element.props.push({
-                key: componentLibraryProps[0].key,
-                value: 0
-              })
-            }
+            onClick={() => {
+              console.log(props.element.id);
+              console.log(store.findStructureElement("id", props.element.id));
+              // .props.push({
+              //   key: componentLibraryProps[0].key,
+              //   value: 0
+              // })
+            }}
           >
             Add
           </Link>

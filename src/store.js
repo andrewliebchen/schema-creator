@@ -48,6 +48,12 @@ const appStore = store({
   findStructureElement(key, value) {
     return appStore.structureElements.find(element => element[key] === value);
   }
+
+  // findElement(key, value) {
+  //   return appStore.dataElements
+  //     .concat(appStore.structureElements)
+  //     .find(element => element[key] === value);
+  // }
 });
 
 export default appStore;
