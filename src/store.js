@@ -1,6 +1,7 @@
 import { store } from "react-easy-state";
 import { genElement, genComponent } from "./utils";
 import remove from "lodash.remove";
+import simpleId from "simple-id";
 
 const defaultDataElement = genElement({
   category: "name",
@@ -10,7 +11,21 @@ const defaultDataElement = genElement({
 
 const appStore = store({
   dataElements: [defaultDataElement],
-  structureElements: [genComponent(defaultDataElement.id)],
+  structureElements: [
+    {
+      id: simpleId(),
+      component: "Box",
+      props: [],
+      children: [
+        {
+          id: simpleId(),
+          component: "Text",
+          props: [],
+          children: [defaultDataElement.id]
+        }
+      ]
+    }
+  ],
   selectedHelpers: [],
   count: 10,
   selectedCategory: false,

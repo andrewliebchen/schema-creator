@@ -19,7 +19,7 @@ const Structure = props => {
         return (
           <StructureElement
             key={element.id}
-            {...element}
+            element={element}
             selected={isIncluded}
             onSelect={() => {
               if (isIncluded) {

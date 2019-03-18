@@ -11,29 +11,34 @@ import store from "./store";
 import Checkbox from "./Checkbox";
 import { Pointer } from "./StyleHelpers";
 
-const StructureElement = props => {
-  const element = store.findStructureElement("id", props.id);
-  const schemaElement = store.findDataElement("id", element.children);
+const SchemaChild = props => (
+  <Flex alignItems="center">
+    <File color={props.color} />
+    <Text ml={1}>
+      {props.category}.{props.stub}
+    </Text>
+  </Flex>
+);
 
+const StructureElement = props => {
   return (
     <Card mb={1} p={3}>
-      <Box mb={3}>
-        <Flex alignItems="center" justifyContent="space-between">
-          <Flex alignItems="center">
-            <File color={schemaElement.color} />
-            <Text ml={1}>
-              {schemaElement.category}.{schemaElement.stub}
-            </Text>
-          </Flex>
-          <Pointer onClick={props.onSelect}>
-            <Checkbox checked={props.selected} />
-          </Pointer>
-        </Flex>
-      </Box>
+      {/* <Pointer onClick={props.onSelect}>
+          <Checkbox checked={props.selected} />
+        </Pointer> */}
+      {props.element.children.map((child, i) => (
+        <Box mb={3} key={i}>
+          {typeof child === "object" ? (
+            <StructureElement element={child} />
+          ) : (
+            <SchemaChild {...store.findDataElement("id", child)} />
+          )}
+        </Box>
+      ))}
       <Box mb={3}>
         <Select
-          value={element.component}
-          onChange={event => (element.component = event.target.value)}
+          value={props.element.component}
+          onChange={event => (props.element.component = event.target.value)}
         >
           {componentLibrary.map(component => (
             <option key={component.name} value={component.name}>
@@ -47,7 +52,7 @@ const StructureElement = props => {
           <Text>Props</Text>
           <Link
             onClick={() =>
-              element.props.push({
+              props.element.props.push({
                 key: componentLibraryProps[0].key,
                 value: 0
               })
@@ -56,15 +61,19 @@ const StructureElement = props => {
             Add
           </Link>
         </Flex>
-        {element.props.map((elementProp, i) => (
+        {props.element.props.map((elementProp, i) => (
           <Flex alignItems="center" key={i} mt={1}>
             <Select
               width={1}
               defaultValue={elementProp.key}
-              onChange={event => (element.props[i].key = event.target.value)}
+              onChange={event =>
+                (props.element.props[i].key = event.target.value)
+              }
             >
               {componentLibraryProps
-                .filter(prop => prop.components.includes(element.component))
+                .filter(prop =>
+                  prop.components.includes(props.element.component)
+                )
                 .map(prop => (
                   <option key={prop.key} value={prop.key}>
                     {prop.label}
@@ -79,7 +88,9 @@ const StructureElement = props => {
                   .type
               }
               defaultValue={elementProp.value}
-              onChange={event => (element.props[i].value = event.target.value)}
+              onChange={event =>
+                (props.element.props[i].value = event.target.value)
+              }
             />
           </Flex>
         ))}

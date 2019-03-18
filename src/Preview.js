@@ -13,7 +13,7 @@ const Preview = props => (
       <Heading>Preview</Heading>
       <CountControl />
     </Flex>
-    {store.structureElements.map(element => {
+    {/* {store.structureElements.map(element => {
       const schemaElement = store.findDataElement("id", element.children);
       return (
         <Box key={element.id}>
@@ -27,7 +27,7 @@ const Preview = props => (
           ))}
         </Box>
       );
-    })}
+    })} */}
   </Box>
 );
 
