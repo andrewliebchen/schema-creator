@@ -21,16 +21,12 @@ const SchemaChild = props => (
 );
 
 const StructureElement = props => {
-  console.log(
-    store.structureElements.map(element => element.children.map(child => child))
-  );
-
   return (
     <Card mb={1} p={3}>
       {/* <Pointer onClick={props.onSelect}>
           <Checkbox checked={props.selected} />
         </Pointer> */}
-      {props.element.children.map((child, i) => (
+      {/* {props.children.map((child, i) => (
         <Box mb={3} key={i}>
           {typeof child === "object" ? (
             <StructureElement element={child} />
@@ -38,11 +34,11 @@ const StructureElement = props => {
             <SchemaChild {...store.findDataElement("id", child)} />
           )}
         </Box>
-      ))}
+      ))} */}
       <Box mb={3}>
         <Select
-          value={props.element.component}
-          onChange={event => (props.element.component = event.target.value)}
+          value={props.component}
+          onChange={event => (props.component = event.target.value)}
         >
           {componentLibrary.map(component => (
             <option key={component.name} value={component.name}>
@@ -67,7 +63,7 @@ const StructureElement = props => {
             Add
           </Link>
         </Flex>
-        {props.element.props.map((elementProp, i) => (
+        {props.properties.map((elementProp, i) => (
           <Flex alignItems="center" key={i} mt={1}>
             <Select
               width={1}

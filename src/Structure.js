@@ -14,12 +14,12 @@ const Structure = props => {
         <Heading>Structure</Heading>
         <Button disabled={selected.length < 1}>Wrap with element</Button>
       </Flex>
-      {store.structureElements.map(element => {
+      {store.getStructureElements().map(element => {
+        console.log(element);
         const isIncluded = selected.includes(element.id);
         return (
           <StructureElement
             key={element.id}
-            element={element}
             selected={isIncluded}
             onSelect={() => {
               if (isIncluded) {
@@ -29,6 +29,7 @@ const Structure = props => {
                 setSelected([...selected, element.id]);
               }
             }}
+            {...element}
           />
         );
       })}

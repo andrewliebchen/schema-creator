@@ -9,19 +9,17 @@ const defaultDataElement = genElement({
   label: "Full Name"
 });
 
+const defaultStructureElements = [genComponent(), genComponent()];
+
 const appStore = store({
-  dataElements: [defaultDataElement],
-  structureElements: [
+  elements: [defaultDataElement].concat(defaultStructureElements),
+  structure: [
     {
-      id: simpleId(),
-      component: "Box",
-      props: [],
+      id: defaultStructureElements[0].id,
       children: [
         {
-          id: simpleId(),
-          component: "Text",
-          props: [],
-          children: [defaultDataElement.id]
+          id: defaultStructureElements[1].id,
+          children: [{ id: defaultDataElement.id }]
         }
       ]
     }
@@ -30,6 +28,13 @@ const appStore = store({
   count: 10,
   selectedCategory: false,
   toast: { show: false, message: "Copied to clipboard" },
+
+  getDataElements() {
+    return appStore.elements.filter(element => element.type === "data");
+  },
+  getStructureElements() {
+    return appStore.elements.filter(element => element.type === "structure");
+  },
 
   createElement(schema) {
     const dataElement = genElement(schema);
@@ -48,12 +53,6 @@ const appStore = store({
   findStructureElement(key, value) {
     return appStore.structureElements.find(element => element[key] === value);
   }
-
-  // findElement(key, value) {
-  //   return appStore.dataElements
-  //     .concat(appStore.structureElements)
-  //     .find(element => element[key] === value);
-  // }
 });
 
 export default appStore;

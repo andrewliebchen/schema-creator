@@ -12,18 +12,19 @@ export const genSample = element => {
 export const genElement = schema => {
   return {
     ...schema,
+    color: bikeshed(),
     id: simpleId(),
     sample: genSample(schema),
-    color: bikeshed()
+    type: "data"
   };
 };
 
-export const genComponent = id => {
+export const genComponent = () => {
   return {
+    component: "Box",
     id: simpleId(),
-    children: id,
-    component: "Text",
-    props: []
+    properties: [],
+    type: "structure"
   };
 };
 
