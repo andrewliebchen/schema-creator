@@ -7,7 +7,6 @@ import React from "react";
 import ReactInterval from "react-interval";
 import store from "./store";
 import styled from "styled-components";
-import theme from "./theme";
 
 const Wrapper = styled.div`
   position: fixed;

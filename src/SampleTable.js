@@ -2,16 +2,20 @@ import { Flex } from "rebass";
 import { Table, Column } from "knoll";
 import { view } from "react-easy-state";
 import Key from "./Key";
+import MoreButton from "./MoreButton";
 import PropTypes from "prop-types";
 import React from "react";
 import SampleCell from "./SampleCell";
 import store from "./store";
-import MoreButton from "./MoreButton";
+import theme from "./theme";
 
 const components = {
   table: props => <table style={{ borderSpacing: 0 }} {...props} />,
   headerCell: props => (
-    <th style={{ borderBottom: "1px solid black", padding: 8 }} {...props} />
+    <th
+      style={{ borderBottom: `1px solid ${theme.colors.black}`, padding: 8 }}
+      {...props}
+    />
   ),
   cell: props => (
     <td

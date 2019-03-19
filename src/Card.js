@@ -2,12 +2,14 @@ import { Card as Base } from "rebass";
 import PropTypes from "prop-types";
 import React from "react";
 import styled from "styled-components";
+import theme from "./theme";
 
 const Root = styled(Base)`
   cursor: ${props => props.hover && "pointer"};
 
   &:hover {
-    box-shadow: ${props => props.hover && "inset 0 0 0 2px black"};
+    box-shadow: ${props =>
+      props.hover && `inset 0 0 0 2px ${theme.colors.black}`};
   }
 `;
 

@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import theme from "./theme";
 
 const Input = styled.input`
   appearance: none;
@@ -9,7 +10,7 @@ const Input = styled.input`
 
   &:focus {
     outline: none;
-    box-shadow: 0 0 0 1px white, 0 0 0 3px black;
+    box-shadow: 0 0 0 1px white, 0 0 0 3px ${theme.colors.black};
   }
 `;
 
