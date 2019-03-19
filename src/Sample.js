@@ -43,7 +43,7 @@ const Sample = props => {
             onClick={() => {
               const conversion = sampleConverter(samples, currentView);
               copy(conversion.raw);
-              store.toast.show = true;
+              store.toast = { show: true, message: "Copied to clipboard" };
             }}
           >
             Copy

@@ -74,6 +74,7 @@ const TypeSelector = props => (
                   helper.elements.map(element =>
                     store.elements.push({ ...element, id: simpleId() })
                   );
+                  store.toast = { show: true, message: "Helper added" };
                 }}
               >
                 <Flex justifyContent="space-between" alignItems="center" p={3}>
