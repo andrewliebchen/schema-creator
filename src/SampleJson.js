@@ -5,10 +5,11 @@ import JSONPretty from "react-json-pretty";
 import MoreButton from "./MoreButton";
 import React from "react";
 import store from "./store";
+import theme from "./theme";
 
-const theme = {
+const codeTheme = {
   main: `
-    background-color: black;
+    background-color: ${theme.colors.black};
     color: rgba(255, 255, 255, 0.7);
     font-size: 16px;
     line-height: 1.6;
@@ -36,7 +37,7 @@ const SampleJson = props => {
   );
   return (
     <Box p={3} bg="black">
-      <JSONPretty data={samplesWithUserLabels} theme={theme} />
+      <JSONPretty data={samplesWithUserLabels} theme={codeTheme} />
       <MoreButton type="white" />
     </Box>
   );

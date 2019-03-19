@@ -9,6 +9,7 @@ import Key from "./Key";
 import PropTypes from "prop-types";
 import React, { useState } from "react";
 import store from "./store";
+import theme from "./theme";
 
 const SchemaElement = props => {
   const [value, setValue] = useState(`${props.category}.${props.stub}`);
@@ -41,21 +42,21 @@ const SchemaElement = props => {
               onClick={() => setEditing(false)}
               title="Cancel"
             >
-              <X />
+              <X color={theme.colors.black} />
             </Pointer>
             <Pointer
               id="saveCustomSchemaElementTitle"
               onClick={() => handleSave()}
               title="Save"
             >
-              <Check />
+              <Check color={theme.colors.black} />
             </Pointer>
           </Flex>
         </Flex>
       ) : (
         <Flex justifyContent="space-between" alignItems="center" p={3}>
           <Flex alignItems="center">
-            <File size={18} />
+            <File size={18} color={theme.colors.black} />
             <Text
               id="toggleSchemaElementTitleEdit"
               ml={1}
@@ -72,7 +73,7 @@ const SchemaElement = props => {
                 onClick={() => setEditing(true)}
                 title="Edit"
               >
-                <Edit3 size={18} />
+                <Edit3 size={18} color={theme.colors.black} />
               </Pointer>
               <Pointer
                 id="removeSchemaElement"
@@ -84,7 +85,7 @@ const SchemaElement = props => {
                 }
                 title="Delete"
               >
-                <Trash size={18} />
+                <Trash size={18} color={theme.colors.black} />
               </Pointer>
             </Flex>
           </ShowOnHover>

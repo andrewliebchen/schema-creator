@@ -7,6 +7,7 @@ import React from "react";
 import ReactInterval from "react-interval";
 import store from "./store";
 import styled from "styled-components";
+import theme from "./theme";
 
 const Wrapper = styled.div`
   position: fixed;
@@ -24,7 +25,7 @@ const Toast = props => (
         p={3}
         justifyContent="center"
         alignItems="center"
-        bg="rgba(0, 0, 0, 0.9)"
+        bg="#000"
       >
         <CheckCircle color="white" />
         <Text color="white" fontWeight="bold" ml={2}>

@@ -1,8 +1,8 @@
+import { Absolute, Relative } from "./StyleHelpers";
 import { Box, Flex, Text } from "rebass";
 import { Check, ArrowRight, File, Folder, Book } from "react-feather";
 import { schemaTypes, categories, helpers } from "./data";
 import { SlideIn } from "./Animation";
-import { Absolute, Relative } from "./StyleHelpers";
 import { view } from "react-easy-state";
 import Button from "./Button";
 import capitalize from "lodash.capitalize";
@@ -12,6 +12,7 @@ import remove from "lodash.remove";
 import sample from "lodash.sample";
 import simpleId from "simple-id";
 import store from "./store";
+import theme from "./theme";
 
 const TypeSelector = props => (
   <Relative>
@@ -25,10 +26,10 @@ const TypeSelector = props => (
         >
           <Flex justifyContent="space-between" alignItems="center" p={3}>
             <Flex alignItems="center">
-              <Folder size={18} />
+              <Folder size={18} color={theme.colors.black} />
               <Text ml={1}>Helpers</Text>
             </Flex>
-            <ArrowRight size={18} />
+            <ArrowRight size={18} color={theme.colors.black} />
           </Flex>
         </Card>
         {categories.map(category => (
@@ -41,10 +42,10 @@ const TypeSelector = props => (
           >
             <Flex justifyContent="space-between" alignItems="center" p={3}>
               <Flex alignItems="center">
-                <Folder size={18} />
+                <Folder size={18} color={theme.colors.black} />
                 <Text ml={1}>{capitalize(category)}</Text>
               </Flex>
-              <ArrowRight size={18} />
+              <ArrowRight size={18} color={theme.colors.black} />
             </Flex>
           </Card>
         ))}
@@ -77,8 +78,8 @@ const TypeSelector = props => (
               >
                 <Flex justifyContent="space-between" alignItems="center" p={3}>
                   <Flex alignItems="center">
-                    <Book size={18} color="black" />
-                    <Text ml={1} fontWeight="normal" color="black">
+                    <Book size={18} color={theme.colors.black} />
+                    <Text ml={1} fontWeight="normal">
                       {helper.label}
                     </Text>
                   </Flex>

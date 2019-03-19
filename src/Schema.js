@@ -1,15 +1,16 @@
 import { ArrowLeft } from "react-feather";
 import { Heading, Flex } from "rebass";
-import { SlideIn } from "./Animation";
 import { Relative, Absolute, Sticky, Pointer } from "./StyleHelpers";
+import { SlideIn } from "./Animation";
 import { view } from "react-easy-state";
 import Button from "./Button";
 import capitalize from "lodash.capitalize";
+import Help from "./Help";
 import React, { useState } from "react";
 import SchemaElement from "./SchemaElement";
 import store from "./store";
+import theme from "./theme";
 import TypeSelector from "./TypeSelector";
-import Help from "./Help";
 
 const Schema = props => {
   const [editing, setEditing] = useState(false);
@@ -24,7 +25,7 @@ const Schema = props => {
               id="goBackSchemaCategory"
               title="Go back"
             >
-              <ArrowLeft />
+              <ArrowLeft color={theme.colors.black} />
             </Pointer>
             <Heading ml={2}>{capitalize(store.selectedCategory)}</Heading>
           </Flex>

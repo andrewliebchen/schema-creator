@@ -3,6 +3,7 @@ import { Text, Flex } from "rebass";
 import capitalize from "lodash.capitalize";
 import PropTypes from "prop-types";
 import React from "react";
+import theme from "./theme";
 
 const Key = props => {
   if (props.userLabel) {
@@ -13,7 +14,7 @@ const Key = props => {
         <Text mr={1} fontSize={props.small ? 1 : 2}>
           {capitalize(props.category)}
         </Text>
-        <ArrowRight size={props.small ? 12 : 18} />
+        <ArrowRight size={props.small ? 12 : 18} color={theme.colors.black} />
         <Text ml={1} fontWeight="bold" fontSize={props.small ? 1 : 2}>
           {props.label}
         </Text>

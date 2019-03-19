@@ -6,6 +6,7 @@ import Button from "./Button";
 import Card from "./Card";
 import React, { useState } from "react";
 import styled from "styled-components";
+import theme from "./theme";
 
 const Center = styled.div`
   position: fixed;
@@ -36,7 +37,7 @@ const Help = () => {
         id="helpModalToggle"
         title="What's this all about?"
       >
-        <HelpCircle />
+        <HelpCircle color={theme.colors.black} />
       </Pointer>
 
       <Fade in={showModal} timeout={200}>
