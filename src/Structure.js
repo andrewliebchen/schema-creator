@@ -14,27 +14,29 @@ const Structure = props => {
         <Heading>Structure</Heading>
         <Button disabled={selected.length < 1}>Wrap with element</Button>
       </Flex>
-      {store.getStructureElements().map(element => {
+      {store.structure.map(element => {
         console.log(element);
-        const isIncluded = selected.includes(element.id);
-        return (
-          <StructureElement
-            key={element.id}
-            selected={isIncluded}
-            onSelect={() => {
-              if (isIncluded) {
-                const newArray = remove(selected, element.id);
-                setSelected(newArray);
-              } else {
-                setSelected([...selected, element.id]);
-              }
-            }}
-            {...element}
-          />
-        );
+        // const isIncluded = selected.includes(element.id);
+        return <StructureElement key={element.id} {...element} />;
       })}
     </Box>
   );
 };
 
 export default view(Structure);
+
+/*
+<StructureElement
+  key={element.id}
+  selected={isIncluded}
+  onSelect={() => {
+    if (isIncluded) {
+      const newArray = remove(selected, element.id);
+      setSelected(newArray);
+    } else {
+      setSelected([...selected, element.id]);
+    }
+  }}
+  {...element}
+/>
+*/

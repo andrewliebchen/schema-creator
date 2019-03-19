@@ -45,13 +45,6 @@ const appStore = store({
   destroyElement(id) {
     remove(appStore.dataElements, { id: id });
     remove(appStore.structureElements, { children: id });
-  },
-
-  findDataElement(key, value) {
-    return appStore.dataElements.find(element => element[key] === value);
-  },
-  findStructureElement(key, value) {
-    return appStore.structureElements.find(element => element[key] === value);
   }
 });
 
