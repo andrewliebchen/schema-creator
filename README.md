@@ -27,5 +27,6 @@ Schema Creator helps you generate an unlimited amount of random data from a sche
 - ✅ ⭐️ Refs for event triggers
 - ✅ ⭐️ Icon for edit header name
 - ✅ Use react hooks
-- ⬜️ Schema search
+- ✅ Schema search
 - ⬜️ Hover over examples on schema choices
+- ⬜️ Type icons for schema elements (image, number, etc)

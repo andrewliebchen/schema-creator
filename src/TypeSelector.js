@@ -1,24 +1,24 @@
 import { Absolute, Relative } from "./StyleHelpers";
-import { Box, Flex, Text } from "rebass";
-import { Check, ArrowRight, File, Folder, Book } from "react-feather";
+import { Box } from "rebass";
+import { File, Folder, Book } from "react-feather";
 import { schemaTypes, categories, helpers } from "./data";
 import { SlideIn } from "./Animation";
 import { view } from "react-easy-state";
 import Button from "./Button";
 import capitalize from "lodash.capitalize";
-import Card from "./Card";
 import React, { useState } from "react";
 import remove from "lodash.remove";
 import sample from "lodash.sample";
 import simpleId from "simple-id";
 import store from "./store";
-import theme from "./theme";
 import SearchInput from "./SearchInput";
 import Key from "./Key";
+import TypeSelectorElement from "./TypeSelectorElement";
+import lowerCase from "lodash.lowercase";
 
 const TypeSelector = props => {
   const [search, setSearch] = useState("");
-  console.log(search);
+
   return (
     <Relative>
       <Box mb={2}>
@@ -30,52 +30,58 @@ const TypeSelector = props => {
       {search.length > 2 ? (
         <Box>
           {schemaTypes
-            .filter(schema => schema.stub.includes(search))
+            .filter(schema => schema.stub.includes(lowerCase(search)))
             .map((schema, i) => {
               const isIncluded = store.elements.find(
                 element => element.stub === schema.stub
               );
-              return <Key key={i} {...schema} />;
+              return (
+                <TypeSelectorElement
+                  key={i}
+                  icon={<File />}
+                  id="schemaElementToggleSelect"
+                  isIncluded={isIncluded}
+                  label={
+                    <Key
+                      key={i}
+                      selected={isIncluded ? true : false}
+                      {...schema}
+                    />
+                  }
+                  onClick={() => {
+                    if (isIncluded) {
+                      remove(store.elements, { id: isIncluded.id });
+                    } else {
+                      store.elements.push({
+                        ...schema,
+                        id: simpleId()
+                      });
+                    }
+                  }}
+                />
+              );
             })}
         </Box>
       ) : (
         <Box>
           <SlideIn in={store.selectedCategory ? false : true} timeout={200}>
             <Absolute>
-              <Card
-                hover
-                mb={1}
-                onClick={() => (store.selectedCategory = "helpers")}
+              <TypeSelectorElement
+                icon={<Folder />}
                 id="schemaHelperSelector"
-              >
-                <Flex justifyContent="space-between" alignItems="center" p={3}>
-                  <Flex alignItems="center">
-                    <Folder size={18} color={theme.colors.black} />
-                    <Text ml={1}>Helpers</Text>
-                  </Flex>
-                  <ArrowRight size={18} color={theme.colors.black} />
-                </Flex>
-              </Card>
+                label="Helpers"
+                onClick={() => (store.selectedCategory = "helpers")}
+                showArrow
+              />
               {categories.map(category => (
-                <Card
-                  hover
+                <TypeSelectorElement
                   key={category}
-                  mb={1}
-                  onClick={() => (store.selectedCategory = category)}
+                  icon={<Folder />}
                   id="schemaCategorySelector"
-                >
-                  <Flex
-                    justifyContent="space-between"
-                    alignItems="center"
-                    p={3}
-                  >
-                    <Flex alignItems="center">
-                      <Folder size={18} color={theme.colors.black} />
-                      <Text ml={1}>{capitalize(category)}</Text>
-                    </Flex>
-                    <ArrowRight size={18} color={theme.colors.black} />
-                  </Flex>
-                </Card>
+                  label={capitalize(category)}
+                  onClick={() => (store.selectedCategory = category)}
+                  showArrow
+                />
               ))}
               <Box mt={2}>
                 <Button
@@ -92,36 +98,22 @@ const TypeSelector = props => {
               </Box>
             </Absolute>
           </SlideIn>
-
           <SlideIn in={store.selectedCategory ? true : false} timeout={200}>
             <Absolute>
               {store.selectedCategory === "helpers"
                 ? helpers.map(helper => (
-                    <Card
-                      hover
+                    <TypeSelectorElement
                       key={helper.stub}
-                      mb={1}
+                      icon={<Book />}
                       id="helperElementToggleSelect"
+                      label={helper.label}
                       onClick={() => {
                         helper.elements.map(element =>
                           store.elements.push({ ...element, id: simpleId() })
                         );
                         store.toast = { show: true, message: "Helper added" };
                       }}
-                    >
-                      <Flex
-                        justifyContent="space-between"
-                        alignItems="center"
-                        p={3}
-                      >
-                        <Flex alignItems="center">
-                          <Book size={18} color={theme.colors.black} />
-                          <Text ml={1} fontWeight="normal">
-                            {helper.label}
-                          </Text>
-                        </Flex>
-                      </Flex>
-                    </Card>
+                    />
                   ))
                 : schemaTypes
                     .filter(
@@ -132,13 +124,12 @@ const TypeSelector = props => {
                         element => element.stub === schema.stub
                       );
                       return (
-                        <Card
-                          hover
+                        <TypeSelectorElement
                           key={schema.stub}
-                          mb={1}
-                          selected={isIncluded}
+                          icon={<File />}
                           id="schemaElementToggleSelect"
-                          title={isIncluded && "Added to schema"}
+                          isIncluded={isIncluded}
+                          label={schema.label}
                           onClick={() => {
                             if (isIncluded) {
                               remove(store.elements, { id: isIncluded.id });
@@ -149,28 +140,7 @@ const TypeSelector = props => {
                               });
                             }
                           }}
-                        >
-                          <Flex
-                            justifyContent="space-between"
-                            alignItems="center"
-                            p={3}
-                          >
-                            <Flex alignItems="center">
-                              <File
-                                size={18}
-                                color={isIncluded ? "white" : "black"}
-                              />
-                              <Text
-                                ml={1}
-                                fontWeight={isIncluded ? "bold" : "normal"}
-                                color={isIncluded ? "white" : "black"}
-                              >
-                                {schema.label}
-                              </Text>
-                            </Flex>
-                            {isIncluded && <Check size={18} color="white" />}
-                          </Flex>
-                        </Card>
+                        />
                       );
                     })}
             </Absolute>
