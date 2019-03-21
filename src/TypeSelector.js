@@ -67,7 +67,7 @@ const TypeSelector = props => {
           <SlideIn in={store.selectedCategory ? false : true} timeout={200}>
             <Absolute>
               <TypeSelectorElement
-                icon={<Folder />}
+                type="category"
                 id="schemaHelperSelector"
                 label="Helpers"
                 onClick={() => (store.selectedCategory = "helpers")}
@@ -76,7 +76,7 @@ const TypeSelector = props => {
               {categories.map(category => (
                 <TypeSelectorElement
                   key={category}
-                  icon={<Folder />}
+                  type="category"
                   id="schemaCategorySelector"
                   label={capitalize(category)}
                   onClick={() => (store.selectedCategory = category)}
@@ -104,7 +104,7 @@ const TypeSelector = props => {
                 ? helpers.map(helper => (
                     <TypeSelectorElement
                       key={helper.stub}
-                      icon={<Book />}
+                      type="helper"
                       id="helperElementToggleSelect"
                       label={helper.label}
                       onClick={() => {
@@ -126,10 +126,10 @@ const TypeSelector = props => {
                       return (
                         <TypeSelectorElement
                           key={schema.stub}
-                          icon={<File />}
                           id="schemaElementToggleSelect"
                           isIncluded={isIncluded}
                           label={schema.label}
+                          type={schema.type}
                           onClick={() => {
                             if (isIncluded) {
                               remove(store.elements, { id: isIncluded.id });

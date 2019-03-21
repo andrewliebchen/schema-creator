@@ -10,6 +10,7 @@ import PropTypes from "prop-types";
 import React, { useState } from "react";
 import store from "./store";
 import theme from "./theme";
+import TypeSelectorElementIcon from "./TypeSelectorElementIcon";
 
 const SchemaElement = props => {
   const [value, setValue] = useState(`${props.category}.${props.stub}`);
@@ -56,7 +57,7 @@ const SchemaElement = props => {
       ) : (
         <Flex justifyContent="space-between" alignItems="center" p={3}>
           <Flex alignItems="center">
-            <File size={18} color={theme.colors.black} />
+            <TypeSelectorElementIcon {...props} />
             <Text
               id="toggleSchemaElementTitleEdit"
               ml={1}
