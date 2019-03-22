@@ -14,6 +14,7 @@ import SearchInput from "./SearchInput";
 import Key from "./Key";
 import TypeSelectorElement from "./TypeSelectorElement";
 import lowerCase from "lodash.lowercase";
+import { genSample } from "./utils";
 
 const TypeSelector = props => {
   const [search, setSearch] = useState("");
@@ -129,6 +130,7 @@ const TypeSelector = props => {
                           isIncluded={isIncluded}
                           label={schema.label}
                           type={schema.type}
+                          title={`Sample: ${genSample(schema)}`}
                           onClick={() => {
                             if (isIncluded) {
                               remove(store.elements, { id: isIncluded.id });

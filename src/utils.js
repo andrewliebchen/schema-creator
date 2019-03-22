@@ -3,15 +3,15 @@ import faker from "faker";
 import json2csv from "json2csv";
 import times from "lodash.times";
 
+export const genSample = element => faker[element.category][element.stub]();
+
 export const getSamples = (count, elements) => {
   let samples = [];
   times(count, i => {
     let sample = {};
     elements.map(
       element =>
-        (sample[`${element.category}.${element.stub}`] = faker[
-          element.category
-        ][element.stub]())
+        (sample[`${element.category}.${element.stub}`] = genSample(element))
     );
     samples[i] = sample;
   });

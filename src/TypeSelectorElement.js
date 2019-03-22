@@ -7,13 +7,7 @@ import theme from "./theme";
 import TypeSelectorElementIcon from "./TypeSelectorElementIcon";
 
 const TypeSelectorElement = props => (
-  <Card
-    hover
-    mb={1}
-    selected={props.isIncluded}
-    title={props.isIncluded && "Added to schema"}
-    {...props}
-  >
+  <Card hover mb={1} selected={props.isIncluded} {...props}>
     <Flex justifyContent="space-between" alignItems="center" p={3}>
       <Flex alignItems="center">
         <TypeSelectorElementIcon
@@ -35,6 +29,7 @@ const TypeSelectorElement = props => (
 );
 
 TypeSelectorElement.propTypes = {
+  title: PropTypes.string,
   onClick: PropTypes.func,
   id: PropTypes.string,
   icon: PropTypes.node,
