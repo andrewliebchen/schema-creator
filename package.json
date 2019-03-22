@@ -20,6 +20,7 @@
     "react-dom": "^16.8.2",
     "react-easy-state": "^6.1.1",
     "react-feather": "^1.1.6",
+    "react-highlight-words": "^0.16.0",
     "react-interval": "^2.0.2",
     "react-json-pretty": "^2.0.0",
     "react-pretty-numbers": "^3.0.0",

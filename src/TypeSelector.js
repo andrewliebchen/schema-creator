@@ -45,6 +45,7 @@ const TypeSelector = props => {
                     <Key
                       key={i}
                       selected={isIncluded ? true : false}
+                      query={search}
                       {...schema}
                     />
                   }

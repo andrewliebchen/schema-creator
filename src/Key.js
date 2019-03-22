@@ -4,6 +4,7 @@ import capitalize from "lodash.capitalize";
 import PropTypes from "prop-types";
 import React from "react";
 import theme from "./theme";
+import Highlighter from "react-highlight-words";
 
 const Key = props => {
   if (props.userLabel) {
@@ -19,7 +20,17 @@ const Key = props => {
           color={theme.colors[props.selected ? "white" : "black"]}
         />
         <Text ml={1} fontWeight="bold" fontSize={props.small ? 1 : 2}>
-          {props.label}
+          <Highlighter
+            searchWords={props.query ? [props.query] : [""]}
+            textToHighlight={props.label}
+            highlightStyle={{
+              backgroundColor: theme.colors.black,
+              color: theme.colors.white,
+              borderRadius: 2,
+              margin: "0 -1px",
+              padding: "0 1px"
+            }}
+          />
         </Text>
       </Flex>
     );
@@ -27,6 +38,7 @@ const Key = props => {
 };
 
 Key.propTypes = {
+  query: PropTypes.string,
   category: PropTypes.string,
   label: PropTypes.string,
   small: PropTypes.bool,
