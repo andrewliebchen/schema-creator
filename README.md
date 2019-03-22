@@ -14,8 +14,8 @@ Schema Creator helps you generate an unlimited amount of random data from a sche
 - ⬜️ DND reorder
 - ⬜️ Nesting
 - ✅ Animate schema panel
-- ⬜️ Animate table/JSON?
-- ⬜️ Better table
+- ⬜️ Animate transition between table and JSON views?
+- ⬜️ Better table (Full height, scrolling...use library)
 - ✅ "10 more" button on JSON
 - ✅ Deploy
 - ✅ ⭐️ Meta tags and Favicon
@@ -30,3 +30,5 @@ Schema Creator helps you generate an unlimited amount of random data from a sche
 - ✅ Schema search
 - ⬜️ Hover over examples on schema choices
 - ⬜️ Type icons for schema elements (image, number, etc)
+- ⬜️ Update favicon to #333
+- ⬜️ Export data to Sketch?

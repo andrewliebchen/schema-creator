@@ -1,6 +1,5 @@
 import { Absolute, Relative } from "./StyleHelpers";
 import { Box } from "rebass";
-import { File, Folder, Book } from "react-feather";
 import { schemaTypes, categories, helpers } from "./data";
 import { SlideIn } from "./Animation";
 import { view } from "react-easy-state";
@@ -38,9 +37,9 @@ const TypeSelector = props => {
               return (
                 <TypeSelectorElement
                   key={i}
-                  icon={<File />}
                   id="schemaElementToggleSelect"
                   isIncluded={isIncluded}
+                  type={schema.type}
                   label={
                     <Key
                       key={i}

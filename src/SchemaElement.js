@@ -1,5 +1,5 @@
 import { categories } from "./data";
-import { Check, X, File, Trash, Edit3 } from "react-feather";
+import { Check, X, Trash, Edit3 } from "react-feather";
 import { Flex, Text } from "rebass";
 import { Pointer, ShowOnHover } from "./StyleHelpers";
 import { view } from "react-easy-state";

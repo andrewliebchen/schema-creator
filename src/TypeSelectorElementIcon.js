@@ -26,6 +26,7 @@ const TypeSelectorElementIcon = props => {
       icon = <Calendar />;
       break;
     case "image":
+      console.log("image");
       icon = <Image />;
       break;
     case "helper":
