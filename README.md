@@ -32,4 +32,4 @@ Schema Creator helps you generate an unlimited amount of random data from a sche
 - ✅ Type icons for schema elements (image, number, etc)
 - ⬜️ Update favicon to #333
 - ⬜️ Export data to Sketch?
-- ⬜️ Highlight in search
+- ✅ Highlight in search

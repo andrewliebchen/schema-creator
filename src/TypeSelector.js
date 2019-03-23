@@ -30,7 +30,11 @@ const TypeSelector = props => {
       {search.length > 2 ? (
         <Box>
           {schemaTypes
-            .filter(schema => schema.stub.includes(lowerCase(search)))
+            .filter(
+              schema =>
+                schema.category.includes(lowerCase(search)) ||
+                schema.stub.includes(lowerCase(search))
+            )
             .map((schema, i) => {
               const isIncluded = store.elements.find(
                 element => element.stub === schema.stub
@@ -39,7 +43,7 @@ const TypeSelector = props => {
                 <TypeSelectorElement
                   key={i}
                   id="schemaElementToggleSelect"
-                  isIncluded={isIncluded}
+                  isIncluded={isIncluded ? true : false}
                   type={schema.type}
                   label={
                     <Key

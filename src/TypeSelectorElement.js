@@ -33,9 +33,12 @@ TypeSelectorElement.propTypes = {
   onClick: PropTypes.func,
   id: PropTypes.string,
   icon: PropTypes.node,
-  isIncluded: PropTypes.shape({
-    id: PropTypes.string
-  }),
+  isIncluded: PropTypes.oneOfType([
+    PropTypes.bool,
+    PropTypes.shape({
+      id: PropTypes.string
+    })
+  ]),
   label: PropTypes.node,
   showArrow: PropTypes.bool,
   type: PropTypes.oneOf([

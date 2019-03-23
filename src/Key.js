@@ -1,10 +1,17 @@
 import { ArrowRight } from "react-feather";
 import { Text, Flex } from "rebass";
 import capitalize from "lodash.capitalize";
+import Highlighter from "react-highlight-words";
 import PropTypes from "prop-types";
 import React from "react";
 import theme from "./theme";
-import Highlighter from "react-highlight-words";
+
+const highlightStyle = {
+  backgroundColor: theme.colors.black,
+  color: theme.colors.white,
+  borderRadius: 2,
+  fontWeight: "bold"
+};
 
 const Key = props => {
   if (props.userLabel) {
@@ -13,7 +20,11 @@ const Key = props => {
     return (
       <Flex alignItems="center" style={{ overflow: "hidden" }} {...props}>
         <Text mr={1} fontSize={props.small ? 1 : 2}>
-          {capitalize(props.category)}
+          <Highlighter
+            searchWords={props.query ? [props.query] : [""]}
+            textToHighlight={capitalize(props.category)}
+            highlightStyle={highlightStyle}
+          />
         </Text>
         <ArrowRight
           size={props.small ? 12 : 18}
@@ -23,13 +34,7 @@ const Key = props => {
           <Highlighter
             searchWords={props.query ? [props.query] : [""]}
             textToHighlight={props.label}
-            highlightStyle={{
-              backgroundColor: theme.colors.black,
-              color: theme.colors.white,
-              borderRadius: 2,
-              margin: "0 -1px",
-              padding: "0 1px"
-            }}
+            highlightStyle={highlightStyle}
           />
         </Text>
       </Flex>
