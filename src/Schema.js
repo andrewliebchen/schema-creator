@@ -1,6 +1,6 @@
 import { ArrowLeft } from "react-feather";
-import { Heading, Flex } from "rebass";
-import { Relative, Absolute, Sticky, Pointer } from "./StyleHelpers";
+import { Heading, Flex, Box } from "rebass";
+import { Relative, Absolute, Pointer } from "./StyleHelpers";
 import { SlideIn } from "./Animation";
 import { view } from "react-easy-state";
 import Button from "./Button";
@@ -16,7 +16,7 @@ const Schema = props => {
   const [editing, setEditing] = useState(false);
 
   return (
-    <Sticky p={3}>
+    <Box p={3}>
       <Flex justifyContent="space-between" alignItems="center" mb={3}>
         {store.selectedCategory ? (
           <Flex alignItems="center">
@@ -59,7 +59,7 @@ const Schema = props => {
           </Absolute>
         </SlideIn>
       </Relative>
-    </Sticky>
+    </Box>
   );
 };
 

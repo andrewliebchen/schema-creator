@@ -2,18 +2,18 @@ import { Flex } from "rebass";
 import { Table, Column } from "knoll";
 import { view } from "react-easy-state";
 import Key from "./Key";
-import MoreButton from "./MoreButton";
 import PropTypes from "prop-types";
 import React from "react";
 import SampleCell from "./SampleCell";
 import store from "./store";
-import theme from "./theme";
 
 const components = {
   table: props => <table style={{ borderSpacing: 0 }} {...props} />,
   headerCell: props => (
     <th
-      style={{ borderBottom: `1px solid ${theme.colors.black}`, padding: 8 }}
+      style={{
+        padding: 8
+      }}
       {...props}
     />
   ),
@@ -32,17 +32,16 @@ const components = {
 };
 
 const SampleTable = props => (
-  <Flex width={1} flexDirection="column">
+  <Flex width={1} flexDirection="column" px={3} ml="-8px">
     <Table data={props.samples} components={components}>
       {store.elements.map(element => (
         <Column
           key={element.id}
-          header={<Key small {...element} width={1} justifyContent="center" />}
+          header={<Key small {...element} width={1} />}
           cell={row => <SampleCell row={row} {...element} />}
         />
       ))}
     </Table>
-    <MoreButton />
   </Flex>
 );
 

@@ -2,7 +2,6 @@ import { Box } from "rebass";
 import { renameKeys } from "./utils";
 import { view } from "react-easy-state";
 import JSONPretty from "react-json-pretty";
-import MoreButton from "./MoreButton";
 import React from "react";
 import store from "./store";
 import theme from "./theme";
@@ -36,9 +35,8 @@ const SampleJson = props => {
     renameKeys(keysMap, sample)
   );
   return (
-    <Box p={3} bg="black">
+    <Box px={3} bg="black">
       <JSONPretty data={samplesWithUserLabels} theme={codeTheme} />
-      <MoreButton type="white" />
     </Box>
   );
 };

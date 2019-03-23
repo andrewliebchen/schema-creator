@@ -14,6 +14,7 @@ const Wrapper = styled.div`
   left: 0;
   right: 0;
   pointer-events: none;
+  z-index: 9;
 `;
 
 const Toast = props => (

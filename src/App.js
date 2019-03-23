@@ -1,19 +1,36 @@
-import { Flex, Box } from "rebass";
+import { Box } from "rebass";
 import React from "react";
 import Sample from "./Sample";
 import Schema from "./Schema";
 import Toast from "./Toast";
+import styled from "styled-components";
+import theme from "./theme";
+
+const Sidebar = styled(Box)`
+  position: fixed;
+  top: 0;
+  width: ${theme.widths.sidebar};
+  bottom: 0;
+  background-color: ${theme.colors.white};
+  z-index: 1;
+`;
+
+const Main = styled(Box)`
+  padding-left: ${theme.widths.sidebar};
+  width: 100vw;
+  position: relative;
+`;
 
 const App = props => (
-  <Flex>
-    <Box width={1 / 5}>
+  <Box>
+    <Sidebar>
       <Schema />
-    </Box>
-    <Box width={4 / 5} p={3}>
+    </Sidebar>
+    <Main>
       <Sample />
-    </Box>
+    </Main>
     <Toast />
-  </Flex>
+  </Box>
 );
 
 export default App;
