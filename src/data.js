@@ -4,14 +4,14 @@ export const categories = [
   "company",
   "database",
   "date",
-  // "finance",
+  "finance",
   "hacker",
   "image",
   "internet",
   "lorem",
   "name",
   "phone",
-  // "random",
+  "random",
   "system"
 ];
 
@@ -105,12 +105,6 @@ export const schemaTypes = [
     label: "Bitcoin Address",
     type: "numberish"
   },
-  {
-    category: "finance",
-    stub: "ethereumAddress",
-    label: "Ethereum Address",
-    type: "numberish"
-  },
   { category: "finance", stub: "iban", label: "IBAN", type: "numberish" },
   { category: "finance", stub: "bic", label: "BIC", type: "numberish" },
   { category: "hacker", stub: "abbreviation", label: "Abbreviation" },
@@ -184,7 +178,6 @@ export const schemaTypes = [
   },
   { category: "phone", stub: "phoneFormats", label: "Phone Formats" },
   { category: "random", stub: "number", label: "Number", type: "number" },
-  { category: "random", stub: "float", label: "Float", type: "number" },
   { category: "random", stub: "arrayElement", label: "Array Element" },
   { category: "random", stub: "objectElement", label: "Object Element" },
   { category: "random", stub: "uuid", label: "UUID", type: "numberish" },
@@ -194,12 +187,6 @@ export const schemaTypes = [
   { category: "random", stub: "image", label: "Image", type: "image" },
   { category: "random", stub: "locale", label: "Locale" },
   { category: "random", stub: "alphaNumeric", label: "Alphanumeric" },
-  {
-    category: "random",
-    stub: "hexaDecimal",
-    label: "Hexadecimal",
-    type: "numberish"
-  },
   { category: "system", stub: "fileName", label: "Filename" },
   { category: "system", stub: "commonFileName", label: "Common Filename" },
   { category: "system", stub: "mimeType", label: "MIME Type" },
