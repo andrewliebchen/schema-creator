@@ -22,7 +22,7 @@ export const sampleConverter = (samples, type) => {
   let raw;
   let fileExt;
 
-  if (type === "Table") {
+  if (type === 0) {
     raw = json2csv.parse(samples);
     fileExt = "csv";
   } else {

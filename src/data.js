@@ -4,14 +4,14 @@ export const categories = [
   "company",
   "database",
   "date",
-  "finance",
+  // "finance",
   "hacker",
   "image",
   "internet",
   "lorem",
   "name",
   "phone",
-  "random",
+  // "random",
   "system"
 ];
 
@@ -163,7 +163,7 @@ export const schemaTypes = [
   { category: "name", stub: "firstName", label: "First Name" },
   { category: "name", stub: "lastName", label: "Last Name" },
   { category: "name", stub: "findName", label: "Full Name" },
-  { category: "name", stub: "jobTitle", label: "Job Titile" },
+  { category: "name", stub: "jobTitle", label: "Job Title" },
   { category: "name", stub: "prefix", label: "Prefix" },
   { category: "name", stub: "suffix", label: "Suffix" },
   { category: "name", stub: "title", label: "Title" },
