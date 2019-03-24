@@ -55,7 +55,7 @@ const Sample = props => {
               </Button>
             ))}
           </Flex>
-          <CountControl type={primaryColor} />
+          <CountControl theme={primaryColor} />
           <Button
             type={primaryColor}
             ml={3}
