@@ -30,20 +30,21 @@ const Schema = props => {
             <Heading ml={2}>{capitalize(store.selectedCategory)}</Heading>
           </Flex>
         ) : (
-          <Flex alignItems="center">
-            <Heading mr={2}>Schema</Heading>
-            <Help />
-          </Flex>
+          <Heading>Schema</Heading>
         )}
-        <Button
-          id="schemaEditToggle"
-          onClick={() => {
-            setEditing(!editing);
-            store.selectedCategory = false;
-          }}
-        >
-          {editing ? "Done" : "Edit"}
-        </Button>
+        <Flex alignItems="center">
+          <Help />
+          <Button
+            ml={2}
+            id="schemaEditToggle"
+            onClick={() => {
+              setEditing(!editing);
+              store.selectedCategory = false;
+            }}
+          >
+            {editing ? "Done" : "Edit"}
+          </Button>
+        </Flex>
       </Flex>
       <Relative>
         <SlideIn in={!editing} timeout={200}>

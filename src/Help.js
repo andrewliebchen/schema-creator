@@ -1,7 +1,7 @@
 import { Fade, SlideDown } from "./Animation";
-import { HelpCircle } from "react-feather";
+import { HelpCircle, ExternalLink } from "react-feather";
 import { Pointer } from "./StyleHelpers";
-import { Text, Heading } from "rebass";
+import { Text, Heading, Flex } from "rebass";
 import Button from "./Button";
 import Card from "./Card";
 import React, { useState } from "react";
@@ -37,7 +37,9 @@ const Help = () => {
         id="helpModalToggle"
         title="What's this all about?"
       >
-        <HelpCircle color={theme.colors.black} />
+        <Flex alignItems="center">
+          <HelpCircle color={theme.colors.black} />
+        </Flex>
       </Pointer>
 
       <Fade in={showModal} timeout={200}>
@@ -48,10 +50,21 @@ const Help = () => {
         <SlideDown in={showModal} timeout={200}>
           <Card p={4}>
             <Heading mb={3}>What is this?</Heading>
-            <Text mb={4}>
+            <Text mb={3}>
               Schema Creator helps you generate an unlimited amount of random
               data from a schema you define. Export as a CSV or JSON.
             </Text>
+            <Pointer
+              onClick={() =>
+                (window.location.href =
+                  "https://github.com/andrewliebchen/schema-creator")
+              }
+            >
+              <Flex mb={4} alignItems="center">
+                <Text mr={1}>Check out the source on Github</Text>
+                <ExternalLink size={16} />
+              </Flex>
+            </Pointer>
             <Button onClick={() => setShowModal(false)}>Okay!</Button>
           </Card>
         </SlideDown>

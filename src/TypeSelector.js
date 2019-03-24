@@ -1,20 +1,20 @@
 import { Absolute, Relative } from "./StyleHelpers";
 import { Box } from "rebass";
+import { genSample } from "./utils";
 import { schemaTypes, categories, helpers } from "./data";
 import { SlideIn } from "./Animation";
 import { view } from "react-easy-state";
 import Button from "./Button";
 import capitalize from "lodash.capitalize";
+import Key from "./Key";
+import lowerCase from "lodash.lowercase";
 import React, { useState } from "react";
 import remove from "lodash.remove";
 import sample from "lodash.sample";
+import SearchInput from "./SearchInput";
 import simpleId from "simple-id";
 import store from "./store";
-import SearchInput from "./SearchInput";
-import Key from "./Key";
 import TypeSelectorElement from "./TypeSelectorElement";
-import lowerCase from "lodash.lowercase";
-import { genSample } from "./utils";
 
 const TypeSelector = props => {
   const [search, setSearch] = useState("");

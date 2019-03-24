@@ -14,7 +14,6 @@ Schema Creator helps you generate an unlimited amount of random data from a sche
 - ⬜️ DND reorder
 - ⬜️ Nesting
 - ✅ Animate schema panel
-- ⬜️ Animate transition between table and JSON views?
 - ✅ Fix table scroll
 - ⬜️ Sticky table header
 - ✅ "10 more" button on JSON
@@ -40,4 +39,4 @@ Schema Creator helps you generate an unlimited amount of random data from a sche
 - ✅ Fix broken schema categories
 - ✅ Copy individual columns
 - ⬜️ Copy individual cells
-- ⬜️ Link to GH in about modal
+- ✅ Link to GH in about modal

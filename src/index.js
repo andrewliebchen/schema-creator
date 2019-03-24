@@ -1,9 +1,9 @@
 import "./index.css";
+import { ThemeProvider } from "styled-components";
 import * as serviceWorker from "./serviceWorker";
 import App from "./App";
 import React from "react";
 import ReactDOM from "react-dom";
-import { ThemeProvider } from "styled-components";
 import theme from "./theme";
 
 ReactDOM.render(

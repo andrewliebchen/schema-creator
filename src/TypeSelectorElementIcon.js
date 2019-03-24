@@ -1,5 +1,3 @@
-import React from "react";
-import PropTypes from "prop-types";
 import {
   File,
   Hash,
@@ -9,6 +7,8 @@ import {
   Book,
   Folder
 } from "react-feather";
+import React from "react";
+import PropTypes from "prop-types";
 import theme from "./theme";
 
 const TypeSelectorElementIcon = props => {

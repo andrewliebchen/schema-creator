@@ -1,10 +1,10 @@
 import { categories } from "./data";
 import { Text } from "rebass";
+import datef from "datef";
 import NumericLabel from "react-pretty-numbers";
 import PropTypes from "prop-types";
 import React from "react";
 import styled from "styled-components";
-import datef from "datef";
 
 const Number = styled.span`
   font-feature-settings: "tnum";

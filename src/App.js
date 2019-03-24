@@ -2,9 +2,9 @@ import { Box } from "rebass";
 import React from "react";
 import Sample from "./Sample";
 import Schema from "./Schema";
-import Toast from "./Toast";
 import styled from "styled-components";
 import theme from "./theme";
+import Toast from "./Toast";
 
 const Sidebar = styled(Box)`
   position: fixed;

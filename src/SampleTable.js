@@ -1,14 +1,14 @@
+import { Copy } from "react-feather";
 import { Flex } from "rebass";
+import { Pointer, ShowOnHover } from "./StyleHelpers";
 import { Table, Column } from "knoll";
 import { view } from "react-easy-state";
+import copy from "clipboard-copy";
 import Key from "./Key";
 import PropTypes from "prop-types";
 import React from "react";
 import SampleCell from "./SampleCell";
 import store from "./store";
-import { Copy } from "react-feather";
-import { Pointer, ShowOnHover } from "./StyleHelpers";
-import copy from "clipboard-copy";
 
 const components = {
   table: props => <table style={{ borderSpacing: 0 }} {...props} />,
