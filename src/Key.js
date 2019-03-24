@@ -5,6 +5,7 @@ import Highlighter from "react-highlight-words";
 import PropTypes from "prop-types";
 import React from "react";
 import theme from "./theme";
+import truncate from "truncate";
 
 const highlightStyle = {
   backgroundColor: theme.colors.black,
@@ -33,7 +34,7 @@ const Key = props => {
         <Text ml={1} fontWeight="bold" fontSize={props.small ? 1 : 2}>
           <Highlighter
             searchWords={props.query ? [props.query] : [""]}
-            textToHighlight={props.label}
+            textToHighlight={truncate(props.label, 16)}
             highlightStyle={highlightStyle}
           />
         </Text>

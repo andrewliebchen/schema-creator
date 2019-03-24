@@ -36,7 +36,7 @@ Schema Creator helps you generate an unlimited amount of random data from a sche
 - ✅ Highlight in search
 - ⬜️ Animate individual schema elements and table rows?
 - ✅ Rounded borders on images?
-- ⬜️ Truncate long text in schema
+- ✅ Truncate long text in schema
 - ✅ Fix broken schema categories
 - ✅ Copy individual columns
 - ⬜️ Copy individual cells
