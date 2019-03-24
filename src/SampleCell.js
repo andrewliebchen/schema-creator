@@ -29,7 +29,13 @@ const SampleCell = props => {
   switch (props.type) {
     case "image":
       cell = (
-        <img src={cellContent} height={48} width="auto" alt={props.stub} />
+        <img
+          src={cellContent}
+          height={48}
+          width="auto"
+          alt={props.stub}
+          style={{ borderRadius: 6 }}
+        />
       );
       break;
     case "number":

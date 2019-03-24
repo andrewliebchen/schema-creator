@@ -12,7 +12,7 @@ const TypeSelectorElement = props => (
       <Flex alignItems="center">
         <TypeSelectorElementIcon
           type={props.type}
-          selected={props.isIncluded}
+          selected={props.isIncluded ? true : false}
         />
         <Text
           ml={1}
