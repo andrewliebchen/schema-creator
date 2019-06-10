@@ -49,7 +49,8 @@ TypeSelectorElement.propTypes = {
     "date",
     "image",
     "helper",
-    "category"
+    "category",
+    "formula"
   ])
 };
 

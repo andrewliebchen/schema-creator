@@ -5,7 +5,8 @@ import {
   Calendar,
   Image,
   Book,
-  Folder
+  Folder,
+  Zap
 } from "react-feather";
 import React from "react";
 import PropTypes from "prop-types";
@@ -30,6 +31,9 @@ const TypeSelectorElementIcon = props => {
       break;
     case "helper":
       icon = <Book />;
+      break;
+    case "formula":
+      icon = <Zap />;
       break;
     case "category":
       icon = <Folder />;
@@ -58,7 +62,8 @@ TypeSelectorElementIcon.propTypes = {
     "date",
     "image",
     "helper",
-    "category"
+    "category",
+    "formulas"
   ])
 };
 
