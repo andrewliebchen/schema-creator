@@ -4,6 +4,19 @@ Schema Creator helps you generate an unlimited amount of random data from a sche
 
 ## Todo
 
+- ⬜️ DND reorder
+- ⬜️ Nesting
+- ⬜️ Sticky table header
+- ⬜️ Animate individual schema elements and table rows (delight)?
+- ⬜️ Copy individual cells
+- ⬜️ Export data to Sketch?
+- ⬜️ Formulas
+  - ⬜️ Random number
+  - ⬜️ Format number
+  - ⬜️ Increment
+  - ⬜️ Random value (currency, date, number) within range
+  - ⬜️ IFTT rules based on other columns
+- ⬜️ Non `table` table
 - ✅ Click to add random schema value
 - ✅ Render sample images as images
 - ✅ Better format for numbers
@@ -11,11 +24,8 @@ Schema Creator helps you generate an unlimited amount of random data from a sche
 - ✅ Better styled button
 - ✅ ⭐️ Pre-set schemas (using Faker's helpers)
 - ✅ Change column titles/keys
-- ⬜️ DND reorder
-- ⬜️ Nesting
 - ✅ Animate schema panel
 - ✅ Fix table scroll
-- ⬜️ Sticky table header
 - ✅ "10 more" button on JSON
 - ✅ Deploy
 - ✅ ⭐️ Meta tags and Favicon
@@ -31,12 +41,9 @@ Schema Creator helps you generate an unlimited amount of random data from a sche
 - ✅ Hover over examples on schema choices
 - ✅ Type icons for schema elements (image, number, etc)
 - ✅ Update favicon to #333
-- ⬜️ Export data to Sketch?
 - ✅ Highlight in search
-- ⬜️ Animate individual schema elements and table rows?
 - ✅ Rounded borders on images?
 - ✅ Truncate long text in schema
 - ✅ Fix broken schema categories
 - ✅ Copy individual columns
-- ⬜️ Copy individual cells
 - ✅ Link to GH in about modal
