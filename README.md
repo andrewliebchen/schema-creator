@@ -10,6 +10,8 @@ Schema Creator helps you generate an unlimited amount of random data from a sche
 - ⬜️ Animate individual schema elements and table rows (delight)?
 - ⬜️ Copy individual cells
 - ⬜️ Export data to Sketch?
+- ⬜️ Better example tooltips
+- ⬜️ "Markdown" format to build schemas?
 - ⬜️ Formulas
   - ⬜️ Random number
   - ⬜️ Format number

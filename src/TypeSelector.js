@@ -6,8 +6,6 @@ import { SlideIn } from "./Animation";
 import { view } from "react-easy-state";
 import Button from "./Button";
 import capitalize from "lodash.capitalize";
-import Key from "./Key";
-import lowerCase from "lodash.lowercase";
 import React, { useState } from "react";
 import remove from "lodash.remove";
 import sample from "lodash.sample";
@@ -15,6 +13,7 @@ import SearchInput from "./SearchInput";
 import simpleId from "simple-id";
 import store from "./store";
 import TypeSelectorElement from "./TypeSelectorElement";
+import TypeSelectorSearchResults from "./TypeSelectorSearchResults";
 
 const TypeSelector = props => {
   const [search, setSearch] = useState("");
@@ -28,45 +27,7 @@ const TypeSelector = props => {
         />
       </Box>
       {search.length > 2 ? (
-        <Box>
-          {schemaTypes
-            .filter(
-              schema =>
-                schema.category.includes(lowerCase(search)) ||
-                schema.stub.includes(lowerCase(search))
-            )
-            .map((schema, i) => {
-              const isIncluded = store.elements.find(
-                element => element.stub === schema.stub
-              );
-              return (
-                <TypeSelectorElement
-                  key={i}
-                  id="schemaElementToggleSelect"
-                  isIncluded={isIncluded ? true : false}
-                  type={schema.type}
-                  label={
-                    <Key
-                      key={i}
-                      selected={isIncluded ? true : false}
-                      query={search}
-                      {...schema}
-                    />
-                  }
-                  onClick={() => {
-                    if (isIncluded) {
-                      remove(store.elements, { id: isIncluded.id });
-                    } else {
-                      store.elements.push({
-                        ...schema,
-                        id: simpleId()
-                      });
-                    }
-                  }}
-                />
-              );
-            })}
-        </Box>
+        <TypeSelectorSearchResults value={search} />
       ) : (
         <Box>
           <SlideIn in={store.selectedCategory ? false : true} timeout={200}>
