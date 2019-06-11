@@ -14,6 +14,7 @@ import simpleId from "simple-id";
 import store from "./store";
 import TypeSelectorElement from "./TypeSelectorElement";
 import TypeSelectorSearchResults from "./TypeSelectorSearchResults";
+import TypeSelectorFormulas from "./TypeSelectorFormulas";
 
 const TypeSelector = props => {
   const [search, setSearch] = useState("");
@@ -90,7 +91,9 @@ const TypeSelector = props => {
                   />
                 ))}
 
-              {store.selectedCategory === "formulas" && <Box>Formulas</Box>}
+              {store.selectedCategory === "formulas" && (
+                <TypeSelectorFormulas />
+              )}
 
               {store.selectedCategory === ("helpers" || "formulas") ||
                 schemaTypes

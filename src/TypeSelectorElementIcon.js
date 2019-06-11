@@ -63,7 +63,7 @@ TypeSelectorElementIcon.propTypes = {
     "image",
     "helper",
     "category",
-    "formulas"
+    "formula"
   ])
 };
 
