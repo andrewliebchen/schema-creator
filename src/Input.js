@@ -3,6 +3,7 @@ import styled from "styled-components";
 import theme from "./theme";
 
 const Input = styled.input`
+  box-sizing: border-box;
   appearance: none;
   padding: 7px 16px;
   font-size: inherit;
@@ -10,7 +11,8 @@ const Input = styled.input`
   border-radius: 4px;
   color: ${props => theme.colors[props.theme]}
   background-color: ${props =>
-    theme.colors[props.theme === "black" ? "white" : "black"]}
+    theme.colors[props.theme === "black" ? "white" : "black"]};
+  width: ${props => props.width};
 
   &:focus {
     outline: none;
@@ -22,7 +24,8 @@ const Input = styled.input`
 `;
 
 Input.propTypes = {
-  theme: PropTypes.oneOf(["black", "white"])
+  theme: PropTypes.oneOf(["black", "white"]),
+  width: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
 };
 
 export default Input;
