@@ -27,17 +27,21 @@ const Key = props => {
             highlightStyle={highlightStyle}
           />
         </Text>
-        <ArrowRight
-          size={props.small ? 12 : 18}
-          color={theme.colors[props.selected ? "white" : "black"]}
-        />
-        <Text ml={1} fontWeight="bold" fontSize={props.small ? 1 : 2}>
-          <Highlighter
-            searchWords={props.query ? [props.query] : [""]}
-            textToHighlight={truncate(props.label, 16)}
-            highlightStyle={highlightStyle}
-          />
-        </Text>
+        {props.label && (
+          <Flex alignItems="center">
+            <ArrowRight
+              size={props.small ? 12 : 18}
+              color={theme.colors[props.selected ? "white" : "black"]}
+            />
+            <Text ml={1} fontWeight="bold" fontSize={props.small ? 1 : 2}>
+              <Highlighter
+                searchWords={props.query ? [props.query] : [""]}
+                textToHighlight={truncate(props.label, 16)}
+                highlightStyle={highlightStyle}
+              />
+            </Text>
+          </Flex>
+        )}
       </Flex>
     );
   }

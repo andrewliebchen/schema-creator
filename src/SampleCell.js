@@ -20,8 +20,6 @@ const currencyParams = {
   commafy: true
 };
 
-// <Text style={{ fontFeatureSettings: "tnum" }}>
-
 const SampleCell = props => {
   let cell;
   const cellContent = props.row[`${props.category}.${props.stub}`];

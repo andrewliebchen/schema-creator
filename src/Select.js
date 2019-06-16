@@ -15,7 +15,7 @@ const Element = styled.select`
   border-radius: 4px;
   border: 1px solid;
   color: ${theme.colors.black};
-  cursor: pointer;
+  cursor: ${props => (props.isDisabled ? "not-allowed" : "pointer")};
   font-size: inherit;
   font-weight: bold;
   padding: 8px 16px;
@@ -24,10 +24,7 @@ const Element = styled.select`
   &:hover,
   &:focus {
     outline: none;
-    box-shadow: 0 0 0 1px
-        ${props =>
-          props.type === "black" ? theme.colors.white : theme.colors.black},
-      0 0 0 3px ${props => props.type};
+    box-shadow: 0 0 0 1px ${theme.colors.white}, 0 0 0 3px ${theme.colors.black};
   }
 `;
 
@@ -40,7 +37,9 @@ const Arrow = styled(ChevronDown)`
 
 const Select = props => (
   <Root ml={props.ml} mb={props.mb} width={props.width}>
-    <Element {...props}>{props.children}</Element>
+    <Element {...props} disabled={props.isDisabled}>
+      {props.children}
+    </Element>
     <Arrow size={18} />
   </Root>
 );
@@ -48,7 +47,8 @@ const Select = props => (
 Select.propTypes = {
   ml: PropTypes.number,
   mb: PropTypes.number,
-  width: PropTypes.number
+  width: PropTypes.number,
+  isDisabled: PropTypes.bool
 };
 
 export default Select;

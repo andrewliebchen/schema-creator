@@ -36,6 +36,7 @@ const SchemaElement = props => {
               event.which === 13 && handleSave();
             }}
             value={value}
+            colorTheme="black"
           />
           <Flex>
             <Pointer

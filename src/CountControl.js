@@ -6,12 +6,15 @@ import store from "./store";
 
 const CountControl = props => (
   <Flex alignItems="center">
-    <Text mr={2}>Item count</Text>
+    <Text mr={2} color={props.color}>
+      Item count
+    </Text>
     <Input
       type="number"
       value={store.count}
       onChange={event => (store.count = event.target.value)}
       id="sampleCountControlInput"
+      colorTheme={props.color}
       {...props}
     />
   </Flex>

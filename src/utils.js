@@ -9,10 +9,13 @@ export const getSamples = (count, elements) => {
   let samples = [];
   times(count, i => {
     let sample = {};
-    elements.map(
-      element =>
-        (sample[`${element.category}.${element.stub}`] = genSample(element))
-    );
+    elements.map(element => {
+      if (element.category === "formula") {
+        sample[`formula.${element.id}`] = "formula";
+      } else {
+        sample[`${element.category}.${element.stub}`] = genSample(element);
+      }
+    });
     samples[i] = sample;
   });
   return samples;

@@ -24,7 +24,12 @@ const Icon = styled(Search)`
 
 const SearchInput = props => (
   <Root width={1}>
-    <Element type="search" placeholder="Search..." {...props} />
+    <Element
+      type="search"
+      placeholder="Search..."
+      {...props}
+      colorTheme="black"
+    />
     <Icon size={18} color={theme.colors.black} />
   </Root>
 );

@@ -9,22 +9,27 @@ const Input = styled.input`
   font-size: inherit;
   border: 1px solid;
   border-radius: 4px;
-  color: ${props => theme.colors[props.theme]}
+  color: ${props => theme.colors[props.colorTheme]}
   background-color: ${props =>
-    theme.colors[props.theme === "black" ? "white" : "black"]};
+    props.colorTheme === "black" ? theme.colors.white : theme.colors.black};
   width: ${props => props.width};
 
   &:focus {
     outline: none;
     box-shadow: 0 0 0 1px ${props =>
-      theme.colors[
-        props.theme === "black" ? "white" : "black"
-      ]}, 0 0 0 3px ${props => theme.colors[props.theme]};
+      props.colorTheme === "black"
+        ? theme.colors.white
+        : theme.colors.black}, 0 0 0 3px ${props =>
+  theme.colors[props.colorTheme]};
   }
 `;
 
+Input.defaultProps = {
+  colorTheme: "black"
+};
+
 Input.propTypes = {
-  theme: PropTypes.oneOf(["black", "white"]),
+  colorTheme: PropTypes.oneOf(["black", "white"]),
   width: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
 };
 
