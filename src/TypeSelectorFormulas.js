@@ -6,20 +6,19 @@ import Select from "./Select";
 import { view } from "react-easy-state";
 import store from "./store";
 import simpleId from "simple-id";
-
-const startValuetypes = ["Number", "Currency", "Time"];
-const operations = ["Add", "Subtract", "Multiply", "Divide"];
-const iteratorTypes = [
-  "A specific number",
-  "A random number",
-  "Fibonacci sequence"
-];
+import {
+  formulaStartValueTypes,
+  formulaOperationTypes,
+  formulaIteratorTypes
+} from "./types";
 
 const TypeSelectorFormulas = props => {
-  const [startValueType, setStartValueType] = useState(startValuetypes[0]);
+  const [startValueType, setStartValueType] = useState(
+    formulaStartValueTypes[0]
+  );
   const [startValue, setStartValue] = useState("");
-  const [operation, setOperation] = useState(operations[0]);
-  const [iteratorType, setIteratorType] = useState(iteratorTypes[0]);
+  const [operation, setOperation] = useState(formulaOperationTypes[0]);
+  const [iteratorType, setIteratorType] = useState(formulaIteratorTypes[0]);
   const [iterator, setIterator] = useState("");
 
   return (
@@ -32,7 +31,7 @@ const TypeSelectorFormulas = props => {
           value={startValueType}
           isDisabled
         >
-          {startValuetypes.map(startValueType => (
+          {formulaStartValueTypes.map(startValueType => (
             <option key={startValueType} value={startValueType}>
               {startValueType}
             </option>
@@ -51,9 +50,9 @@ const TypeSelectorFormulas = props => {
         <Select
           mb={2}
           onChange={event => setOperation(event.target.value)}
-          value={operations[operation]}
+          value={operation}
         >
-          {operations.map(operation => (
+          {formulaOperationTypes.map(operation => (
             <option key={operation} value={operation}>
               {operation}
             </option>
@@ -64,13 +63,13 @@ const TypeSelectorFormulas = props => {
           onChange={event => setIteratorType(event.target.value)}
           value={iteratorType}
         >
-          {iteratorTypes.map(iteratorType => (
+          {formulaIteratorTypes.map(iteratorType => (
             <option key={iteratorType} value={iteratorType}>
               {iteratorType}
             </option>
           ))}
         </Select>
-        {iteratorType === iteratorTypes[0] && (
+        {iteratorType === formulaIteratorTypes[0] && (
           <Input
             type="number"
             placeholder="Enter a value"

@@ -11,8 +11,7 @@ import SampleTable from "./SampleTable";
 import store from "./store";
 import styled from "styled-components";
 import theme from "./theme";
-
-const viewOptions = ["Table", "JSON"];
+import { viewOptionTypes } from "./types";
 
 const Root = styled(Box)`
   min-height: 100vh;
@@ -43,7 +42,7 @@ const Sample = props => {
         <Heading color={primaryColor}>Sample</Heading>
         <Flex>
           <Flex alignItems="center" mr={2}>
-            {viewOptions.map((view, i) => (
+            {viewOptionTypes.map((view, i) => (
               <Button
                 key={i}
                 type={currentView === i ? primaryColor : secondaryColor}
