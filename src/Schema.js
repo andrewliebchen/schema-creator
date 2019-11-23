@@ -1,5 +1,5 @@
 import { ArrowLeft } from "react-feather";
-import { Heading, Flex, Box } from "rebass";
+import { Heading, Flex } from "rebass";
 import { Relative, Absolute, Pointer } from "./StyleHelpers";
 import { SlideIn } from "./Animation";
 import { view } from "react-easy-state";
@@ -16,7 +16,11 @@ const Schema = props => {
   const [editing, setEditing] = useState(false);
 
   return (
-    <Box p={3}>
+    <Flex
+      flexDirection="column"
+      p={3}
+      style={{ overflow: "scroll", height: "100vh" }}
+    >
       <Flex justifyContent="space-between" alignItems="center" mb={3}>
         {store.selectedCategory ? (
           <Flex alignItems="center">
@@ -60,7 +64,7 @@ const Schema = props => {
           </Absolute>
         </SlideIn>
       </Relative>
-    </Box>
+    </Flex>
   );
 };
 

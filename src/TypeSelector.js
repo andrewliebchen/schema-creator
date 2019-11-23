@@ -88,7 +88,7 @@ const TypeSelector = props => {
                   showArrow
                 />
               ))}
-              <Box mt={2}>
+              <Box my={2}>
                 <Button
                   id="randomSchemaElementButton"
                   onClick={() =>
