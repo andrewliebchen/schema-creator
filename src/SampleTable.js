@@ -48,9 +48,11 @@ const SampleTable = props => (
                   title="Copy column"
                   id="copyColumn"
                   onClick={() => {
-                    const columnContent = props.samples.map(
-                      sample => sample[`${element.category}.${element.stub}`]
-                    );
+                    const columnContent = props.samples
+                      .map(
+                        sample => sample[`${element.category}.${element.stub}`]
+                      )
+                      .join("\r\n");
                     copy(columnContent);
                     store.toast = {
                       show: true,
