@@ -4,7 +4,11 @@ Schema Creator helps you generate an unlimited amount of random data from a sche
 
 ## Todo
 
-- ⬜️ DND reorder
+- ⬜️ Simpler to understand and find copy of column (click whole header cell?)
+- ⬜️ Select and copy whole table
+- ⬜️ Add button at the end of the Schema list
+- ⬜️ 🕷 Schema edit list doesn't scroll
+- ⬜️ DND reorder of schema
 - ⬜️ Nesting
 - ⬜️ Sticky table header
 - ⬜️ Animate individual schema elements and table rows (delight)?
