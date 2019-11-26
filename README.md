@@ -5,7 +5,7 @@ Schema Creator helps you generate an unlimited amount of random data from a sche
 ## Todo
 
 - ⬜️ Store current state in URL (makes it easier to share) [Maybe?](https://www.npmjs.com/package/use-query-params)
-- ⬜️ Simpler to understand and find copy of column (click whole header cell?)
+- ✅ Simpler to understand and find copy of column (click whole header cell?)
 - ⬜️ Select and copy whole table
 - ⬜️ Add schema element button at the end of the Schema list
 - ✅ 🕷 Schema edit list doesn't scroll

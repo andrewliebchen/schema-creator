@@ -1,6 +1,5 @@
-import { Copy } from "react-feather";
 import { Flex } from "rebass";
-import { Pointer, ShowOnHover } from "./StyleHelpers";
+import { Pointer } from "./StyleHelpers";
 import { Table, Column } from "knoll";
 import { view } from "react-easy-state";
 import copy from "clipboard-copy";
@@ -42,27 +41,24 @@ const SampleTable = props => (
           key={element.id}
           header={
             <Flex alignItems="center">
-              <Key small {...element} width={1} />
-              <ShowOnHover>
-                <Pointer
-                  title="Copy column"
-                  id="copyColumn"
-                  onClick={() => {
-                    const columnContent = props.samples
-                      .map(
-                        sample => sample[`${element.category}.${element.stub}`]
-                      )
-                      .join("\r\n");
-                    copy(columnContent);
-                    store.toast = {
-                      show: true,
-                      message: "Column copied to clipboard"
-                    };
-                  }}
-                >
-                  <Copy size={14} />
-                </Pointer>
-              </ShowOnHover>
+              <Pointer
+                title="Copy column"
+                id="copyColumn"
+                onClick={() => {
+                  const columnContent = props.samples
+                    .map(
+                      sample => sample[`${element.category}.${element.stub}`]
+                    )
+                    .join("\r\n");
+                  copy(columnContent);
+                  store.toast = {
+                    show: true,
+                    message: "Column copied to clipboard"
+                  };
+                }}
+              >
+                <Key small {...element} width={1} />
+              </Pointer>
             </Flex>
           }
           cell={row => <SampleCell row={row} {...element} />}
