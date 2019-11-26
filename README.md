@@ -4,15 +4,15 @@ Schema Creator helps you generate an unlimited amount of random data from a sche
 
 ## Todo
 
+- ⬜️ Store current state in URL (makes it easier to share) [Maybe?](https://www.npmjs.com/package/use-query-params)
 - ⬜️ Simpler to understand and find copy of column (click whole header cell?)
 - ⬜️ Select and copy whole table
-- ⬜️ Add button at the end of the Schema list
+- ⬜️ Add schema element button at the end of the Schema list
 - ✅ 🕷 Schema edit list doesn't scroll
 - ⬜️ DND reorder of schema
-- ⬜️ Nesting
-- ⬜️ Sticky table header
+- ⬜️ ~~Nesting~~
 - ⬜️ Animate individual schema elements and table rows (delight)?
-- ⬜️ Copy individual cells
+- ✅ Copy individual cells
 - ⬜️ Export data to Sketch?
 - ⬜️ Formulas
   - ⬜️ Random number
@@ -21,6 +21,7 @@ Schema Creator helps you generate an unlimited amount of random data from a sche
   - ⬜️ Random value (currency, date, number) within range
   - ⬜️ IFTT rules based on other columns
 - ⬜️ Non `table` table
+- ⬜️ Sticky table header
 - ✅ Click to add random schema value
 - ✅ Render sample images as images
 - ✅ Better format for numbers

@@ -1,9 +1,13 @@
 import { categories } from "./data";
 import { Text } from "rebass";
+import { view } from "react-easy-state";
+import copy from "clipboard-copy";
 import datef from "datef";
 import NumericLabel from "react-pretty-numbers";
+import { Pointer } from "./StyleHelpers";
 import PropTypes from "prop-types";
 import React from "react";
+import store from "./store";
 import styled from "styled-components";
 
 const Number = styled.span`
@@ -62,7 +66,21 @@ const SampleCell = props => {
       cell = cellContent;
   }
 
-  return <Text>{cell}</Text>;
+  return (
+    <Pointer
+      title="Copy to clipboard"
+      id="copyCell"
+      onClick={() => {
+        copy(cellContent);
+        store.toast = {
+          show: true,
+          message: "Cell copied to clipboard"
+        };
+      }}
+    >
+      <Text>{cell}</Text>
+    </Pointer>
+  );
 };
 
 SampleCell.props = {
@@ -72,4 +90,4 @@ SampleCell.props = {
   type: PropTypes.oneOf(["image", "number", "date"])
 };
 
-export default SampleCell;
+export default view(SampleCell);
